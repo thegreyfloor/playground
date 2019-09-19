@@ -18,6 +18,7 @@
     }
     button, input, optgroup, select, textarea {
       border: none;
+      background: none;
     }
     .container-fluid {
       margin: 10px;
@@ -31,6 +32,9 @@
       color: #bebebe;
       background: #fff;
       border-color: #bebebe;
+    }
+    .fa-sync-alt {
+      color: #4C7FD6;
     }
     .btn-secondary:hover {
       background: #4C7FD6;
@@ -47,8 +51,7 @@
       margin-bottom: 0!important;
     }
     .container-search {
-      height: 60px;
-      padding: 20px;
+      margin: 20px
     }
     .custom-select {
       width: 25%;
@@ -56,8 +59,11 @@
     }
     .search-box { 
       width: 30%;
-      float: left;
       border-bottom: solid 1px #4C7FD6;
+      padding-bottom: 10px;
+    }
+    .btn-link {
+      color: #4C7FD6;
     }
     .container-table {
       width: 100%;
@@ -87,6 +93,7 @@
       margin: 0 auto;
       text-align: center;
     }
+    
   </style>
   <script>
  
@@ -171,9 +178,10 @@
               <option>항목</option>
               <option>BTS ID</option>
             </select>
-            <div class="search-box">
-               <i class="fas fa-search"></i><input type="text" >
-            </div>
+            <span class="search-box">               
+               <button><i class="fas fa-search" style="font-size: 16px; color: #4C7FD6;"></i></button>
+               <input type="text">
+            </span >
           </div>
           <div class="col-sm">
             <button type="button" class="btn btn-link">
@@ -183,7 +191,7 @@
             <button type="button" class="btn btn-link">
               <i class="fas fa-plus"></i>&nbsp;추가</button>
             <button type="button" class="btn btn-link">
-              <i class="fas fa-pen"></i>&nbsp;수정</button>
+              <i class="fas fa-pen" style="font-size: 14px;"></i>&nbsp;수정</button>
           </div>
         </div>
       </div>
@@ -277,7 +285,7 @@
             </nav>
         </div>
         <div class="col-sm-2">
-          <select class="selectpicker">
+          <select class="custom-select">
             <option>10</option>
             <option>20</option>
             <option>50</option>
