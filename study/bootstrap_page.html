@@ -14,6 +14,10 @@
       margin: 0;
       padding: 0;
       text-align: center;
+      font-size: 0.875em;
+    }
+    button, input, optgroup, select, textarea {
+      border: none;
     }
     .container-fluid {
       margin: 10px;
@@ -28,8 +32,12 @@
       background: #fff;
       border-color: #bebebe;
     }
+    .btn-secondary:hover {
+      background: #4C7FD6;
+      border-color: #4C7FD6;
+    }
     .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
-      background:#00b8d4;
+      background:#4C7FD6;
       border-color: gray;
     }
     .btn-secondary {
@@ -41,6 +49,15 @@
     .container-search {
       height: 60px;
       padding: 20px;
+    }
+    .custom-select {
+      width: 25%;
+      margin: 5px;
+    }
+    .search-box { 
+      width: 30%;
+      float: left;
+      border-bottom: solid 1px #4C7FD6;
     }
     .container-table {
       width: 100%;
@@ -78,12 +95,12 @@
   <body>
     <div class="container-fluid">
       <div class="row header">
-        <div class="col-sm-3">
-            <div class="d-flex bd-highlight mb-3">
+        <div class="col-sm-4">
+            <div class="container d-flex bd-highlight mb-3">
                 <div class="mr-auto p-2 bd-highlight">구분</div>
-                <div class="p-2 bd-highlight"><i class="fas fa-sync-alt"></i>초기화</div>
+                <div class="p-2 bd-highlight"><i class="fas fa-sync-alt"></i>&nbsp;초기화</div>
             </div>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <div class="container btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary">
                     <input type="checkbox" name="options" id="option1" autocomplete="off"> 읽기오류
                 </label>
@@ -95,12 +112,12 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm">
-            <div class="d-flex bd-highlight mb-3">
+        <div class="col-sm-4">
+            <div class="container d-flex bd-highlight mb-3">
                 <div class="mr-auto p-2 bd-highlight">테스트 결과</div>
-                <div class="p-2 bd-highlight"><i class="fas fa-sync-alt"></i>초기화</div>
+                <div class="p-2 bd-highlight"><i class="fas fa-sync-alt"></i>&nbsp;초기화</div>
             </div>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <div class="container btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary">
                     <input type="checkbox" name="options" id="option1" autocomplete="off"> 완료
                 </label>
@@ -118,12 +135,12 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm">
-            <div class="d-flex bd-highlight mb-3">
+        <div class="col-sm-4">
+            <div class="container d-flex bd-highlight mb-3">
                 <div class="mr-auto p-2 bd-highlight">합성음(NLP)결과</div>
-                <div class="p-2 bd-highlight"><i class="fas fa-sync-alt"></i>초기화</div>
+                <div class="p-2 bd-highlight"><i class="fas fa-sync-alt"></i>&nbsp;초기화</div>
             </div>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <div class="container btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-secondary">
                     <input type="checkbox" name="options" id="option1" autocomplete="off"> 일치
                 </label>
@@ -144,9 +161,9 @@
           <div class="col-sm-3">
             One of three columns
           </div>
-          <div class="col-sm">
-            Sort by:
-            <select class="selectpicker">
+          <div class="col-sm-5">
+            Sort by :
+            <select class="custom-select">
               <option>번호</option>
               <option>테스트 문장</option>
               <option>예상 합성음</option>
@@ -154,13 +171,19 @@
               <option>항목</option>
               <option>BTS ID</option>
             </select>
-            <i class="fas fa-search"></i><input type="text" >
+            <div class="search-box">
+               <i class="fas fa-search"></i><input type="text" >
+            </div>
           </div>
           <div class="col-sm">
-            <button type="button" class="btn btn-link"><i class="fas fa-long-arrow-alt-up"></i>업로드</button>
-            <button type="button" class="btn btn-link"><i class="fas fa-long-arrow-alt-down"></i>다운로드</button>
-            <button type="button" class="btn btn-link"><i class="fas fa-plus"></i>추가</button>
-            <button type="button" class="btn btn-link"><i class="fas fa-pen"></i>수정</button>
+            <button type="button" class="btn btn-link">
+              <i class="fas fa-long-arrow-alt-up"></i>&nbsp;업로드</button>
+            <button type="button" class="btn btn-link">
+              <i class="fas fa-long-arrow-alt-down"></i>&nbsp;다운로드</button>
+            <button type="button" class="btn btn-link">
+              <i class="fas fa-plus"></i>&nbsp;추가</button>
+            <button type="button" class="btn btn-link">
+              <i class="fas fa-pen"></i>&nbsp;수정</button>
           </div>
         </div>
       </div>
