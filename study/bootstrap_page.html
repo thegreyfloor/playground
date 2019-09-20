@@ -24,7 +24,7 @@
       margin: 10px;
     }
     .header {
-      padding: 20px;
+      padding-top: 20px;
       background: #eee;
       height: 130px;
     }
@@ -51,7 +51,7 @@
       margin-bottom: 0!important;
     }
     .container-search {
-      margin: 20px
+      margin: 20px;
     }
     .custom-select {
       width: 25%;
@@ -85,14 +85,49 @@
       border-bottom: 1px solid #dee2e6;
       vertical-align: middle;
     }
+    .table-button {
+      color: #000;
+      border-radius: 50px;
+      border-color: #4C7FD6;
+    }
+    .table-button:hover {
+      background: #4C7FD6;
+      color: #fff;
+    }
+    .table-speaker {
+      color: #4C7FD6;
+      margin-right: 7px;
+    }
+    .table-arrow-down {
+      color: #4C7FD6;
+      font-size: 18px;
+      position: relative;
+      top: 2px;
+    }
+    .table-search {
+      width: 17px;
+      height: 17px;
+      background: #4C7FD6;
+      color: #fff;
+      padding: 3px;
+      font-size: 12px;
+    }
+    .table-delet {
+      color: #4C7FD6;
+    }
     .container-footer {
       margin-top: 35px;
       height: 50px;
     }
-    .pagination {
-      margin: 0 auto;
-      text-align: center;
+    .page-link {
+      color: #000;
+      border: none;
     }
+    .page-link:hover {
+      background: #4C7FD6;
+      color: #fff
+    }
+    
     
   </style>
   <script>
@@ -102,7 +137,7 @@
   <body>
     <div class="container-fluid">
       <div class="row header">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="container d-flex bd-highlight mb-3">
                 <div class="mr-auto p-2 bd-highlight">구분</div>
                 <div class="p-2 bd-highlight"><i class="fas fa-sync-alt"></i>&nbsp;초기화</div>
@@ -142,7 +177,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-5">
             <div class="container d-flex bd-highlight mb-3">
                 <div class="mr-auto p-2 bd-highlight">합성음(NLP)결과</div>
                 <div class="p-2 bd-highlight"><i class="fas fa-sync-alt"></i>&nbsp;초기화</div>
@@ -202,17 +237,17 @@
             <th scope="col">번호</th>
             <th scope="col">구분</th>
             <th scope="col">표현</th>
-            <th scope="col">에상</br>합성음</th>
-            <th scope="col">엔진합성음</th>
-            <th scope="col">플레이사운드</th>
-            <th scope="col">항목</th>
+            <th scope="col">에상</br>합성</th>
+            <th scope="col">엔진</br>합성</th>
+            <th scope="col">듣기</th>
+            <th scope="col">카테고리</th>
             <th scope="col">BTS</br>ID</th>
             <th scope="col">엔진</br>정보</th>
-            <th scope="col">합성음</br>결과</th>
+            <th scope="col">NLP</br>결과</th>
             <th scope="col">테스트</br>결과</th>
             <th scope="col">작성자</th>
             <th scope="col">작성일</th>
-            <th scope="col">내역</br>보기</th>
+            <th scope="col">히스토리</th>
             <th scope="col">삭제</th>
           </tr>
         </thead>
@@ -223,16 +258,19 @@
             <td>11:11</td>
             <td>열한시십일분</td>
             <td>/</td>
-            <td>/</td>
-            <td></td>
+            <td>
+              <button type="button" class="btn btn-outline-primary table-button">
+                <i class="fas fa-volume-down table-speaker"></i>미진</button>
+                <button class="fas fa-angle-down table-arrow-down"></botton></td>
+            <td>-</td>
             <td>2</td>
             <td>2019.09-226</td>
             <td>불일치</td>
-            <td>재확인요청 <i class="fas fa-angle-down"></i></td>
+            <td>재확인요청 &nbsp;<i class="fas fa-angle-down table-arrow-down"></i></td>
             <td>관리자1</td>
             <td>2019-09-11</td>
-            <td>보기</td>
-            <td>삭제</td>
+            <td><i class="fas fa-search table-search"></td>
+            <td><i class="far fa-trash-alt table-delet"></i></td>
           </tr>
           <tr>
               <th scope="row">198148</th>
@@ -240,16 +278,19 @@
               <td>11:11</td>
               <td>열한시십일분</td>
               <td>/</td>
-              <td>/</td>
-              <td></td>
+              <td>
+                <button type="button" class="btn btn-outline-primary table-button">
+                  <i class="fas fa-volume-down table-speaker"></i>미진</button>
+                <button class="fas fa-angle-down table-arrow-down"></botton></td>
+              <td>-</td>
               <td>2</td>
               <td>2019.09-226</td>
               <td>불일치</td>
-              <td>재확인요청 <i class="fas fa-angle-down"></i></td>
+              <td>재확인요청 &nbsp;<i class="fas fa-angle-down table-arrow-down"></i></td>
               <td>관리자1</td>
               <td>2019-09-11</td>
-              <td>보기</td>
-              <td>삭제</td>
+              <td><i class="fas fa-search table-search"></i></td>
+              <td><i class="far fa-trash-alt table-delet"></i></td>
             </tr>
         </tbody>
       </table>
@@ -259,6 +300,12 @@
         <div class="col-sm-10">
           <nav aria-label="Page navigation example">
               <ul class="pagination justify-content-center">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
                 <li class="page-item">
                   <a class="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
@@ -275,6 +322,12 @@
                 <li class="page-item"><a class="page-link" href="#">8</a></li>
                 <li class="page-item"><a class="page-link" href="#">9</a></li>
                 <li class="page-item"><a class="page-link" href="#">10</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
                 <li class="page-item">
                   <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
