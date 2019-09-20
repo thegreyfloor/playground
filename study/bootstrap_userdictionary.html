@@ -90,39 +90,8 @@
     }
     .table td, .table th {
       height: 80px;
-      border-top: none;
-      border-bottom: 1px solid #dee2e6;
+      border: 1px solid #dee2e6;
       vertical-align: middle;
-    }
-    .table-button {
-      color: #000;
-      border-radius: 50px;
-      border-color: #4C7FD6;
-    }
-    .table-button:hover {
-      background: #4C7FD6;
-      color: #fff;
-    }
-    .table-speaker {
-      color: #4C7FD6;
-      margin-right: 7px;
-    }
-    .table-arrow-down {
-      color: #4C7FD6;
-      font-size: 18px;
-      position: relative;
-      top: 2px;
-    }
-    .table-search {
-      width: 17px;
-      height: 17px;
-      background: #4C7FD6;
-      color: #fff;
-      padding: 3px;
-      font-size: 12px;
-    }
-    .table-delet {
-      color: #4C7FD6;
     }
     .container-footer {
       margin-top: 35px;
@@ -257,71 +226,51 @@
           </div>
         </div>
       </div>
-    <div class="container-fluid container-table">
-      <table class="table">
-        <thead>
+    <table class="table table-striped">
+       <thead>
           <tr>
-            <th scope="col">번호</th>
-            <th scope="col">구분</th>
-            <th scope="col">표현</th>
-            <th scope="col">에상</br>합성</th>
-            <th scope="col">엔진</br>합성</th>
-            <th scope="col">듣기</th>
-            <th scope="col">카테고리</th>
-            <th scope="col">BTS</br>ID</th>
-            <th scope="col">엔진</br>정보</th>
-            <th scope="col">NLP</br>결과</th>
-            <th scope="col">테스트</br>결과</th>
-            <th scope="col">작성자</th>
-            <th scope="col">작성일</th>
-            <th scope="col">히스토리</th>
-            <th scope="col">삭제</th>
+            <th scope="col">No</th>
+            <th scope="col">Engine</th>
+            <th scope="col">Target</th>
+            <th scope="col">Target Speaker</th>
+            <th scope="col">Target Service</th>
+            <th scope="col">Common</th>
+            <th scope="col">Created At</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">198148</th>
-            <td>읽기오류</td>
-            <td>11:11</td>
-            <td>열한시십일분</td>
-            <td>/</td>
-            <td>
-              <button type="button" class="btn btn-outline-primary table-button">
-                <i class="fas fa-volume-down table-speaker"></i>미진</button>
-                <button class="fas fa-angle-down table-arrow-down"></botton></td>
+            <th scope="row">1</th>
+            <td>HDTS</td>
+            <td>1998</td>
+            <td>일구구팔</td>
+            <td>Hana</td>
             <td>-</td>
-            <td>2</td>
-            <td>2019.09-226</td>
-            <td>불일치</td>
-            <td>재확인요청 &nbsp;<button class="fas fa-angle-down table-arrow-down"></button></td>
-            <td>관리자1</td>
-            <td>2019-09-11</td>
-            <td><button class="fas fa-search table-search"></button></td>
-            <td><button class="far fa-trash-alt table-delet"></button></td>
+            <td>-</td>
+            <td>2019-09-17 11:27</td>
           </tr>
           <tr>
-              <th scope="row">198148</th>
-              <td>읽기오류</td>
-              <td>11:11</td>
-              <td>열한시십일분</td>
-              <td>/</td>
-              <td>
-                <button type="button" class="btn btn-outline-primary table-button">
-                  <i class="fas fa-volume-down table-speaker"></i>미진</button>
-                <button class="fas fa-angle-down table-arrow-down"></botton></td>
+            <th scope="row">2</th>
+              <td>NES</td>
+              <td>일본에 지진났어요.</td>
+              <td>일본 망했어요.</td>
+              <td>LiangLiang</td>
               <td>-</td>
-              <td>2</td>
-              <td>2019.09-226</td>
-              <td>불일치</td>
-              <td>재확인요청 &nbsp;<button class="fas fa-angle-down table-arrow-down"></button></td>
-              <td>관리자1</td>
-              <td>2019-09-11</td>
-              <td><button class="fas fa-search table-search"></button></td>
-              <td><button class="far fa-trash-alt table-delet"></button></td>
-            </tr>
+              <td>-</td>
+              <td>2019-09-16 18:56</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>NES</td>
+            <td>일본의심장인도쿄에진도8에해당하는강진이일어났어요.</td>
+            <td>일본 망했어요.</td>
+            <td>-</td>
+            <td>Mobile Main_nVoice</td>
+            <td>-</td>
+            <td>2019-09-16 09:13</td>
+          </tr>
         </tbody>
-      </table>
-    </div>
+      </table>            
     <div class="container-fluid container-footer">
       <div class="row">
         <div class="col-sm-10">
