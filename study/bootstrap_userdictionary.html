@@ -23,10 +23,10 @@
     .container-fluid {
       margin: 10px;
     }
-    .header {
+    .header-1 {
       padding-top: 25px;
-      background: #eee;
-      height: 45px;
+      background: #ededed;
+      height: 85px;
     }
     .btn {
       border-radius: 0;
@@ -39,9 +39,33 @@
       width: 45%;
       color: #000;
     }
-    .filter-title {
-      margin: 10px;
-      text-align: left;
+    .select-search {
+      width: 35%;
+      float: left;
+      margin: 0;
+      margin-right: 5px;
+    }
+    .input-header {
+      border-radius: 0;
+      width: 50%;
+      float: left;
+    }
+    .input-group-append {
+      width: 44px;
+      height: 38px;
+      margin-left: 1px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+    }
+    .btn-dictionary {
+      width: 80%;
+    }
+
+
+    .header-2 {
+      height: 110px;
+      background: #ededed;
+      margin-top: 10px;
     }
     .reset-btn {
       margin-right: 5px;
@@ -50,6 +74,7 @@
       color: #bebebe;
       background: #fff;
       border-color: #bebebe;
+      border-radius: 0;
     }
     .fa-sync-alt {
       color: #4C7FD6;
@@ -62,21 +87,13 @@
       background:#4C7FD6;
       border-color: #aaa;
     }
-    .btn-secondary {
-      border-color: #aaa; 
-      color: #aaa;
-      border-radius: 0;
-    }
     .mb-3, .my-3 {
       margin-bottom: 0!important;
     }
     .container-search {
       margin: 20px;
     }
-    .custom-select {
-      width: 25%;
-      margin: 5px;
-    }
+  
     .search-box { 
       width: 30%;
       border-bottom: solid 1px #4C7FD6;
@@ -138,51 +155,119 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row header">
+      <div class="row header-1">
         <div class="col-sm-1">
           <button type="button" class="btn btn-success btn-add">
             <i class="fas fa-plus" style="color: #fff;"></i>&nbsp;&nbsp;&nbsp;add</button>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <button type="button" class="btn btn-outline-success btn-upload">
             <i class="fas fa-long-arrow-alt-up"></i>&nbsp;upload file</button> 
           <button type="button" class="btn btn-outline-success btn-download">
             <i class="fas fa-long-arrow-alt-down"></i>&nbsp;down</button> 
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <select class="custom-select select-search">
             <option>source</option>
             <option>20</option>
             <option>50</option>
             <option>100</option>
           </select>
-          <input type="text" class="form-control" placeholder="input" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <input type="text" class="form-control input-header" placeholder="input word" aria-label="Recipient's username" aria-describedby="button-addon2">
           <div class="input-group-append">
             <button class="btn btn-light" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
           </div>
         </div>
         <div class="col-sm-4">
-           
+            Dictionary&nbsp;&nbsp;
+          <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked>Speaker
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Common
+            </label>
+            <label class="btn btn-outline-secondary">
+              <input type="radio" name="options" id="option3" autocomplete="off"> Service
+            </label>
+          </div>
         </div>
         <div class="col-sm-1">
-           
+          <div class="btn-group dropup">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              More Filters&nbsp;
+            </button>
+            <div class="dropdown-menu">
+                <span class="dropdown-item-text">Dropdown item text</span>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>  
+            </div>
         </div>
       </div>
-      <div class="row header">
-        <div class="col-sm-1">
-            
+      <div class="row header-2">
+        <div class="col-sm-2">
+          <div class="container-fluid d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Flex item</div>
+          </div>
+          <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
+            <label class="btn btn-outline-secondary">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>HDTS
+            </label>
+            <label class="btn btn-outline-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off">NES
+            </label>
+          </div>
         </div>
         <div class="col-sm-2">
-            
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Flex item</div>
+            <div class="p-2 bd-highlight">Flex item</div>
+          </div>
+          <select class="custom-select select-filter">
+            <option>none</option>
+            <option>20</option>
+            <option>50</option>
+            <option>100</option>
+          </select>
         </div>
-        <div class="col-sm-4">
-            
+        <div class="col-sm-2">
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Flex item</div>
+            <div class="p-2 bd-highlight">Flex item</div>
+          </div>
+          <select class="custom-select select-filter">
+            <option>none</option>
+            <option>20</option>
+            <option>50</option>
+            <option>100</option>
+          </select>
         </div>
-        <div class="col-sm-4">
-            
+        <div class="col-sm-5">
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Flex item</div>
+            <div class="p-2 bd-highlight">Flex item</div>
+          </div>
+          <!--캘린더-->
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Calender" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+            </div>
+          </div>
+          <!--캘린더-->
         </div>
-        <div class="col-sm-1">
-            
+        <div class="col-sm-2">
+          <div class="d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Page Size</div>
+         </div>
+         <select class="custom-select select-pagesize">
+            <option>10</option>
+            <option>20</option>
+            <option>50</option>
+            <option>100</option>
+         </select>
         </div>
       </div>
     </div>
