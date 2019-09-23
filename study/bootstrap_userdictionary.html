@@ -23,7 +23,8 @@
     .container-fluid {
       margin: 10px;
     }
-    .header-1 {
+    /*-----필터1-------*/
+    .filter-1 {
       padding-top: 25px;
       background: #ededed;
       height: 85px;
@@ -60,12 +61,19 @@
     .btn-dictionary {
       width: 80%;
     }
-
-
-    .header-2 {
-      height: 110px;
+    /*-----필터2-------*/
+    .filter-2 {
+      height: 120px;
       background: #ededed;
       margin-top: 10px;
+      margin-bottom: 0;
+      padding-top: 15px;
+    }
+    .calender {
+      width: 90%;
+    }
+    .select-pagesize {
+      width: 60%;
     }
     .reset-btn {
       margin-right: 5px;
@@ -93,7 +101,6 @@
     .container-search {
       margin: 20px;
     }
-  
     .search-box { 
       width: 30%;
       border-bottom: solid 1px #4C7FD6;
@@ -155,7 +162,7 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row header-1">
+      <div class="row filter-1"><!----필터1---->
         <div class="col-sm-1">
           <button type="button" class="btn btn-success btn-add">
             <i class="fas fa-plus" style="color: #fff;"></i>&nbsp;&nbsp;&nbsp;add</button>
@@ -206,12 +213,12 @@
             </div>
         </div>
       </div>
-      <div class="row header-2">
+      <div class="row filter-2"><!----필터2---->
         <div class="col-sm-2">
-          <div class="container-fluid d-flex bd-highlight mb-3">
-            <div class="mr-auto p-2 bd-highlight">Flex item</div>
+          <div class="container d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Engine</div>
           </div>
-          <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
+          <div class="container btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
             <label class="btn btn-outline-secondary">
                 <input type="radio" name="options" id="option1" autocomplete="off" checked>HDTS
             </label>
@@ -220,37 +227,37 @@
             </label>
           </div>
         </div>
-        <div class="col-sm-2">
-          <div class="d-flex bd-highlight mb-3">
-            <div class="mr-auto p-2 bd-highlight">Flex item</div>
-            <div class="p-2 bd-highlight">Flex item</div>
+        <div class="col-sm-3">
+          <div class="container d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Speaker</div>
+            <div class="p-2 bd-highlight">Reset</div>
           </div>
-          <select class="custom-select select-filter">
+          <select class="container custom-select select-filter">
             <option>none</option>
             <option>20</option>
             <option>50</option>
             <option>100</option>
           </select>
         </div>
-        <div class="col-sm-2">
-          <div class="d-flex bd-highlight mb-3">
-            <div class="mr-auto p-2 bd-highlight">Flex item</div>
-            <div class="p-2 bd-highlight">Flex item</div>
+        <div class="col-sm-3">
+          <div class="container d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Service</div>
+            <div class="p-2 bd-highlight">Reset</div>
           </div>
-          <select class="custom-select select-filter">
+          <select class="container custom-select select-filter">
             <option>none</option>
             <option>20</option>
             <option>50</option>
             <option>100</option>
           </select>
         </div>
-        <div class="col-sm-5">
-          <div class="d-flex bd-highlight mb-3">
-            <div class="mr-auto p-2 bd-highlight">Flex item</div>
-            <div class="p-2 bd-highlight">Flex item</div>
+        <div class="col-sm-3">
+          <div class="container d-flex bd-highlight mb-3">
+            <div class="mr-auto p-2 bd-highlight">Date</div>
+            <div class="p-2 bd-highlight">Reset</div>
           </div>
           <!--캘린더-->
-          <div class="input-group mb-3">
+          <div class="container input-group mb-3 calender">
             <input type="text" class="form-control" placeholder="Calender" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
@@ -258,11 +265,11 @@
           </div>
           <!--캘린더-->
         </div>
-        <div class="col-sm-2">
-          <div class="d-flex bd-highlight mb-3">
+        <div class="col-sm-1">
+          <div class="container d-flex bd-highlight mb-3">
             <div class="mr-auto p-2 bd-highlight">Page Size</div>
          </div>
-         <select class="custom-select select-pagesize">
+         <select class="container custom-select select-pagesize">
             <option>10</option>
             <option>20</option>
             <option>50</option>
@@ -276,11 +283,14 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">Engine</th>
+            <th scope="col">Source</th>
             <th scope="col">Target</th>
             <th scope="col">Target Speaker</th>
             <th scope="col">Target Service</th>
             <th scope="col">Common</th>
             <th scope="col">Created At</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delet</th>
           </tr>
         </thead>
         <tbody>
@@ -293,6 +303,8 @@
             <td>-</td>
             <td>-</td>
             <td>2019-09-17 11:27</td>
+            <td><i class="far fa-edit"></i></td>
+            <td><i class="far fa-trash-alt"></i></td>
           </tr>
           <tr>
             <th scope="row">2</th>
@@ -303,6 +315,8 @@
               <td>-</td>
               <td>-</td>
               <td>2019-09-16 18:56</td>
+              <td><i class="far fa-edit"></i></td>
+            <td><i class="far fa-trash-alt"></i></td>
           </tr>
           <tr>
             <th scope="row">3</th>
@@ -313,6 +327,8 @@
             <td>Mobile Main_nVoice</td>
             <td>-</td>
             <td>2019-09-16 09:13</td>
+            <td><i class="far fa-edit"></i></td>
+            <td><i class="far fa-trash-alt"></i></td>
           </tr>
         </tbody>
       </table>            
@@ -360,24 +376,6 @@
               </ul>
             </nav>
         </div>
-        <div class="col-sm-2">
-          <select class="custom-select">
-            <option>10</option>
-            <option>20</option>
-            <option>50</option>
-            <option>100</option>
-          </select>
-        </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
       </div>
     </div>
         
