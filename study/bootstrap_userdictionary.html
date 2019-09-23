@@ -24,9 +24,20 @@
       margin: 10px;
     }
     .header {
-      padding-top: 20px;
+      padding-top: 25px;
       background: #eee;
-      height: 130px;
+      height: 45px;
+    }
+    .btn {
+      border-radius: 0;
+      font-weight: 100;
+    }
+    .btn-add {
+      width: 70%;
+    }
+    .btn-outline-success {
+      width: 45%;
+      color: #000;
     }
     .filter-title {
       margin: 10px;
@@ -128,104 +139,53 @@
   <body>
     <div class="container-fluid">
       <div class="row header">
-        <div class="col-sm-3">
-            <div class="container filter-title">
-                <span class="h6">구분&nbsp;&nbsp;&nbsp;</span>
-                <button><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
-            </div>
-            <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option1" autocomplete="off"> 읽기오류
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option2" autocomplete="off"> 이상없음
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option3" autocomplete="off"> 기타
-                </label>
-            </div>
+        <div class="col-sm-1">
+          <button type="button" class="btn btn-success btn-add">
+            <i class="fas fa-plus" style="color: #fff;"></i>&nbsp;&nbsp;&nbsp;add</button>
+        </div>
+        <div class="col-sm-2">
+          <button type="button" class="btn btn-outline-success btn-upload">
+            <i class="fas fa-long-arrow-alt-up"></i>&nbsp;upload file</button> 
+          <button type="button" class="btn btn-outline-success btn-download">
+            <i class="fas fa-long-arrow-alt-down"></i>&nbsp;down</button> 
         </div>
         <div class="col-sm-4">
-            <div class="container filter-title">
-                <span class="h6">테스트 결과&nbsp;&nbsp;&nbsp;</span>
-                <button><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
-            </div>
-            <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option1" autocomplete="off"> 완료
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option2" autocomplete="off"> 자동완료
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option3" autocomplete="off"> 부분완료
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option3" autocomplete="off"> 확인요청
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option3" autocomplete="off"> 재확인요청
-                </label>
-            </div>
+          <select class="custom-select select-search">
+            <option>source</option>
+            <option>20</option>
+            <option>50</option>
+            <option>100</option>
+          </select>
+          <input type="text" class="form-control" placeholder="input" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-light" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+          </div>
         </div>
-        <div class="col-sm-5">
-            <div class="container filter-title">
-                <span class="h6">합성음(NLP)결과&nbsp;&nbsp;&nbsp;</span>
-                <button><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
-            </div>
-            <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option1" autocomplete="off"> 일치
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option2" autocomplete="off"> 불일치
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option3" autocomplete="off"> 예상합성음 필요
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="checkbox" name="options" id="option3" autocomplete="off"> 추가 불일치
-                </label>
-            </div>
+        <div class="col-sm-4">
+           
+        </div>
+        <div class="col-sm-1">
+           
+        </div>
+      </div>
+      <div class="row header">
+        <div class="col-sm-1">
+            
+        </div>
+        <div class="col-sm-2">
+            
+        </div>
+        <div class="col-sm-4">
+            
+        </div>
+        <div class="col-sm-4">
+            
+        </div>
+        <div class="col-sm-1">
+            
+        </div>
       </div>
     </div>
-    <div class="container-fluid container-search">
-        <div class="row">
-          <div class="col-sm-3">
-            <select class="custom-select">
-                <option>번호</option>
-                <option>테스트 문장</option>
-                <option>예상 합성음</option>
-                <option>합성음 결과</option>
-                <option>항목</option>
-                <option>BTS ID</option>
-              </select>
-          </div>
-          <div class="col-sm-5">
-            Sort by :
-            <select class="custom-select">
-              <option>번호</option>
-              <option>테스트 문장</option>
-              <option>예상 합성음</option>
-              <option>합성음 결과</option>
-              <option>항목</option>
-              <option>BTS ID</option>
-            </select>
-            <span class="search-box">               
-               <button><i class="fas fa-search" style="font-size: 16px; color: #4C7FD6;"></i></button>
-               <input type="text">
-            </span >
-          </div>
-          <div class="col-sm">
-            <button type="button" class="btn btn-link">
-              <i class="fas fa-long-arrow-alt-up"></i>&nbsp;업로드</button>
-            <button type="button" class="btn btn-link">
-              <i class="fas fa-long-arrow-alt-down"></i>&nbsp;다운로드</button>
-            <button type="button" class="btn btn-link">
-              <i class="fas fa-plus"></i>&nbsp;추가</button>
-          </div>
-        </div>
-      </div>
     <table class="table table-striped">
        <thead>
           <tr>
