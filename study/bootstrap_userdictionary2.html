@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/e99a066e01.js" crossorigin="anonymous"></script>
     <title>Nvoice Data 관리 시스템 - Expression</title>
   <style>
-    body {
+    body{
       margin: 0;
       padding: 0;
       text-align: center;
@@ -21,20 +21,27 @@
       background: none;
     }
     .container-fluid {
-     : 10px;
+      padding: 0;
+      overflow: hidden;
+      padding: 15px;
+      box-sizing: border-box;
     }
     /*-----필터1-------*/
-    .filter-1 {
-      padding-top: 25px;
+    .row {
+      margin: 0;
       background: #ededed;
+      padding: 25px 0;
+    }
+    .filter-1 {
       height: 85px;
+      padding-right: 15px;
     }
     .btn {
       border-radius: 0;
       font-weight: 100;
     }
     .btn-add {
-      width: 70%;
+      width: 90%;
     }
     .btn-outline-success {
       width: 45%;
@@ -63,20 +70,14 @@
     }
     /*-----필터2-------*/
     .filter-2 {
-      height: 120px;
-      background: #ededed;
+      height: 135px;
       margin-top: 10px;
-      margin-bottom: 0;
-      padding-top: 15px;
     }
     .calender {
       width: 90%;
     }
     .select-pagesize {
-      width: 60%;
-    }
-    .reset-btn {
-      margin-right: 5px;
+      width: 70%;
     }
     .btn-secondary {
       color: #bebebe;
@@ -84,40 +85,14 @@
       border-color: #bebebe;
       border-radius: 0;
     }
-    .fa-sync-alt {
-      color: #4C7FD6;
-    }
-    .btn-secondary:hover {
-      background: #4C7FD6;
-      border-color: #4C7FD6;
-    }
-    .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
-      background:#4C7FD6;
-      border-color: #aaa;
-    }
     .mb-3, .my-3 {
       margin-bottom: 0!important;
-    }
-    .container-search {
-      margin: 20px;
-    }
-    .search-box { 
-      width: 30%;
-      border-bottom: solid 1px #4C7FD6;
-      padding-bottom: 10px;
-    }
-    .btn-link {
-      color: #4C7FD6;
     }
     /*-------table------*/
     .table td, .table th {
       height: 80px;
       border: 1px solid #dee2e6;
       vertical-align: middle;
-    }
-    .container-footer {
-      margin-top: 35px;
-      height: 50px;
     }
     .page-link {
       color: #000;
@@ -210,19 +185,70 @@
           </div>
         </div>
         <div class="row filter-2">
-          <div class="col">
-            1 of 3sfdsfsdsfdsdfs
+          <div class="col-2">
+            <div class="d-flex bd-highlight mb-3">
+                <div class="mr-auto p-2 bd-highlight">Engine</div>
+            </div>
+            <div class="container btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
+              <label class="btn btn-outline-secondary">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked>HDTS
+              </label>
+              <label class="btn btn-outline-secondary">
+                  <input type="radio" name="options" id="option2" autocomplete="off">NES
+              </label>
+            </div>
           </div>
-          <div class="col-5">
-            2 of 3 (wider)sdfsfss
+          <div class="col-3">
+            <div class="d-flex bd-highlight mb-3">
+              <div class="mr-auto p-2 bd-highlight">Speaker</div>
+              <button><div class="p-2 bd-highlight">Reset</div></button>
+            </div>
+            <select class="container custom-select select-filter">
+              <option>none</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+            </select>
           </div>
-          <div class="col">
-            3 of 3sfsdfsd
+          <div class="col-3">
+            <div class="d-flex bd-highlight mb-3">
+              <div class="mr-auto p-2 bd-highlight">Service</div>
+              <button><div class="p-2 bd-highlight">Reset</div></button>
+            </div>
+            <select class="container custom-select select-filter">
+              <option>none</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <div class="d-flex bd-highlight mb-3">
+              <div class="mr-auto p-2 bd-highlight">Date</div>
+              <button><div class="p-2 bd-highlight">Reset</div></button>
+            </div>
+            <!--캘린더-->
+            <div class="container input-group mb-3 calender">
+              <input type="text" class="form-control" placeholder="Calender" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+              </div>
+            </div>
+            <!--캘린더-->
+          </div>
+          <div class="col-1">
+            <p style="margin-bottom: 0; padding: 10px;">Page size</p>
+            <select class="container custom-select select-pagesize">
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+            </select>
           </div>
         </div>
       </div>
       <div class="table">
-        <table class="table table-striped">
+        <table class="table table-striped" style="background: #f8fffc;">
           <thead>
             <tr>
               <th scope="col">No</th>
