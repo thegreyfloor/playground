@@ -25,7 +25,7 @@
       padding: 15px;
       box-sizing: border-box;
     }
-    /*-----필터1-------*/
+    /*filter-1*/
     .row {
       margin: 0;
       background: #ededed;
@@ -69,7 +69,7 @@
     .btn-dictionary {
       width: 70%;
     }
-    /*-----필터2-------*/
+    /*filter-2*/
     .filter-2 {
       height: 135px;
       margin-top: 10px;
@@ -81,6 +81,9 @@
       width: 15px;
       border: none;
       padding: 7px;
+    }
+    .title-calender {
+      width: 90%;
     }
     .select-pagesize {
       width: 70%;
@@ -94,10 +97,7 @@
       vertical-align: middle !important;
     }
     .table-striped tbody tr:nth-of-type(odd) {
-      background-color: green;
-    }
-    .table-striped tbody tr:nth-of-type(even) {
-      background-color: red;
+      background-color: #f3fef9;
     }
     .fa-edit, .fa-trash-alt {
       width: 24px;
@@ -132,7 +132,7 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="filter"><!---필터영역--->
+      <div class="filter"><!---filter-1-->
         <div class="row filter-1">
           <div class="col-1">
             <button type="button" class="btn btn-success btn-add">
@@ -192,12 +192,13 @@
             </div>
           </div>
         </div>
-        <div class="row filter-2"><!--필터영역2-->
+        <div class="row filter-2"><!--filter-2-->
           <div class="col-2">
-            <div class="d-flex bd-highlight mb-3">
-                <div class="mr-auto p-2 bd-highlight">Engine</div>
+            <div class="d-flex bd-highlight mb-3" >
+              <div class="mr-auto p-2 bd-highlight" style="width:50%;">Engine</div>
+              <button><div class="p-2 bd-highlight"></div></button>
             </div>
-            <div class="container btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
+            <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
               <label class="btn btn-outline-secondary">
                   <input type="radio" name="options" id="option1" autocomplete="off" checked>HDTS
               </label>
@@ -231,18 +232,18 @@
             </select>
           </div>
           <div class="col-3">
-            <div class="d-flex bd-highlight mb-3">
+            <div class="d-flex bd-highlight mb-3 title-calender">
               <div class="mr-auto p-2 bd-highlight">Date</div>
               <button><div class="p-2 bd-highlight">Reset</div></button>
             </div>
-            <!--캘린더-->
-            <div class="container input-group mb-3 calender">
+            <!--calender-->
+            <div class="input-group mb-3 calender">
               <input type="text" class="form-control" placeholder="Calender" aria-label="Recipient's username" aria-describedby="basic-addon2">
               <button class="input-group-append">
                   <span class="input-group-text btn-calender" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
               </button>
             </div>
-            <!--캘린더-->
+            <!--calender-->
           </div>
           <div class="col-1">
             <p style="margin-bottom: 0; padding: 10px;">Page size</p>
@@ -255,8 +256,8 @@
           </div>
         </div>
       </div>
-      <div class="table"><!--테이블-->
-        <table class="table table-striped" style="background: #f8fffc;">
+      <div class="table"><!--table-->
+        <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">No</th>
@@ -310,7 +311,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="row footer-pagination"><!--페이지네비게이션-->
+        <div class="row footer-pagination"><!--pagination-->
           <div class="col">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
