@@ -77,6 +77,11 @@
     .calender {
       width: 90%;
     }
+    .btn-calender {
+      width: 15px;
+      border: none;
+      padding: 7px;
+    }
     .select-pagesize {
       width: 70%;
     }
@@ -85,9 +90,14 @@
     }
     /*table*/
     .table td, .table th {
-      height: 80px;
       border: 1px solid #dee2e6;
       vertical-align: middle;
+    }
+    .fa-edit, .fa-trash-alt {
+      width: 24px;
+      height: 24px;
+      padding: 4px;
+      border:solid 1px#00af8c;
     }
     /*pagination*/
     .footer-pagination {
@@ -102,17 +112,10 @@
       background: #4C7FD6;
       color: #fff
     }
-    .page-next {
+    .page-next, .page-pre {
       background: rgb(226, 241, 255);
     }
-    .page-next:hover {
-      color: #4C7FD6;
-      background: rgb(226, 241, 255);
-    }
-    .page-pre {
-      background: rgb(226, 241, 255);
-    }
-    .page-pre:hover {
+    .page-next:hover, .page-pre:hover  {
       color: #4C7FD6;
       background: rgb(226, 241, 255);
     }
@@ -229,9 +232,9 @@
             <!--캘린더-->
             <div class="container input-group mb-3 calender">
               <input type="text" class="form-control" placeholder="Calender" aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
-              </div>
+              <button class="input-group-append">
+                  <span class="input-group-text btn-calender" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+              </button>
             </div>
             <!--캘린더-->
           </div>
@@ -272,8 +275,8 @@
               <td>-</td>
               <td>-</td>
               <td>2019-09-17 11:27</td>
-              <td><i class="far fa-edit"></i></td>
-              <td><i class="far fa-trash-alt"></i></td>
+              <td><button><i class="far fa-edit"></i></button></td>
+              <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
               <th scope="row">2</th>
@@ -284,8 +287,8 @@
                 <td>-</td>
                 <td>-</td>
                 <td>2019-09-16 18:56</td>
-                <td><i class="far fa-edit"></i></td>
-              <td><i class="far fa-trash-alt"></i></td>
+                <td><button><i class="far fa-edit"></i></button></td>
+              <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
               <th scope="row">3</th>
@@ -296,8 +299,8 @@
               <td>Mobile Main_nVoice</td>
               <td>-</td>
               <td>2019-09-16 09:13</td>
-              <td><i class="far fa-edit"></i></td>
-              <td><i class="far fa-trash-alt"></i></td>
+              <td><button><i class="far fa-edit"></i></button></td>
+              <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
           </tbody>
         </table>
