@@ -91,7 +91,13 @@
     /*table*/
     .table td, .table th {
       border: 1px solid #dee2e6;
-      vertical-align: middle;
+      vertical-align: middle !important;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: green;
+    }
+    .table-striped tbody tr:nth-of-type(even) {
+      background-color: red;
     }
     .fa-edit, .fa-trash-alt {
       width: 24px;
