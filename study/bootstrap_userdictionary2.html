@@ -21,7 +21,6 @@
       background: none;
     }
     .container-fluid {
-      padding: 0;
       overflow: hidden;
       padding: 15px;
       box-sizing: border-box;
@@ -42,6 +41,8 @@
     }
     .btn-add {
       width: 90%;
+      border-radius: 0;
+      font-weight: 100;
     }
     .btn-outline-success {
       width: 45%;
@@ -53,7 +54,7 @@
       margin: 0;
       margin-right: 5px;
     }
-    .input-header {
+    .input-search {
       border-radius: 0;
       width: 50%;
       float: left;
@@ -79,20 +80,18 @@
     .select-pagesize {
       width: 70%;
     }
-    .btn-secondary {
-      color: #bebebe;
-      background: #fff;
-      border-color: #bebebe;
-      border-radius: 0;
-    }
     .mb-3, .my-3 {
       margin-bottom: 0!important;
     }
-    /*-------table------*/
+    /*table*/
     .table td, .table th {
       height: 80px;
       border: 1px solid #dee2e6;
       vertical-align: middle;
+    }
+    /*pagination*/
+    .footer-pagination {
+      background: #fff;
     }
     .page-link {
       color: #000;
@@ -149,7 +148,7 @@
               <option>50</option>
               <option>100</option>
             </select>     
-            <input type="text" class="form-control input-header" placeholder="input word" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control input-search" placeholder="input word" aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
               <button class="btn btn-light" type="button" id="button-addon2">
                 <i class="fas fa-search"></i>
@@ -247,8 +246,7 @@
           </div>
         </div>
       </div>
-      <!--테이블-->
-      <div class="table">
+      <div class="table"><!--테이블-->
         <table class="table table-striped" style="background: #f8fffc;">
           <thead>
             <tr>
@@ -303,8 +301,7 @@
             </tr>
           </tbody>
         </table>
-        <!--페이지네비게이션-->
-        <div class="row">
+        <div class="row footer-pagination"><!--페이지네비게이션-->
           <div class="col">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
