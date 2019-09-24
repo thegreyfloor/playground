@@ -21,7 +21,7 @@
       background: none;
     }
     .container-fluid {
-      margin: 10px;
+     : 10px;
     }
     /*-----필터1-------*/
     .filter-1 {
@@ -40,7 +40,7 @@
       width: 45%;
       color: #000;
     }
-    .select-search {
+    .selectbox-search {
       width: 35%;
       float: left;
       margin: 0;
@@ -59,7 +59,7 @@
       box-sizing: border-box;
     }
     .btn-dictionary {
-      width: 80%;
+      width: 70%;
     }
     /*-----필터2-------*/
     .filter-2 {
@@ -156,7 +156,6 @@
               <i class="fas fa-plus" style="color: #fff;"></i>
               &nbsp;&nbsp;&nbsp;add
             </button>
-            </div>
           </div>
           <div class="col-3">
             <button type="button" class="btn btn-outline-success btn-upload">
@@ -169,33 +168,56 @@
             </button> 
           </div>
           <div class="col-3">
-            <select class="custom-select select-search">
+            <select class="custom-select selectbox-search">
               <option>source</option>
               <option>20</option>
               <option>50</option>
               <option>100</option>
-            </select>
+            </select>     
             <input type="text" class="form-control input-header" placeholder="input word" aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
               <button class="btn btn-light" type="button" id="button-addon2">
                 <i class="fas fa-search"></i>
               </button>
-            </div>          
+            </div>
           </div>
-          <div class="col-3">
+          <div class="col-4">
+            Dictionary&nbsp;&nbsp;
+            <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
+              <label class="btn btn-outline-secondary">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>Speaker
+              </label>
+              <label class="btn btn-outline-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Common
+              </label>
+              <label class="btn btn-outline-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Service
+              </label>
+            </div>
           </div>
-          <div class="col-3">
+          <div class="col-1">
+            <div class="btn-group">
+              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More Filters&nbsp;
+              </button>
+              <div class="dropdown-menu">
+                  <span class="dropdown-item-text">Dropdown item text</span>
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+              </div>  
+            </div>
           </div>
         </div>
         <div class="row filter-2">
           <div class="col">
-            1 of 3
+            1 of 3sfdsfsdsfdsdfs
           </div>
           <div class="col-5">
-            2 of 3 (wider)
+            2 of 3 (wider)sdfsfss
           </div>
           <div class="col">
-            3 of 3
+            3 of 3sfsdfsd
           </div>
         </div>
       </div>
