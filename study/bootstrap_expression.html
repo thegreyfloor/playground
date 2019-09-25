@@ -33,40 +33,39 @@
     .filter-1 {
       height: 130px;
     }
-    .btn-outline-success {
-      width: 45%;
-      color: #000;
-    }
-    .input-search {
-      border-radius: 0;
-      float: left;
-    }
-    .input-group-append {
-      width: 44px;
-      height: 38px;
-      margin-left: 1px;
-      border: 1px solid #000;
-      box-sizing: border-box;
-    }
-    .btn-dictionary {
-      width: 70%;
-    }
     /*filter-2*/
     .filter-2 {
-      height: 135px;
+      height: 85px;
       margin-top: 10px;
     }
+    .selectbox-1 {
+      width: 30%;
+      float: left;
+    }
+    .input-search {
+      width: 50%;
+      float: left;
+    }
+    .filter-title {
+      float: left;
+      line-height: 38px;
+    }
+    .selectbox-2 {
+      width: 75%;
+      float: left;
+    }
+    .selectbox-3 {
+      width: 40%;
+      float: left;
+    }
     .calender {
-      width: 70%;
-    }
-    .title-calender {
-      width: 90%;
-    }
-    .select-pagesize {
-      width: 70%;
+      width: 55%;
     }
     .mb-3, .my-3 {
       margin-bottom: 0!important;
+    }
+    .btn-link {
+      color: #2ead1e;
     }
     /*table*/
     .table td, .table th {
@@ -74,13 +73,11 @@
       vertical-align: middle !important;
     }
     .table-striped tbody tr:nth-of-type(odd) {
-      background-color: #f3fef9;
+      background-color: #f7fbf7;
     }
-    .fa-edit, .fa-trash-alt {
-      width: 24px;
-      height: 24px;
-      padding: 4px;
-      border:solid 1px#00af8c;
+    .fa-history, .fa-trash-alt {
+      font-size: 1.125em;
+      color: #2b726f;
     }
     /*pagination*/
     .footer-pagination {
@@ -174,7 +171,7 @@
         </div>
         <div class="row filter-2"><!--filter-2-->
           <div class="col-4">
-            <select class="custom-select">
+            <select class="custom-select selectbox-1">
               <option>표현</option>
               <option>테스트 문장</option>
               <option>예상 합성음</option>
@@ -190,8 +187,8 @@
             </div>
           </div>
           <div class="col-2">
-            <p>화자</p>
-            <select class="custom-select">
+            <span class="filter-title">화자&nbsp;&nbsp;</span>
+            <select class="custom-select selectbox-2">
               <option>전체</option>
               <option>테스트 문장</option>
               <option>예상 합성음</option>
@@ -200,8 +197,8 @@
               <option>BTS ID</option>
             </select>
           </div>
-          <div class="col-3">
-            <select class="custom-select">
+          <div class="col-4">
+            <select class="custom-select selectbox-3">
               <option>전체</option>
               <option>테스트 문장</option>
               <option>예상 합성음</option>
@@ -212,12 +209,17 @@
             <!--calender-->
             <span class="input-group mb-3 calender">               
               <button><i class="far fa-calendar-alt" style="font-size: 16px; color: #0a746f;"></i></button>
-              <input type="text" placeholder="Calender">
+              <input type="text" class="form-control input-search" placeholder="calender" aria-label="Recipient's username" aria-describedby="button-addon2">
             </span >
             <!--calender-->
           </div>
-          <div class="col-3">
-            
+          <div class="col-2">
+            <button type="button" class="btn btn-link">
+              <i class="fas fa-long-arrow-alt-up"></i>&nbsp;업로드</button>
+            <button type="button" class="btn btn-link">
+              <i class="fas fa-long-arrow-alt-down"></i>&nbsp;다운로드</button>
+            <button type="button" class="btn btn-link">
+              <i class="fas fa-plus"></i>&nbsp;추가</button>
           </div>
         </div>
       </div>
@@ -225,53 +227,73 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">No</th>
-              <th scope="col">Engine</th>
-              <th scope="col">Source</th>
-              <th scope="col">Target</th>
-              <th scope="col">Target Speaker</th>
-              <th scope="col">Target Service</th>
-              <th scope="col">Common</th>
-              <th scope="col">Created At</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delet</th>
+              <th scope="col">번호</th>
+              <th scope="col">태그</th>
+              <th scope="col">표현</th>
+              <th scope="col">예상 합성음</th>
+              <th scope="col">엔진 합성음</th>
+              <th scope="col">화자 및 듣기</th>
+              <th scope="col">카테고리</th>
+              <th scope="col">BTS ID</th>
+              <th scope="col">엔진 정보</th>
+              <th scope="col">NLP 결과</th>
+              <th scope="col">테스트 결과</th>
+              <th scope="col">작성자</th>
+              <th scope="col">작성일</th>
+              <th scope="col">수정 내역</th>
+              <th scope="col">삭제</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>HDTS</td>
-              <td>1998</td>
-              <td>일구구팔</td>
-              <td>Hana</td>
+              <th scope="row">198148</th>
+              <td>읽기오류</td>
+              <td>11:11</td>
+              <td>열한시 십일분</td>
+              <td>십일 다시 십일</td>
               <td>-</td>
               <td>-</td>
-              <td>2019-09-17 11:27</td>
-              <td><button><i class="far fa-edit"></i></button></td>
+              <td>2</td>
+              <td>2019.09-226</td>
+              <td>불일치</td>
+              <td></td>
+              <td>관리자1</td>
+              <td>2019-09-11</td>
+              <td><button><i class="fas fa-history"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
-              <th scope="row">2</th>
-                <td>NES</td>
-                <td>일본에 지진났어요.</td>
-                <td>일본 망했어요.</td>
-                <td>LiangLiang</td>
-                <td>-</td>
-                <td>-</td>
-                <td>2019-09-16 18:56</td>
-                <td><button><i class="far fa-edit"></i></button></td>
+              <th scope="row">198148</th>
+              <td>읽기오류</td>
+              <td>11:11</td>
+              <td>열한시 십일분</td>
+              <td>십일 다시 십일</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2</td>
+              <td>2019.09-226</td>
+              <td>불일치</td>
+              <td></td>
+              <td>관리자1</td>
+              <td>2019-09-11</td>
+              <td><button><i class="fas fa-history"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
-              <th scope="row">3</th>
-              <td>NES</td>
-              <td>일본의심장인도쿄에진도8에해당하는강진이일어났어요.</td>
-              <td>일본 망했어요.</td>
+              <th scope="row">198148</th>
+              <td>읽기오류</td>
+              <td>11:11</td>
+              <td>열한시 십일분</td>
+              <td>십일 다시 십일</td>
               <td>-</td>
-              <td>Mobile Main_nVoice</td>
               <td>-</td>
-              <td>2019-09-16 09:13</td>
-              <td><button><i class="far fa-edit"></i></button></td>
+              <td>2</td>
+              <td>2019.09-226</td>
+              <td>불일치</td>
+              <td></td>
+              <td>관리자1</td>
+              <td>2019-09-11</td>ㅋ
+              <td><button><i class="fas fa-history"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
           </tbody>
