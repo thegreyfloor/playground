@@ -111,8 +111,10 @@
   <script>
     const checkboxControl = function(className) {
       const target = document.querySelectorAll(`.${className}`);
+      const label = document.querySelectorAll(`.btn-${className}`);
       for(let i = 0; i < target.length; i++) {
-        console.log(target[i]);
+        target[i].checked = false;
+        label[i].classList.remove('active');
       }
     }
 
@@ -133,13 +135,13 @@
               </button>
             </div>
             <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-outline-dark">
+              <label class="btn btn-outline-dark btn-checkbox1">
                   <input type="checkbox" class="checkbox1" name="options" id="option1" autocomplete="off"> 읽기오류
               </label>
-              <label class="btn btn-outline-dark">
+              <label class="btn btn-outline-dark btn-checkbox1">
                   <input type="checkbox" class="checkbox1" name="options" id="option2" autocomplete="off"> 이상없음
               </label>
-              <label class="btn btn-outline-dark">
+              <label class="btn btn-outline-dark btn-checkbox1">
                   <input type="checkbox" class="checkbox1" name="options" id="option3" autocomplete="off"> 기타
               </label>
             </div>
@@ -147,43 +149,43 @@
           <div class="col-sm-4">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">테스트 결과</span>
-              <button class="p-2 bd-highlight reset"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset" onClick="resetClick('checkbox2');"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
             </div>
             <div class="container btn-group btn-group-toggle" id="reset" data-toggle="buttons">
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option1" autocomplete="off"> 완료
+              <label class="btn btn-outline-dark btn-checkbox2">
+                  <input type="checkbox" class="checkbox2" name="options" id="option1" autocomplete="off"> 완료
               </label>
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option2" autocomplete="off"> 자동완료
+              <label class="btn btn-outline-dark btn-checkbox2">
+                  <input type="checkbox" class="checkbox2" name="options" id="option2" autocomplete="off"> 자동완료
               </label>
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option3" autocomplete="off"> 부분완료
+              <label class="btn btn-outline-dark btn-checkbox2">
+                  <input type="checkbox" class="checkbox2" name="options" id="option3" autocomplete="off"> 부분완료
               </label>
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option3" autocomplete="off"> 확인요청
+              <label class="btn btn-outline-dark btn-checkbox2">
+                  <input type="checkbox" class="checkbox2" name="options" id="option3" autocomplete="off"> 확인요청
               </label>
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option3" autocomplete="off"> 재확인요청
+              <label class="btn btn-outline-dark btn-checkbox2">
+                  <input type="checkbox" class="checkbox2" name="options" id="option3" autocomplete="off"> 재확인요청
               </label>
             </div>
           </div>
           <div class="col-sm-5">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">합성음(NLP)결과</span>
-              <button class="p-2 bd-highlight reset"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset" onClick="resetClick('checkbox3');"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
             </div>
             <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option1" autocomplete="off"> 일치
+              <label class="btn btn-outline-dark btn-checkbox3">
+                  <input type="checkbox" class="checkbox3" name="options" id="option1" autocomplete="off"> 일치
               </label>
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option2" autocomplete="off"> 불일치
+              <label class="btn btn-outline-dark btn-checkbox3">
+                  <input type="checkbox" class="checkbox3" name="options" id="option2" autocomplete="off"> 불일치
               </label>
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option3" autocomplete="off"> 예상합성음 필요
+              <label class="btn btn-outline-dark btn-checkbox3">
+                  <input type="checkbox" class="checkbox3" name="options" id="option3" autocomplete="off"> 예상합성음 필요
               </label>
-              <label class="btn btn-outline-dark">
-                  <input type="checkbox" name="options" id="option3" autocomplete="off"> 추가 불일치
+              <label class="btn btn-outline-dark btn-checkbox3">
+                  <input type="checkbox" class="checkbox3" name="options" id="option3" autocomplete="off"> 추가 불일치
               </label>
             </div>
           </div>
