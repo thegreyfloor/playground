@@ -109,10 +109,14 @@
     }
   </style>
   <script>
-    function changeAll (){ 
-      var tags = document.getElementsByClassName( "btn-secondary" ); 
-      for ( var x = 0; x < tags.length; x++ ){ 	tags[ x ].style.fontWeight = "bold"; 	} 
-    } 
+    var clickNum= 
+    function reset_click() {
+      alert("버튼1을 누르셨습니다.");
+    }
+
+    
+
+
   </script>
   </head>
   <body>
@@ -122,7 +126,7 @@
           <div class="col-sm-3">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">구분</span>
-              <button class="p-2 bd-highlight reset" onclick="changeAll()">
+              <button class="p-2 bd-highlight reset" onClick="reset_click();">
                 <i class="fas fa-sync-alt reset-btn"></i>초기화
               </button>
             </div>
@@ -141,7 +145,9 @@
           <div class="col-sm-4">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">테스트 결과</span>
-              <button class="p-2 bd-highlight reset"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset" onClick="reset_click();">
+                <i class="fas fa-sync-alt reset-btn"></i>초기화
+              </button>
             </div>
             <div class="container btn-group btn-group-toggle" id="reset" data-toggle="buttons">
               <label class="btn btn-outline-dark">
@@ -164,7 +170,9 @@
           <div class="col-sm-5">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">합성음(NLP)결과</span>
-              <button class="p-2 bd-highlight reset"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset" onClick="reset_click();">
+                <i class="fas fa-sync-alt reset-btn"></i>초기화
+              </button>
             </div>
             <div class="container btn-group btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-outline-dark">
