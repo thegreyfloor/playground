@@ -34,6 +34,9 @@
     .filter-1 {
       height: 130px;
     }
+    .btn{
+      border-radius: 0;
+    }
     /*filter-2*/
     .filter-2 {
       height: 85px;
@@ -80,6 +83,10 @@
       font-size: 1.125em;
       color: #2b726f;
     }
+    .spaaker-select {
+      width: 80%;
+      border-radius: 50px;
+    }
     /*pagination*/
     .footer-pagination {
       background: #fff;
@@ -102,6 +109,10 @@
     }
   </style>
   <script>
+    function changeAll (){ 
+      var tags = document.getElementsByClassName( "btn-secondary" ); 
+      for ( var x = 0; x < tags.length; x++ ){ 	tags[ x ].style.fontWeight = "bold"; 	} 
+    } 
   </script>
   </head>
   <body>
@@ -111,16 +122,18 @@
           <div class="col-sm-3">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">구분</span>
-              <button class="p-2 bd-highlight"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset" onclick="changeAll()">
+                <i class="fas fa-sync-alt reset-btn"></i>초기화
+              </button>
             </div>
             <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option1" autocomplete="off"> 읽기오류
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option2" autocomplete="off"> 이상없음
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option3" autocomplete="off"> 기타
               </label>
             </div>
@@ -128,22 +141,22 @@
           <div class="col-sm-4">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">테스트 결과</span>
-              <button class="p-2 bd-highlight"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
             </div>
-            <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
+            <div class="container btn-group btn-group-toggle" id="reset" data-toggle="buttons">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option1" autocomplete="off"> 완료
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option2" autocomplete="off"> 자동완료
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option3" autocomplete="off"> 부분완료
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option3" autocomplete="off"> 확인요청
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option3" autocomplete="off"> 재확인요청
               </label>
             </div>
@@ -151,19 +164,19 @@
           <div class="col-sm-5">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">합성음(NLP)결과</span>
-              <button class="p-2 bd-highlight"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
             </div>
             <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option1" autocomplete="off"> 일치
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option2" autocomplete="off"> 불일치
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option3" autocomplete="off"> 예상합성음 필요
               </label>
-              <label class="btn btn-secondary">
+              <label class="btn btn-outline-dark">
                   <input type="checkbox" name="options" id="option3" autocomplete="off"> 추가 불일치
               </label>
             </div>
@@ -251,12 +264,28 @@
               <td>11:11</td>
               <td>열한시 십일분</td>
               <td>십일 다시 십일</td>
-              <td>-</td>
+              <td>
+                <select class="custom-select spaaker-select">
+                  <option selected>미진</option>
+                  <option>유인나</option>
+                  <option>유인나</option>
+                  <option>유인나</option>
+                  <option>유인나</option>
+                </select>
+              </td>
               <td>-</td>
               <td>2</td>
               <td>2019.09-226</td>
               <td>불일치</td>
-              <td></td>
+              <td>
+                <select class="custom-select spaaker-select">
+                  <option selected>미진</option>
+                  <option>유인나</option>
+                  <option>유인나</option>
+                  <option>유인나</option>
+                  <option>유인나</option>
+                </select>
+              </td>
               <td>관리자1</td>
               <td>2019-09-11</td>
               <td><button><i class="fas fa-history"></i></button></td>
@@ -349,5 +378,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+
   </body>
 </html>
