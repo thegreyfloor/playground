@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 0.875em;
+  }
+  button, input, optgroup, select, textarea {
+    border: none;
+    background: none;
+  }
+  .container-fluid {
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  /*filter-1*/
+  .row {
+    margin: 0;
+    background: #ededed;
+    padding: 25px 0;
+  }
+  .filter-1 {
+    height: 130px;
+  }
+  .btn{
+    border-radius: 0;
+  }
+  /*filter-2*/
+  .filter-2 {
+    height: 85px;
+    margin-top: 10px;
+  }
+  .selectbox-1 {
+    width: 30%;
+    float: left;
+  }
+  .input-search {
+    width: 50%;
+    float: left;
+  }
+  .filter-title {
+    float: left;
+    line-height: 38px;
+  }
+  .selectbox-2 {
+    width: 75%;
+    float: left;
+  }
+  .selectbox-3 {
+    width: 40%;
+    float: left;
+  }
+  .calender {
+    width: 55%;
+  }
+  .mb-3, .my-3 {
+    margin-bottom: 0!important;
+  }
+  .btn-link {
+    color: #2ead1e;
+  }
+  /*table*/
+  .table td, .table th {
+    border: 1px solid #dee2e6;
+    vertical-align: middle !important;
+  }
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f7fbf7;
+  }
+  .fa-history, .fa-trash-alt {
+    font-size: 1.125em;
+    color: #2b726f;
+  }
+  .spaaker-select {
+    width: 80%;
+    border-radius: 50px;
+  }
+  /*pagination*/
+  .footer-pagination {
+    background: #fff;
+  }
+  .page-link {
+    color: #000;
+    border: none;
+    border-radius: 0;
+  }
+  .page-link:hover {
+    background: #4C7FD6;
+    color: #fff
+  }
+  .page-next, .page-pre {
+    background: rgb(226, 241, 255);
+  }
+  .page-next:hover, .page-pre:hover  {
+    color: #4C7FD6;
+    background: rgb(226, 241, 255);
+  }
