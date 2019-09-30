@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ko">
   <head>
+    <link rel="stylesheet" type="text/css" href="/expression/style.css" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -111,10 +112,10 @@
   <script>
     const checkboxControl = function(className) {
       const target = document.querySelectorAll(`.${className}`);
-      const label = document.querySelectorAll(`.btn-${className}`);
+      const lable = document.querySelectorAll(`.btn-${className}`)
       for(let i = 0; i < target.length; i++) {
         target[i].checked = false;
-        label[i].classList.remove('active');
+        lable[i].classList.remove('active');
       }
     }
 
@@ -149,7 +150,10 @@
           <div class="col-sm-4">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">테스트 결과</span>
-              <button class="p-2 bd-highlight reset" onClick="resetClick('checkbox2');"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset" onClick="resetClick('checkbox2');">
+                <i class="fas fa-sync-alt reset-btn"></i>
+                초기화
+              </button>
             </div>
             <div class="container btn-group btn-group-toggle" id="reset" data-toggle="buttons">
               <label class="btn btn-outline-dark btn-checkbox2">
@@ -172,19 +176,22 @@
           <div class="col-sm-5">
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">합성음(NLP)결과</span>
-              <button class="p-2 bd-highlight reset" onClick="resetClick('checkbox3');"><i class="fas fa-sync-alt reset-btn"></i>초기화</button>
+              <button class="p-2 bd-highlight reset" onClick="resetClick('checkbox3');">
+                <i class="fas fa-sync-alt reset-btn"></i>
+                초기화
+              </button>
             </div>
             <div class="container btn-group btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-outline-dark btn-checkbox3">
                   <input type="checkbox" class="checkbox3" name="options" id="option1" autocomplete="off"> 일치
               </label>
-              <label class="btn btn-outline-dark btn-checkbox3">
+              <label class="btn btn-outline-dark  btn-checkbox3">
                   <input type="checkbox" class="checkbox3" name="options" id="option2" autocomplete="off"> 불일치
               </label>
-              <label class="btn btn-outline-dark btn-checkbox3">
+              <label class="btn btn-outline-dark  btn-checkbox3">
                   <input type="checkbox" class="checkbox3" name="options" id="option3" autocomplete="off"> 예상합성음 필요
               </label>
-              <label class="btn btn-outline-dark btn-checkbox3">
+              <label class="btn btn-outline-dark  btn-checkbox3">
                   <input type="checkbox" class="checkbox3" name="options" id="option3" autocomplete="off"> 추가 불일치
               </label>
             </div>
