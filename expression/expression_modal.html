@@ -11,10 +11,10 @@
     <script src="https://kit.fontawesome.com/e99a066e01.js" crossorigin="anonymous"></script>
     <title>Nvoice Data 관리 시스템 - Expression</title>
   <style>
-    .h6 {
-      float: left;
+    body {
+      vertical-align: middle;
     }
-     .modal-background {
+    .modal-background {
       background: black;
       opacity: 0.3;
     }
@@ -28,7 +28,21 @@
     .table td, .table th {
       border: none;
     }
-    
+    .btn-outline-success {
+      color: #525252;
+      border-color: #525252;
+    }
+    .btn-outline-success:hover {
+      background: #04c73b;
+    }
+    .btn-outline-success:not(:disabled):not(.disabled).active, .btn-outline-success:not(:disabled):not(.disabled):active, .show>.btn-outline-success.dropdown-toggle {
+      background: #04c73b;
+      border-color: none;
+      
+    }
+    .user-speaker {
+      color:#555555; 
+    }
     .radio-tag {
       width: 100px;
       height: 40px;
@@ -41,6 +55,41 @@
       padding: 35px 45px;
       box-sizing: border-box;
     }
+    .form-1 {
+      border: none;
+      color: #cccccc;
+      font-weight: 100;
+    }
+    .form-line {
+      width: 100%;
+      border-bottom: solid 1px #cccccc;
+    }
+    .form-control {
+      border-radius: 0;
+    }
+    .form-engine {
+      background: #ededed;
+    }
+    .user-btn {
+      width: 45%;
+      border-radius: 50px;
+      border-color: #04c73b;
+      color: #525252;
+    }
+    .user-btn2 {
+      width: 15%;
+      border-radius: 0;
+      float: right;
+      margin-left: 5px;
+      border-color: #525252;
+      color: #525252;
+    }
+    .user-btn2:hover {
+      background: #04c73b;
+    }
+    .icon-speaker {
+      color: #04c73b;
+    }
   </style>
   <script>
     // var clickNum= 
@@ -52,18 +101,19 @@
   <body>
     <div class="container-fluid container-modal">
         
-      <div class="row d-flex justify-content-center ">
+      <div class="row d-flex justify-content-center">
         <div class="col-6 modal-box ">
           <table class="table">
+            <h5> 추가</h5>
             <tbody>
               <tr>
                 <th scope="row">태그</th>
                 <td>
                   <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                      <label class="btn btn-secondary radio-tag active">
+                      <label class="btn btn-outline-success radio-tag active">
                         <input type="radio" name="options" id="option1" autocomplete="off" checked> 읽기오류
                       </label>
-                      <label class="btn btn-secondary radio-tag">
+                      <label class="btn btn-outline-success radio-tag">
                         <input type="radio" name="options" id="option2" autocomplete="off"> 기타
                       </label>
                     </div>
@@ -72,45 +122,63 @@
               <tr>
                 <th scope="row">카테고리</th>
                 <td>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  <div class="form-line">
+                    <input type="text" class="form-control form-1" placeholder="카테고리 항목을 입력해주세요." aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
                 </td>
                 <th>BTS ID</th>
                 <td> 
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  <div class="form-line">
+                   <input type="text" class="form-control form-1" placeholder="ID를 입력해 주세요." aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
                 </td>
               </tr>
               <tr>
                 <th scope="row">화자</th>
                 <td>
-                  <input type="radio" name="speaker" checked="checked"> 하나 (한국인, 여성)
-                  <input type="radio" name="speaker" value="CSS"> 진호 (한국인, 남성)
+                  <p class="user-speaker"><input type="radio" name="speaker" checked="checked">  하나 (한국인, 여성)</p>
+                  <p class="user-speaker"></p><input class="user-speaker" type="radio" name="speaker" >  진호 (한국인, 남성)</p>
                 </td>
                 <td>
-                  <input type="radio" name="speaker"> 하나 (한국인, 여성)
-                  <input type="radio" name="speaker" value="CSS"> 진호 (한국인, 남성)
+                  <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker">  규리 (한국인, 여성)</p>
+                  <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker" > 딘나 (한국인, 여성)</p>
                 </td>
                 <td>
-                  <input type="radio" name="speaker" value="CSS"> 진호 (한국인, 남성)
+                  <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker">  미진 (한국인, 여성)</p>
                 </td>
               </tr>
               <tr>
                 <th scope="row">표현</th>
-                <td> <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"></td>
-                <td>@twitter</td>
+                <td colspan="2"> 
+                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"></td>
+                <td>
+                  <button type="button" class="btn btn-outline-success user-btn">확인하기</button>
+                </td>
               </tr>
               <tr>
                   <th scope="row">엔진 합성</th>
-                  <td>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  <td colspan="2">
+                    <input type="text" class="form-control form-engine" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                   </td>
-                  <td>@twitter</td>
+                  <td>
+                    <button type="button" class="btn btn-outline-success user-btn">
+                      <i class="fas fa-volume-down icon-speaker"></i>
+                      미리듣기
+                    </button>
+                  </td>
                 </tr>
                 <tr>
-                    <th scope="row">예상 합성</th>
-                    <td>
-                      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                    </td>
-                  </tr>
+                  <th scope="row">예상 합성</th>
+                  <td colspan="2">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4">
+                      <button type="button" class="btn btn-outline-success user-btn2">취소</button>
+                      <button type="button" class="btn btn-outline-success user-btn2">추가</button>
+                  </td>
+                </tr>
             </tbody>
           </table>  
         </div>
