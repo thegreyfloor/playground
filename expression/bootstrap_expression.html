@@ -118,7 +118,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      display: none;
+      /* display: none; */
     }
     .modal {
       width: 1000px; 
@@ -168,6 +168,7 @@
       font-weight: 100;
       padding-top: 0px;
       padding-bottom: 13px;
+      vertical-align: middle;
     }
     .form-line {
       width: 100%;
@@ -183,15 +184,15 @@
       width: 45%;
       border-radius: 50px;
       border-color: #04c73b;
-      color: #525252;
+      margin-left: 20px;
     }
     .user-btn2 {
       width: 15%;
       border-radius: 0;
-      float: right;
-      margin-left: 5px;
       border-color: #525252;
       color: #525252;
+      margin-left: 15px;
+      float: right;
     }
     .user-btn2:hover {
       background: #04c73b;
@@ -215,11 +216,10 @@
       checkboxControl(className);
     }
 
-    //추가버튼 모달창
-    // document.getElementById("add-modal-btn").onclick = function() {
-    //     document.getElementByclassName("add-modal").style.display="block";
-    // }
-   
+    //추가 모달창
+    function addBtnClick() {
+      document.getElementById("add-container").style.display="block";
+    }
     // document.getElementById("").onclick = function() {
     //     document.getElementById("").style.display="none";
     // }   
@@ -349,7 +349,7 @@
               <i class="fas fa-long-arrow-alt-up"></i>&nbsp;업로드</button>
             <button type="button" class="btn btn-link">
               <i class="fas fa-long-arrow-alt-down"></i>&nbsp;다운로드</button>
-            <button type="button" class="btn btn-link" id="container-add-btn" onclick="add_click();">
+            <button type="button" class="btn btn-link" id="add-modal-btn" onclick="addBtnClick();">
               <i class="fas fa-plus"></i>&nbsp;추가</button>
           </div>
         </div>
@@ -492,7 +492,7 @@
       </div>
     </div>
     <!--추가버튼 모달-->
-    <div class="container-fluid add-container-modal">
+    <div class="container-fluid add-container-modal" id="add-container">
       <div class="modal">
         <table class="modal-contents">
           <p class="h5">추가</p>
