@@ -138,15 +138,15 @@
       width: 100%;
       height: 85%;
     }
-    .add-modal-contents th {
+    .add-modal-contents th,.upload-modal-contents th {
       border: none;
       width: 13%;
     }
-    .add-modal-contents td {
+    .add-modal-contents td,.upload-modal-contents td {
       border: none;
       width: 87%;
     }
-    .add-row,.upload-row {
+    .add-row {
       background: none;
       padding: 5px 0;
     }
@@ -194,8 +194,24 @@
       left: 0;
     }
     /*--업로드버튼 모달창--*/
+    .container-ex {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .csv {
+      color:#04c73b;
+    }
+    .upload-table-ex thead th {
+      border-bottom: none;
+    }
+    .upload-row {
+      background: none;
+    }
     .upload-modal-contents th {
       width: 13%;
+    }
+    .upload-modal-contents th.h5 {
+      padding: 0 12px 24px;
     }
     .upload-modal-contents td {
       width: 87%;
@@ -243,7 +259,7 @@
       document.getElementById("upload-container").style.display="block";
     }
     function uploadCancelClick() {
-          document.getElementById("add-container").style.display="none";
+          document.getElementById("upload-container").style.display="none";
       }   
   </script>
   </head>
@@ -616,7 +632,7 @@
                 </p>
               </div>
               <div class="col-4">
-                <div class="container d-flex bd-highlight mb-3">
+                <div class="container d-flex bd-highlight mb-3 container-ex">
                   <span class="mr-auto p-2 bd-highlight">예시)</span>
                   <button class="p-2 bd-highlight csv">
                     csv 폼 받기
@@ -666,7 +682,9 @@
                 <th scope="row" class="h5">표현</th>
                 <td>
                   <input type="text" class="form-control upload-form" placeholder="표현을 입력해 주세요." aria-label="Username" aria-describedby="basic-addon1">
-                  <button type="button" class="btn btn-outline-success upload-btn">불러오기</button>
+                  <label class="btn btn-outline-success upload-file">
+                      <input type="file" name="options" id="option2" autocomplete="off"> 불러오기
+                  </label>
                 </td>
               </tr>
             </tbody>
