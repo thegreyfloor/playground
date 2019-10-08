@@ -50,6 +50,11 @@
     .input-search {
       width: 50%;
       float: left;
+      border-radius: 0;
+      margin-left: 10px;
+    }
+    .btn-search {
+      border: solid 1px #343a40;
     }
     .input-group-append .btn, .input-group-prepend .btn {
       z-index: 0;
@@ -111,8 +116,8 @@
       color: #4C7FD6;
       background: rgb(226, 241, 255);
     }
-    /*추가버튼 모달창*/
-    .add-container-modal {
+    /* 추가버튼 모달창*/ 
+    .container-modal {
       width: 100%;
       height: 100vh;
       position: fixed;
@@ -120,24 +125,71 @@
       left: 0;
       display: none;
     }
-    .modal {
+    .add-modal,.upload-modal {
       width: 1000px; 
       height: 640px;
       background: #fff;
-      padding: 40px 45px;
+      padding: 35px 45px;
       box-sizing: border-box;
-      display: block;
+      /* display: block; */
       position: relative;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: left;
+      z-index: 1;
     }  
-    .modal-contents {
+    .add-modal-contents {
       width: 100%;
       height: 85%;
     }
-    .add-modal-background {
+    .add-modal-contents th,.upload-modal-contents th {
+      border: none;
+      width: 13%;
+    }
+    .add-modal-contents td,.upload-modal-contents td {
+      border: none;
+      width: 87%;
+    }
+    .add-row {
+      background: none;
+      padding: 5px 0;
+    }
+    .add-radio-tag {
+      width: 100px;
+      height: 40px;
+    }
+    .add-form-1 {
+      border-radius: 0;
+      border: none;
+      border-bottom: solid 1px #cccccc;
+      font-weight: 100;
+    }
+    .add-form-2,.upload-form {
+      width: 80%;
+      float: left;
+      margin-right: 15px;
+      border-radius: 0;
+      
+    }
+    .add-btn,.upload-btn {
+      width: 18%;
+      height: 40px;
+      border-radius: 50px;
+    }
+    .add-btn2,.upload-btn2 {
+      width: 45%;
+      height: 40px;
+      border-color: #525252;
+      color: #525252;
+      margin-left: 15px;
+      float: left;
+    }
+    .add-modal-btn-container {
+      float: right;
+      width: 35%;
+    }
+    .add-modal-background,.upload-modal-background {
       width: 100%;
       height: 100%;
       background: black;
@@ -146,59 +198,67 @@
       top: 0;
       left: 0;
     }
-    .btn-outline-success {
-      color: #525252;
-      border-color: #525252;
+    /*--업로드버튼 모달창--*/
+    .container-ex {
+      padding-left: 0;
+      padding-right: 0;
     }
-    .btn-outline-success:hover {
+    .csv {
+      color:#04c73b;
+    }
+    .upload-table-ex thead th {
+      border-bottom: none;
+    }
+    .upload-row {
+      background: none;
+    }
+    .upload-modal-contents th {
+      width: 13%;
+    }
+    .upload-modal-contents th.h5 {
+      padding: 0 12px 24px;
+    }
+    .upload-modal-contents td {
+      width: 87%;
+    }
+    .upload-radio-tag {
+      width: 300px;
+      border-color: #a6a6a6;
+      color: #000;
+    }
+    .upload-radio-tag:hover {
       background: #04c73b;
+      color: #fff;
+      border: none;
     }
     .btn-outline-success:not(:disabled):not(.disabled).active, .btn-outline-success:not(:disabled):not(.disabled):active, .show>.btn-outline-success.dropdown-toggle {
       background: #04c73b;
-      border-color: none;
-    }
-    .radio-tag {
-      width: 100px;
-      height: 40px;
-      border-radius: 0;
-    }
-    .form-1 {
+      color: #fff;
       border: none;
-      color: #cccccc;
-      font-weight: 100;
-      padding-top: 0px;
-      padding-bottom: 13px;
     }
-    .form-line {
+    .upload-note {
       width: 100%;
-      border-bottom: solid 1px #cccccc;
+      display: inherit;
     }
-    .form-control {
-      border-radius: 0;
-    }
-    .form-engine {
-      background: #ededed;
-    }
-    .user-btn {
-      width: 45%;
-      border-radius: 50px;
+    /* .upload-form {
+      height: 80px;
       border-color: #04c73b;
-      color: #525252;
-    }
-    .user-btn2 {
-      width: 15%;
-      border-radius: 0;
-      float: right;
-      margin-left: 5px;
+    } */
+    .upload-btn2 {
       border-color: #525252;
       color: #525252;
     }
-    .user-btn2:hover {
+    .upload-btn2:nth-child(2n) {
       background: #04c73b;
+      color: #fff;
+      border: none;
     }
-    .icon-speaker {
-      color: #04c73b;
+    .upload-btn2:hover {
+      background: #04c73b;
+      color: #fff;
+      border: none;
     }
+
   </style>
   <script>
     //선택 초기화
@@ -215,16 +275,20 @@
       checkboxControl(className);
     }
 
-    //추가버튼 모달창
-    // document.getElementById("add-modal-btn").onclick = function() {
-    //     document.getElementByclassName("add-modal").style.display="block";
-    // }
-   
-    // document.getElementById("").onclick = function() {
-    //     document.getElementById("").style.display="none";
-    // }   
-
-  
+    //추가 모달창
+    function addBtnClick() {
+      document.getElementById("add-container").style.display="block";
+    }
+    function addCancelClick() {
+          document.getElementById("add-container").style.display="none";
+      }   
+    //업로드 모달창
+    function uploadBtnClick() {
+      document.getElementById("upload-container").style.display="block";
+    }
+    function uploadCancelClick() {
+          document.getElementById("upload-container").style.display="none";
+      }   
   </script>
   </head>
   <body>
@@ -312,7 +376,7 @@
             </select>
             <input type="text" class="form-control input-search" placeholder="검색어를 입력하세요..." aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
-              <button class="btn btn-light" type="button" id="button-addon2">
+              <button class="btn btn-search" type="button" id="button-addon2">
                 <i class="fas fa-search"></i>
               </button>
             </div>
@@ -340,16 +404,16 @@
             <!--calender-->
             <span class="input-group mb-3 calender">               
               <button><i class="far fa-calendar-alt" style="font-size: 16px; color: #0a746f;"></i></button>
-              <input type="text" class="form-control input-search" placeholder="calender" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <input type="text" class="form-control input-calender" placeholder="calender" aria-label="Recipient's username" aria-describedby="button-addon2">
             </span >
             <!--calender-->
           </div>
           <div class="col-2">
-            <button type="button" class="btn btn-link">
+            <button type="button" class="btn btn-link" onclick="uploadBtnClick();">
               <i class="fas fa-long-arrow-alt-up"></i>&nbsp;업로드</button>
             <button type="button" class="btn btn-link">
               <i class="fas fa-long-arrow-alt-down"></i>&nbsp;다운로드</button>
-            <button type="button" class="btn btn-link" id="container-add-btn" onclick="add_click();">
+            <button type="button" class="btn btn-link" id="add-modal-btn" onclick="addBtnClick();">
               <i class="fas fa-plus"></i>&nbsp;추가</button>
           </div>
         </div>
@@ -492,91 +556,175 @@
       </div>
     </div>
     <!--추가버튼 모달-->
-    <div class="container-fluid add-container-modal">
-      <div class="modal">
-        <table class="modal-contents">
-          <p class="h5">추가</p>
+    <div class="container-fluid container-modal" id="add-container">
+        <div class="add-modal">
+          <p class="h4">추가</p>
+          <table class="table add-modal-contents">
             <tbody>
               <tr>
-                <th scope="row">태그</th>
-                <td colspan="3">
-                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                      <label class="btn btn-outline-success radio-tag active">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> 읽기오류
-                      </label>
-                      <label class="btn btn-outline-success radio-tag">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> 기타
-                      </label>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">카테고리</th>
+                <th scope="row" class="h5">태그</th>
                 <td>
-                  <div class="form-line">
-                    <input type="text" class="form-control form-1" placeholder="카테고리 항목을 입력해주세요." aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                </td>
-                <th>BTS ID</th>
-                <td> 
-                  <div class="form-line">
-                    <input type="text" class="form-control form-1" placeholder="ID를 입력해 주세요." aria-label="Username" aria-describedby="basic-addon1">
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-success add-radio-tag active">
+                      <input type="radio" name="options" id="option1" autocomplete="off" checked> 읽기오류
+                    </label>
+                    <label class="btn btn-outline-success add-radio-tag">
+                      <input type="radio" name="options" id="option2" autocomplete="off"> 기타
+                    </label>
                   </div>
                 </td>
               </tr>
               <tr>
-                <th scope="row">화자</th>
-                  <td>
-                    <p class="user-speaker"><input type="radio" name="speaker" checked="checked">  하나 (한국인, 여성)</p>
-                    <p class="user-speaker"></p><input class="user-speaker" type="radio" name="speaker" >  진호 (한국인, 남성)</p>
-                  </td>
-                  <td>
-                    <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker">  규리 (한국인, 여성)</p>
-                    <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker" > 딘나 (한국인, 여성)</p>
-                  </td>
-                  <td>
-                    <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker">  미진 (한국인, 여성)</p>
-                  </td>
-                </tr>
-                <tr>
-                    <tr>
-                        <th scope="row">표현</th>
-                        <td colspan="2"> 
-                          <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1"></td>
-                        <td>
-                          <button type="button" class="btn btn-outline-success user-btn">확인하기</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">엔진 합성</th>
-                        <td colspan="2">
-                          <input type="text" class="form-control form-engine" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                        </td>
-                        <td>
-                          <button type="button" class="btn btn-outline-success user-btn">
-                            <i class="fas fa-volume-down icon-speaker"></i>
-                            미리듣기
-                          </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">예상 합성</th>
-                        <td colspan="2">
-                          <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
-                        </td>
-                      </tr>
-                      <tr>
-                        <td colspan="4">
-                          <button type="button" class="btn btn-outline-success user-btn2">취소</button>
-                          <button type="button" class="btn btn-outline-success user-btn2">추가</button>
-                      </td>
-                    </tr> 
-              </tbody>
-        </table>
-      </div>
+                <th scope="row" class="h5">카테고리</th>
+                <td>
+                  <div class="row add-row">
+                    <div class="col-5">
+                      <div class="form-line">
+                        <input type="text" class="form-control add-form-1" placeholder="카테고리 항목을 입력해주세요." aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+                    <div class="col-2 h5">
+                      BTS ID
+                    </div>
+                    <div class="col-5">
+                      <input type="text" class="form-control add-form-1" placeholder="카테고리 항목을 입력해주세요." aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="h5">화자</th>
+                <td>
+                  <div class="row add-row">
+                    <div class="col-sm">
+                      <p class="user-speaker"><input type="radio" name="speaker" checked="checked">  하나 (한국인, 여성)</p>
+                      <p class="user-speaker"></p><input class="user-speaker" type="radio" name="speaker" >  진호 (한국인, 남성)</p>
+                    </div>
+                    <div class="col-sm">
+                      <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker">  규리 (한국인, 여성)</p>
+                      <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker" > 딘나 (한국인, 여성)</p>
+                    </div>
+                    <div class="col-sm">
+                      <p class="user-speaker"><input class="user-speaker" type="radio" name="speaker">  미진 (한국인, 여성)</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="h5">표현</th>
+                <td>
+                  <input type="text" class="form-control add-form-2" placeholder="표현을 입력해 주세요." aria-label="Username" aria-describedby="basic-addon1">
+                  <button type="button" class="btn btn-outline-success add-btn">확인하기</button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="h5">엔진 합성</th>
+                <td>
+                  <input type="text" class="form-control add-form-2" placeholder="확인하기 버튼을 눌러주세요." aria-label="Username" aria-describedby="basic-addon1">
+                  <button type="button" class="btn btn-outline-success add-btn">
+                    <i class="fas fa-volume-down icon-speaker"></i>
+                    미리듣기
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="h5">예상 합성</th>
+                <td>
+                  <input type="text" class="form-control add-form-2" placeholder="예상하는 합성음을 입력해주세요." aria-label="Username" aria-describedby="basic-addon1">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="add-modal-btn-container">
+            <button type="button" class="btn btn-outline-success add-btn2" onclick="addCancelClick();">취소</button>
+            <button type="button" class="btn btn-outline-success add-btn2">추가</button>
+          </div>
+        </div>
       <div class="add-modal-background"></div>
     </div>
-    
+    <!--//추가버튼 모달-->
+    <!--업로드버튼 모달-->
+    <div class="container-fluid container-modal" id="upload-container">
+        <div class="upload-modal">
+          <p class="h4">파일 업로드</p>
+          <div class="row upload-row">
+              <div class="col-8">
+                <p>csv 파일만 업로드 가능합니다.</br>
+                  업로드 될 파일에는 '태그','표현'등의 제목이 첫 행에 있어야 합니다.</br>
+                </br>
+                인식가능한 제목:</br>
+                태그/ 표현/ 예상 합성음/ 엔진 합성음/ 테스트 결과/ NLP결과/ 카테고리/ BTS ID/ 메모</br>
+                </br>
+                이외의 제목은 모두 무시됩니다.</br>
+                만약 제목 행이 없다면 첫 열은 '태그', 두번째 열은 '표현'으로 인식됩니다.
+                </p>
+              </div>
+              <div class="col-4">
+                <div class="container d-flex bd-highlight mb-3 container-ex">
+                  <span class="mr-auto p-2 bd-highlight">예시)</span>
+                  <button class="p-2 bd-highlight csv">
+                    csv 폼 받기
+                  </button>
+                </div>
+                <table class="table upload-table-ex">
+                  <thead>
+                    <tr>
+                    <th>태그</th>
+                    <th>표현</th>
+                  </tr>
+                  <thead>
+                    <tbody>
+                      <tr>
+                        <td>읽기오류</td>
+                        <td>1997</td>
+                      </tr>
+                      <tr>
+                        <td>기타</td>
+                        <td>어뜨무러차</td>
+                      </tr>
+                      <tr>
+                        <td>읽기오류</td>
+                        <td>개취네쒜</td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          <table class="table upload-modal-contents">
+            <tbody>
+              <tr>
+                <th scope="row" class="h5">중복처리</th>
+                <td>
+                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-success upload-radio-tag">
+                      <input type="radio" name="options" id="option1" autocomplete="off"> 무시하기
+                    </label>
+                    <label class="btn btn-outline-success upload-radio-tag">
+                      <input type="radio" name="options" id="option2" autocomplete="off"> 덮어쓰기
+                    </label>
+                  </div>
+                  <!-- <span class="upload-note">*중복되는 항목에 대하여 무시합니다.</span> -->
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="h5">표현</th>
+                <td>
+                  <input type="text" class="form-control upload-form" placeholder="표현을 입력해 주세요." aria-label="Username" aria-describedby="basic-addon1">
+                  <label class="btn btn-outline-success upload-file">
+                      <input type="file" name="options" id="option2" autocomplete="off"> 불러오기
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="add-modal-btn-container">
+            <button type="button" class="btn btn-outline-success upload-btn2" onclick="uploadCancelClick();">취소</button>
+            <button type="button" class="btn btn-outline-success upload-btn2">추가</button>
+          </div>
+        </div>
+      <div class="upload-modal-background"></div>
+    </div>
+    <!--//추가버튼 모달-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
