@@ -38,6 +38,25 @@
     .btn{
       border-radius: 0;
     }
+    .btn-checkbox {
+      border-color: #a6a6a6;
+      color: #555555;
+    }
+    .btn-checkbox:hover {
+      background: #2ead1e;
+      border: none;
+      color: #fff;
+    }
+    .btn-checkbox:not(:disabled):not(.disabled).active, .btn-checkbox:not(:disabled):not(.disabled):active, .show>.btn-checkbox.dropdown-toggle {
+      background: #2ead1e;
+      border: none;
+      border-left: solid 1px #fff;
+      border-right: solid 1px #fff;
+      color: #fff;
+    }
+    .reset-btn {
+      color: #2ead1e;
+    }
     /*filter-2*/
     .filter-2 {
       height: 85px;
@@ -54,7 +73,7 @@
       margin-left: 10px;
     }
     .btn-search {
-      border: solid 1px #343a40;
+      border: solid 1px #616161;
     }
     .input-group-append .btn, .input-group-prepend .btn {
       z-index: 0;
@@ -68,7 +87,7 @@
       float: left;
     }
     .selectbox-3 {
-      width: 40%;
+      width: 35%;
       float: left;
     }
     .calender {
@@ -79,7 +98,7 @@
     }
     .btn-link {
       color: #2ead1e;
-    }
+    } 
     /*table*/
     .table td, .table th {
       border: 1px solid #dee2e6;
@@ -92,9 +111,21 @@
       font-size: 1.125em;
       color: #2b726f;
     }
-    .spaaker-select {
-      width: 80%;
+    .speaker-select {
       border-radius: 50px;
+      border-color: #5b5b5b;
+      color: #505050;
+    }
+    .speaker-box {
+      border-radius: 50px;
+      border-color: #5b5b5b;
+      color: #505050;
+    }
+    .select-test-result {
+      width: 150px;
+      border-radius: 50px;
+      border-color: #5b5b5b;
+      color: #505050;
     }
     /*pagination*/
     .footer-pagination {
@@ -240,10 +271,46 @@
       width: 100%;
       display: inherit;
     }
-    /* .upload-form {
+    .file-input-textbox {
+      width: 615px;
       height: 80px;
-      border-color: #04c73b;
-    } */
+      border: solid 1px #04c73b;
+      float: left;
+      margin-right: 15px;
+    }
+    .file-input-div {
+      position: relative; 
+      top:0;
+      left: 0;
+      width: 130px;
+      height: 45px; 
+      overflow: hidden;
+    }
+    .file-input-button {
+    width: 130px;
+    height: 45px; 
+    margin-left: 15px;
+    position: absolute; 
+    right: 0;
+    top: 0px;
+    border-radius: 50px;
+    color: #505050;
+    border: solid 1px #04c73b;
+    }
+    .file-input-hidden {
+    width: 130px;
+    height: 45px; 
+    font-size: 45px; 
+    position: absolute; 
+    right: 0px; 
+    top: 0px; 
+    opacity: 0; 
+    filter: alpha(opacity=0); 
+    -ms-filter: "alpha(opacity=0)"; 
+    -khtml-opacity: 0; 
+    -moz-opacity: 0;
+    cursor: pointer;
+    }
     .upload-btn2 {
       border-color: #525252;
       color: #525252;
@@ -299,17 +366,18 @@
             <div class="container d-flex bd-highlight mb-3">
               <span class="mr-auto p-2 bd-highlight">구분</span>
               <button class="p-2 bd-highlight reset" onClick="resetClick('checkbox1');">
-                <i class="fas fa-sync-alt reset-btn"></i>초기화
+                <i class="fas fa-sync-alt reset-btn"></i> 
+                초기화
               </button>
             </div>
             <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-outline-dark btn-checkbox1">
+              <label class="btn btn-checkbox btn-checkbox1">
                   <input type="checkbox" class="checkbox1" name="options" id="option1" autocomplete="off"> 읽기오류
               </label>
-              <label class="btn btn-outline-dark btn-checkbox1">
+              <label class="btn btn-checkbox btn-checkbox1">
                   <input type="checkbox" class="checkbox1" name="options" id="option2" autocomplete="off"> 이상없음
               </label>
-              <label class="btn btn-outline-dark btn-checkbox1">
+              <label class="btn btn-checkbox btn-checkbox1">
                   <input type="checkbox" class="checkbox1" name="options" id="option3" autocomplete="off"> 기타
               </label>
             </div>
@@ -323,19 +391,19 @@
               </button>
             </div>
             <div class="container btn-group btn-group-toggle" id="reset" data-toggle="buttons">
-              <label class="btn btn-outline-dark btn-checkbox2">
+              <label class="btn btn-checkbox btn-checkbox2">
                   <input type="checkbox" class="checkbox2" name="options" id="option1" autocomplete="off"> 완료
               </label>
-              <label class="btn btn-outline-dark btn-checkbox2">
+              <label class="btn btn-checkbox btn-checkbox2">
                   <input type="checkbox" class="checkbox2" name="options" id="option2" autocomplete="off"> 자동완료
               </label>
-              <label class="btn btn-outline-dark btn-checkbox2">
+              <label class="btn btn-checkbox btn-checkbox2">
                   <input type="checkbox" class="checkbox2" name="options" id="option3" autocomplete="off"> 부분완료
               </label>
-              <label class="btn btn-outline-dark btn-checkbox2">
+              <label class="btn btn-checkbox btn-checkbox2">
                   <input type="checkbox" class="checkbox2" name="options" id="option3" autocomplete="off"> 확인요청
               </label>
-              <label class="btn btn-outline-dark btn-checkbox2">
+              <label class="btn btn-checkbox btn-checkbox2">
                   <input type="checkbox" class="checkbox2" name="options" id="option3" autocomplete="off"> 재확인요청
               </label>
             </div>
@@ -349,16 +417,16 @@
               </button>
             </div>
             <div class="container btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-outline-dark btn-checkbox3">
+              <label class="btn btn-checkbox btn-checkbox3">
                   <input type="checkbox" class="checkbox3" name="options" id="option1" autocomplete="off"> 일치
               </label>
-              <label class="btn btn-outline-dark  btn-checkbox3">
+              <label class="btn btn-checkbox  btn-checkbox3">
                   <input type="checkbox" class="checkbox3" name="options" id="option2" autocomplete="off"> 불일치
               </label>
-              <label class="btn btn-outline-dark  btn-checkbox3">
+              <label class="btn btn-checkbox btn-checkbox3">
                   <input type="checkbox" class="checkbox3" name="options" id="option3" autocomplete="off"> 예상합성음 필요
               </label>
-              <label class="btn btn-outline-dark  btn-checkbox3">
+              <label class="btn btn-checkbox  btn-checkbox3">
                   <input type="checkbox" class="checkbox3" name="options" id="option3" autocomplete="off"> 추가 불일치
               </label>
             </div>
@@ -402,10 +470,12 @@
               <option>BTS ID</option>
             </select>
             <!--calender-->
-            <span class="input-group mb-3 calender">               
-              <button><i class="far fa-calendar-alt" style="font-size: 16px; color: #0a746f;"></i></button>
-              <input type="text" class="form-control input-calender" placeholder="calender" aria-label="Recipient's username" aria-describedby="button-addon2">
-            </span >
+            <div class="input-group mb-3 col-sm-6">
+              <div class="input-group-prepend">
+                  <button class="input-group-text border-right-0 rounded-left bg-white" id="basic-addon1"><i class="far fa-calendar-alt" style="color: #0a746f;"></i></button>
+              </div>
+              <input type="text" class="form-control border-left-0" placeholder="calender" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
             <!--calender-->
           </div>
           <div class="col-2">
@@ -446,31 +516,37 @@
               <td>11:11</td>
               <td>열한시 십일분</td>
               <td>십일 다시 십일</td>
-              <td>
-                <select class="custom-select spaaker-select">
-                  <option selected>미진</option>
-                  <option>유인나</option>
-                  <option>유인나</option>
-                  <option>유인나</option>
-                  <option>유인나</option>
-                </select>
+              <td style="width: 160px;">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="input-group-text speaker-box border-right-0 bg-white" id="basic-addon1"><i class="fas fa-volume-down"></i></button>
+                    </div>
+                    <select class="custom-select speaker-select border-left-0">
+                        <option selected>미진</option>
+                        <option>유인나</option>
+                        <option>유인나</option>
+                        <option>유인나</option>
+                        <option>유인나</option>
+                      </select>
+                </div>
+                
               </td>
               <td>-</td>
               <td>2</td>
               <td>2019.09-226</td>
               <td>불일치</td>
-              <td>
-                <select class="custom-select spaaker-select">
-                  <option selected>미진</option>
-                  <option>유인나</option>
-                  <option>유인나</option>
-                  <option>유인나</option>
-                  <option>유인나</option>
+              <td style="width: 160px;">
+                <select class="custom-select select-test-result">
+                  <option>완료</option>
+                  <option>자동 완료</option>
+                  <option>부분 완료</option>
+                  <option>확인 요청</option>
+                  <option selected>재확인 요청</option>
                 </select>
               </td>
               <td>관리자1</td>
               <td>2019-09-11</td>
-              <td><button><i class="fas fa-history"></i></button></td>
+              <td><button><i %= octicon "info" %></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
@@ -709,10 +785,11 @@
               <tr>
                 <th scope="row" class="h5">표현</th>
                 <td>
-                  <input type="text" class="form-control upload-form" placeholder="표현을 입력해 주세요." aria-label="Username" aria-describedby="basic-addon1">
-                  <label class="btn btn-outline-success upload-file">
-                      <input type="file" name="options" id="option2" autocomplete="off"> 불러오기
-                  </label>
+                  <input type="text" id="fileName" class="file-input-textbox" readonly="readonly">
+                  <div class="file-input-div">
+                    <input type="button" value="불러오기" class="btn btn-outline-success file-input-button" />
+                    <input type="file" class="file-input-hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
+                  </div>
                 </td>
               </tr>
             </tbody>
