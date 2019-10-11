@@ -100,6 +100,10 @@
       color: #2ead1e;
     } 
     /*table*/
+    .expression-table {
+      height: 70vh;
+      background: pink;
+    }
     .table td, .table th {
       border: 1px solid #dee2e6;
       vertical-align: middle !important;
@@ -107,7 +111,7 @@
     .table-striped tbody tr:nth-of-type(odd) {
       background-color: #f7fbf7;
     }
-    .fa-history, .fa-trash-alt {
+    .fa-info-circle, .fa-trash-alt {
       font-size: 1.125em;
       color: #2b726f;
     }
@@ -156,7 +160,7 @@
       left: 0;
       display: none;
     }
-    .add-modal,.upload-modal {
+    .add-modal,.upload-modal,.detail-modal {
       width: 1000px; 
       height: 640px;
       background: #fff;
@@ -287,29 +291,29 @@
       overflow: hidden;
     }
     .file-input-button {
-    width: 130px;
-    height: 45px; 
-    margin-left: 15px;
-    position: absolute; 
-    right: 0;
-    top: 0px;
-    border-radius: 50px;
-    color: #505050;
-    border: solid 1px #04c73b;
+      width: 130px;
+      height: 45px; 
+      margin-left: 15px;
+      position: absolute; 
+      right: 0;
+      top: 0px;
+      border-radius: 50px;
+      color: #505050;
+      border: solid 1px #04c73b;
     }
     .file-input-hidden {
-    width: 130px;
-    height: 45px; 
-    font-size: 45px; 
-    position: absolute; 
-    right: 0px; 
-    top: 0px; 
-    opacity: 0; 
-    filter: alpha(opacity=0); 
-    -ms-filter: "alpha(opacity=0)"; 
-    -khtml-opacity: 0; 
-    -moz-opacity: 0;
-    cursor: pointer;
+      width: 130px;
+      height: 45px; 
+      font-size: 45px; 
+      position: absolute; 
+      right: 0px; 
+      top: 0px; 
+      opacity: 0; 
+      filter: alpha(opacity=0); 
+      -ms-filter: "alpha(opacity=0)"; 
+      -khtml-opacity: 0; 
+      -moz-opacity: 0;
+      cursor: pointer;
     }
     .upload-btn2 {
       border-color: #525252;
@@ -325,7 +329,42 @@
       color: #fff;
       border: none;
     }
-
+    /*상세정보 모달창*/
+    .detail-modal {
+      width: 1600px;
+      height: 600px;
+    }
+    .detail-container {
+      padding: 0;
+      height: 130px;
+    }
+    .detail-input {
+      padding: 0;
+      background: none;
+    }
+    .detail-memo-input {
+      vertical-align: text-top;
+      margin-left: 15px;
+      width: 95%;
+      height: 80px; 
+      border: solid 1px #c0c0c0;
+    }
+    .detail-table {
+      height: 260px;
+      overflow-x: hidden;
+      text-align: center;
+    }
+    .detail-btn {
+      float: right;
+      width: 150px;
+      height: 50px;
+      color: #00d102;
+      border-color: #00d102;
+    }
+    .detail-btn:hover {
+      background: #00d102;
+      color: #fff;
+    }
   </style>
   <script>
     //선택 초기화
@@ -354,8 +393,15 @@
       document.getElementById("upload-container").style.display="block";
     }
     function uploadCancelClick() {
-          document.getElementById("upload-container").style.display="none";
-      }   
+      document.getElementById("upload-container").style.display="none";
+    }
+    //상세정보 모달창   
+    function detailBtnClick() {
+      document.getElementById("detail-container").style.display="block";
+    }
+    function detailCancelClick() {
+      document.getElementById("detail-container").style.display="none";
+    }
   </script>
   </head>
   <body>
@@ -480,15 +526,15 @@
           </div>
           <div class="col-2">
             <button type="button" class="btn btn-link" onclick="uploadBtnClick();">
-              <i class="fas fa-long-arrow-alt-up"></i>&nbsp;업로드</button>
+              <i class="fas fa-upload"></i>&nbsp;업로드</button>
             <button type="button" class="btn btn-link">
-              <i class="fas fa-long-arrow-alt-down"></i>&nbsp;다운로드</button>
+              <i class="fas fa-download"></i>&nbsp;다운로드</button>
             <button type="button" class="btn btn-link" id="add-modal-btn" onclick="addBtnClick();">
               <i class="fas fa-plus"></i>&nbsp;추가</button>
           </div>
         </div>
       </div>
-      <div class="table"><!--table-->
+      <div class="table expression-table"><!--table-->
         <table class="table table-striped">
           <thead>
             <tr>
@@ -529,7 +575,6 @@
                         <option>유인나</option>
                       </select>
                 </div>
-                
               </td>
               <td>-</td>
               <td>2</td>
@@ -546,7 +591,7 @@
               </td>
               <td>관리자1</td>
               <td>2019-09-11</td>
-              <td><button><i %= octicon "info" %></i></button></td>
+              <td><button onclick="detailBtnClick();"><i class="fas fa-info-circle"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
@@ -563,7 +608,7 @@
               <td></td>
               <td>관리자1</td>
               <td>2019-09-11</td>
-              <td><button><i class="fas fa-history"></i></button></td>
+              <td><button onclick="detailBtnClick();"><i class="fas fa-info-circle"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
@@ -580,7 +625,7 @@
               <td></td>
               <td>관리자1</td>
               <td>2019-09-11</td>
-              <td><button><i class="fas fa-history"></i></button></td>
+              <td><button onclick="detailBtnClick();"><i class="fas fa-info-circle"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
           </tbody>
@@ -802,89 +847,117 @@
       <div class="upload-modal-background"></div>
     </div>
     <!--//업로드버튼 모달-->
-    <!--업로드버튼 모달-->
-    <div class="container-fluid container-modal" id="upload-container">
-        <div class="upload-modal">
-          <p class="h4">파일 업로드</p>
-          <div class="row upload-row">
-              <div class="col-8">
-                <p>csv 파일만 업로드 가능합니다.</br>
-                  업로드 될 파일에는 '태그','표현'등의 제목이 첫 행에 있어야 합니다.</br>
-                </br>
-                인식가능한 제목:</br>
-                태그/ 표현/ 예상 합성음/ 엔진 합성음/ 테스트 결과/ NLP결과/ 카테고리/ BTS ID/ 메모</br>
-                </br>
-                이외의 제목은 모두 무시됩니다.</br>
-                만약 제목 행이 없다면 첫 열은 '태그', 두번째 열은 '표현'으로 인식됩니다.
-                </p>
-              </div>
-              <div class="col-4">
-                <div class="container d-flex bd-highlight mb-3 container-ex">
-                  <span class="mr-auto p-2 bd-highlight">예시)</span>
-                  <button class="p-2 bd-highlight csv">
-                    csv 폼 받기
-                  </button>
+    <!--상세정보버튼 모달-->
+    <div class="container-fluid container-modal" id="detail-container">
+        <div class="detail-modal">
+          <div class="container-fluid detail-container">
+              <div class="row detail-input">
+                <div class="col-1 h5">
+                  상세정보
                 </div>
-                <table class="table upload-table-ex">
-                  <thead>
-                    <tr>
-                    <th>태그</th>
-                    <th>표현</th>
-                  </tr>
-                  <thead>
-                    <tbody>
-                      <tr>
-                        <td>읽기오류</td>
-                        <td>1997</td>
-                      </tr>
-                      <tr>
-                        <td>기타</td>
-                        <td>어뜨무러차</td>
-                      </tr>
-                      <tr>
-                        <td>읽기오류</td>
-                        <td>개취네쒜</td>
-                      </tr>
-                    </tbody>
-                </table>
+                <div class="col-11">
+                  <span class="h5">번호</span> : 198148 | 
+                  <span class="h5">표현</span> : 동해물과백두산이
+                  <div>
+                    <span class="h5">메모</span>
+                    <input type="text" class="detail-memo-input" placeholder="화자별로 합성음 확인이 필요합니다.">
+                  </div>  
+                </div>
               </div>
             </div>
-          <table class="table upload-modal-contents">
-            <tbody>
-              <tr>
-                <th scope="row" class="h5">중복처리</th>
-                <td>
-                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-outline-success upload-radio-tag">
-                      <input type="radio" name="options" id="option1" autocomplete="off"> 무시하기
-                    </label>
-                    <label class="btn btn-outline-success upload-radio-tag">
-                      <input type="radio" name="options" id="option2" autocomplete="off"> 덮어쓰기
-                    </label>
-                  </div>
-                  <!-- <span class="upload-note">*중복되는 항목에 대하여 무시합니다.</span> -->
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="h5">표현</th>
-                <td>
-                  <input type="text" id="fileName" class="file-input-textbox" readonly="readonly">
-                  <div class="file-input-div">
-                    <input type="button" value="불러오기" class="btn btn-outline-success file-input-button" />
-                    <input type="file" class="file-input-hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <!--table-->
+          <div class="table detail-table">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">예상 합성음</th>
+                  <th scope="col">엔진 합성음</th>
+                  <th scope="col">카테고리</th>
+                  <th scope="col">BTS ID</th>
+                  <th scope="col">엔진 정보</th>
+                  <th scope="col">NLP 결과</th>
+                  <th scope="col">테스트 결과</th>
+                  <th scope="col">수정일</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>동해물과 백두산이</td>
+                  <td>동해물과 배두사니</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>2019.09-226</td>
+                  <td>추가 불일치</td>
+                  <td>재확인 요청</td>
+                  <td>2019-09-26 11:05</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>동해물과 백두산이</td>
+                  <td>동해물과 배두사니</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>2019.09-226</td>
+                  <td>추가 불일치</td>
+                  <td>재확인 요청</td>
+                  <td>2019-09-26 11:05</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>동해물과 백두산이</td>
+                  <td>동해물과 배두사니</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>2019.09-226</td>
+                  <td>추가 불일치</td>
+                  <td>재확인 요청</td>
+                  <td>2019-09-26 11:05</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>동해물과 백두산이</td>
+                  <td>동해물과 배두사니</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>2019.09-226</td>
+                  <td>추가 불일치</td>
+                  <td>재확인 요청</td>
+                  <td>2019-09-26 11:05</td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>동해물과 백두산이</td>
+                  <td>동해물과 배두사니</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>2019.09-226</td>
+                  <td>추가 불일치</td>
+                  <td>재확인 요청</td>
+                  <td>2019-09-26 11:05</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>동해물과 백두산이</td>
+                    <td>동해물과 배두사니</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>2019.09-226</td>
+                    <td>추가 불일치</td>
+                    <td>재확인 요청</td>
+                    <td>2019-09-26 11:05</td>
+                  </tr> 
+              </tbody>
+            </table>
+          </div>
           <div class="add-modal-btn-container">
-            <button type="button" class="btn btn-outline-success upload-btn2" onclick="uploadCancelClick();">취소</button>
-            <button type="button" class="btn btn-outline-success upload-btn2">추가</button>
+            <button type="button" class="btn btn-outline-success detail-btn" onclick="detailCancelClick();">닫기</button>
           </div>
         </div>
       <div class="upload-modal-background"></div>
     </div>
-    <!--//업로드버튼 모달-->
+    <!--//상세정보 모달-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
