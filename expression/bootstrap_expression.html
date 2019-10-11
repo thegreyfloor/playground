@@ -102,7 +102,7 @@
     /*table*/
     .expression-table {
       height: 70vh;
-      background: pink;
+      overflow-x: hidden;
     }
     .table td, .table th {
       border: 1px solid #dee2e6;
@@ -296,7 +296,7 @@
       margin-left: 15px;
       position: absolute; 
       right: 0;
-      top: 0px;
+      top: 0;
       border-radius: 50px;
       color: #505050;
       border: solid 1px #04c73b;
@@ -332,20 +332,23 @@
     /*상세정보 모달창*/
     .detail-modal {
       width: 1600px;
-      height: 600px;
+      height: 570px;
     }
     .detail-container {
       padding: 0;
-      height: 130px;
+      height: 150px;
     }
     .detail-input {
       padding: 0;
       background: none;
     }
+    .detail-memo {
+      margin-top: 15px;
+    }
     .detail-memo-input {
       vertical-align: text-top;
       margin-left: 15px;
-      width: 95%;
+      width: 96%;
       height: 80px; 
       border: solid 1px #c0c0c0;
     }
@@ -356,6 +359,7 @@
     }
     .detail-btn {
       float: right;
+      margin-top: 10px;
       width: 150px;
       height: 50px;
       color: #00d102;
@@ -564,16 +568,16 @@
               <td>십일 다시 십일</td>
               <td style="width: 160px;">
                 <div class="input-group">
-                    <div class="input-group-prepend">
-                        <button class="input-group-text speaker-box border-right-0 bg-white" id="basic-addon1"><i class="fas fa-volume-down"></i></button>
-                    </div>
-                    <select class="custom-select speaker-select border-left-0">
-                        <option selected>미진</option>
-                        <option>유인나</option>
-                        <option>유인나</option>
-                        <option>유인나</option>
-                        <option>유인나</option>
-                      </select>
+                  <div class="input-group-prepend">
+                    <button class="input-group-text speaker-box border-right-0 bg-white" id="basic-addon1"><i class="fas fa-volume-down"></i></button>
+                  </div>
+                  <select class="custom-select speaker-select border-left-0">
+                    <option selected>미진</option>
+                    <option>유인나</option>
+                    <option>유인나</option>
+                    <option>유인나</option>
+                    <option>유인나</option>
+                  </select>ㄴ
                 </div>
               </td>
               <td>-</td>
@@ -833,7 +837,7 @@
                   <input type="text" id="fileName" class="file-input-textbox" readonly="readonly">
                   <div class="file-input-div">
                     <input type="button" value="불러오기" class="btn btn-outline-success file-input-button" />
-                    <input type="file" class="file-input-hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
+                    <input type="file" class="file-input-hidden" onchange="javascript: document.getElementById('fileName').value = this.value"/>
                   </div>
                 </td>
               </tr>
@@ -852,15 +856,15 @@
         <div class="detail-modal">
           <div class="container-fluid detail-container">
               <div class="row detail-input">
-                <div class="col-1 h5">
+                <div class="col-1 h4" style="padding: 0;">
                   상세정보
                 </div>
-                <div class="col-11">
+                <div class="col-11" style="padding: 0;">
                   <span class="h5">번호</span> : 198148 | 
                   <span class="h5">표현</span> : 동해물과백두산이
-                  <div>
+                  <div class="detail-memo">
                     <span class="h5">메모</span>
-                    <input type="text" class="detail-memo-input" placeholder="화자별로 합성음 확인이 필요합니다.">
+                    <textarea class="detail-memo-input" placeholder="화자별로 합성음 확인이 필요합니다."></textarea>
                   </div>  
                 </div>
               </div>
