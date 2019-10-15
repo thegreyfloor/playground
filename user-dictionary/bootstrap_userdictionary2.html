@@ -166,38 +166,111 @@
     }
     .tabmenu-add {
       height: 16%;
+      position: relative;
+      top: 0;
+      left: 0;
     }
-    .tabmenu {
+    .tab-add {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .tab-link {
+      width: 100%;
+      height: 28%;
+      color: #495057;
+      position: relative;
+      top:0;
+      left: 0;
+    }
+    .tab-link.current {
       width: 100%;
       height: 28%;
       background: #fff;
-    }
-  
-   
-    .add-btn {
-      width: 18%;
-      height: 40px;
-      border-radius: 50px;
-      border-color: #04c73b;
       color: #04c73b;
     }
-    .add-btn2,.upload-btn2 {
-      width: 45%;
-      height: 40px;
-      border-color: #525252;
-      color: #525252;
-      margin-left: 15px;
+    .menu-line {
+      width: 10px;
+      height: 100%;
+      background: #04c73b;
+      position: absolute;
+      left: 0;
+    }
+    .menu-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    /*화자*/
+    .add-contents {
+      width: 1000px;
+      height: 100%;
+      position: absolute;
+      top:0; 
+      left: 200px;
+      padding: 40px 40px;
+    }
+    .speaker-contents {
+      width: 270px;
+      text-align: center;
       float: left;
     }
-    .add-btn:hover,.add-btn2:hover {
+    .input-souce {
+      width: 100%;
+      height: 170px;
+      margin-top: 15px;
+      border: solid 1px #ced4da;
+      vertical-align: text-top;
+    }
+    .input-ex {
+      width: 100%;
+      height: 230px;
+      margin-top: 15px;
+      border: solid 1px #ced4da;
+    }
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+    .add-select-speaker {
+      width: 100%;
+      height: 40px;
+      border: solid 1px #ced4da;
+      margin-top: 15px;
+    }
+    .arrow-right {
+      width: 50px;
+      height: 100%;
+      float: left;
+    }
+    .add-btn {
+      width: 270px;
+      position: absolute;
+      bottom: 70px;
+    }
+    .add-btn1 {
+      width: 40%;
+      height: 40px;
+      float:left;
+      margin-right: 7%;
+      background: #b2b2b2;
+      color: #fff;
+      border: none;
+    }
+    .add-btn2{
+      width: 53%;
+      height: 40px;
+      background: #04c73b;
+      color: #fff;
+      border: none;
+    }
+    .add-btn1:hover,.add-btn2:hover {
       background: #04c73b;
       border: none;
     }
-    .add-modal-btn-container {
-      float: right;
-      width: 35%;
-    }
-    .add-modal-background,.upload-modal-background {
+    .add-modal-background{
       width: 100%;
       height: 100%;
       background: black;
@@ -205,6 +278,16 @@
       position: fixed;
       top: 0;
       left: 0;
+    }
+    .tab-content {
+      width: 270px;
+      position: absolute;
+      top: 40px;
+      right: 55px;
+      display: none;
+    }
+    .tab-content.current {
+      display: block;
     }
   </style>
   <script>
@@ -437,23 +520,76 @@
           <div class="tabmenu-add">
             <div class="h4 tab-add">추가</div>
           </div>
-          <div class="tabmenu">
+          <div class="tab-link current">
             <span class="menu-line"></span>
-            <p class="h5">화자</p>
+            <p class="h5 menu-title">화자</p>
           </div>
-          <div class="tabmenu">
-            <span class="menu-line"></span>
-            <p class="h5">공통</p>
+          <div class="tab-link">
+            <p class="h5 menu-title">공통</p>
           </div>
-          <div class="tabmenu">
-            <span class="menu-line"></span>
-            <p class="h5">서비스</p>
+          <div class="tab-link">
+            <p class="h5 menu-title">서비스</p>
           </div>
         </div>
-        
-        <div class="add-modal-btn-container">
-          <button type="button" class="btn btn-outline-success add-btn2" onclick="addCancelClick();">취소</button>
-          <button type="button" class="btn btn-outline-success add-btn2">추가</button>
+        <div class="add-contents">
+          <div class="speaker-contents">
+            <p class="h5">치환 전</p>
+            <textarea type="textarea" class="input-souce" placeholder="소스를 입력하세요." ></textarea>
+            <textarea type="textarea" class="input-ex" placeholder="소스가 포합된 예시문을 입력하세요." ></textarea>
+            <audio autoplay controls>
+                <source src="audio/The_Weeknd-I_Feel_It_Coming(cover_byJ.Fla).mp3" type="audio/mp3">
+            </audio>
+          </div>
+          <div class="arrow-right">
+            <i class="fas fa-caret-right"></i>
+            <i class="fas fa-caret-right"></i>
+          </div>
+          <div class="speaker-contents">
+              <p class="h5">치환 후</p>
+              <textarea type="textarea" class="input-souce" placeholder="타겟을 입력하세요." ></textarea>
+              <textarea type="textarea" class="input-ex" style="background: #ededed; "></textarea>
+              <audio autoplay controls>
+                  <source src="audio/The_Weeknd-I_Feel_It_Coming(cover_byJ.Fla).mp3" type="audio/mp3">
+              </audio>
+          </div>
+          <div class="speaker-contents" style="margin-left: 50px;">
+              <div class="add-btn">
+                <button type="button" class="btn btn-outline-success add-btn1" onclick="addCancelClick();">취소</button>
+                <button type="button" class="btn btn-outline-success add-btn2">추가
+                </button>
+              </div>  
+          </div>
+        </div>
+        <div id="tab-1" class="tab-content current">
+          <p class="h5" style="text-align: left;">적용할 화자</p>
+          <select class="add-select-speaker">
+            <option selected>화자를 선택하세요.</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+          </select>
+        </div>
+        <div id="tab-1" class="tab-content">
+          <p class="h5" style="text-align: left;">언어</p>
+          <select class="add-select-speaker">
+            <option selected>KR</option>
+            <option>EN</option>
+          </select>
+        </div>
+        <div id="tab-1" class="tab-content">
+          <p class="h5" style="text-align: left;">적용할 서비스</p>
+          <select class="add-select-speaker">
+            <option selected>서비스를 선택하세요.</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+          </select>
         </div>
       </div>
       <div class="add-modal-background"></div>
