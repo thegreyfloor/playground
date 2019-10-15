@@ -80,6 +80,7 @@
     /*filter-2*/
     .filter-2 {
       height: 100px;
+      display: none;
     }
     .select-filter {
       width: 70%;
@@ -142,7 +143,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      /* display: none; */
+      display: none;
     }
     .add-modal {
       width: 1200px; 
@@ -225,12 +226,14 @@
       margin-top: 15px;
       border: solid 1px #ced4da;
       vertical-align: text-top;
+      resize: none;
     }
     .input-ex {
       width: 100%;
       height: 230px;
       margin-top: 15px;
       border: solid 1px #ced4da;
+      resize: none;
     }
     audio {
       width: 100%;
@@ -293,6 +296,35 @@
     }
   </style>
   <script>
+//     function moreBtnClick() {
+//       var slidedownmenu = $("#slidedownmenu");
+ 
+//  // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+//  if( slidedownmenu.is(":visible") ){
+//   slidedownmenu.slideUp();
+//  }else{
+//   slidedownmenu.slideDown();
+//  }
+
+//     }
+    //탭메뉴
+//     $(document).ready(function(){
+	
+//   $('.tab-link').click(function(){
+//     alert();
+//     // var tab_id = $(this).attr('data-tab');
+
+//     // $('.tab-link').removeClass('current');
+//     // $('.tab-content').removeClass('current');
+
+//     // $(this).addClass('current');
+//     // $("#"+tab_id).addClass('current');
+//   })
+
+// })
+
+
+
     //추가 모달창
      function addBtnClick() {
       document.getElementById("add-container").style.display="block";
@@ -301,21 +333,7 @@
       document.getElementById("add-container").style.display="none";
     }
 
-    //탭메뉴
-    $(document).ready(function(){
-	
-      $('.tab-link').click(function(){
-        alert();
-        // var tab_id = $(this).attr('data-tab');
-
-        // $('.tab-link').removeClass('current');
-        // $('.tab-content').removeClass('current');
-
-        // $(this).addClass('current');
-        // $("#"+tab_id).addClass('current');
-      })
-
-    })
+    
   </script>
   </head>
   <body>
@@ -330,10 +348,10 @@
           </div>
           <div class="col-3">
             <select class="custom-select selectbox-search">
-              <option>소스</option>
-              <option>20</option>
-              <option>50</option>
-              <option>100</option>
+              <option>번호</option>
+              <option selected>소스</option>
+              <option>타겟</option>
+              <option></option>
             </select>     
             <input type="text" class="form-control input-search" placeholder="단어/문장을 집력하세요." aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
@@ -358,54 +376,69 @@
             <span class="h6">사전 종류</span>
             <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
               <label class="btn btn-outline-secondary">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked>Speaker
+                <input type="radio" name="options" id="option1" autocomplete="off" checked>화자
               </label>
               <label class="btn btn-outline-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> Common
+                <input type="radio" name="options" id="option2" autocomplete="off"> 공통
               </label>
               <label class="btn btn-outline-secondary">
-                <input type="radio" name="options" id="option3" autocomplete="off"> Service
+                <input type="radio" name="options" id="option3" autocomplete="off"> 서비스
               </label>
             </div>
             <button>초기화</button>
           </div>
           <div class="col-1">
             <div class="btn-group">
-              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="btn dropdown-toggle" onclick="moreBtnClick()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 더보기&nbsp;
               </button>
-              </div>  
             </div>
           </div>
         </div>
-        <div class="row filter-2"><!--filter-2-->
+        <div class="row filter-2" id="slidedownmenu"><!--filter-2-->
           <div class="col-2">
             <button type="button" class="btn btn-outline-success btn-up">
               <i class="fas fa-long-arrow-alt-up"></i>
-              &nbsp;upload file
+              &nbsp;파일 업로드
             </button> 
             <button type="button" class="btn btn-outline-success btn-down">
               <i class="fas fa-long-arrow-alt-down"></i>
-              &nbsp;down
+              &nbsp;다운로드
             </button> 
           </div>
           <div class="col-3">
-            <span class="h6">Speaker</span>
+            <span class="h6">화자</span>
             <select class="container custom-select select-filter">
-              <option>none</option>
-              <option>20</option>
-              <option>50</option>
-              <option>100</option>
+              <option selected>없음</option>
+              <option>하나(한국인,여성)</option>
+              <option>규리(한국인,여성)</option>
+              <option>미진(한국인,여성)</option>
+              <option>딘나(한국인,여성)</option>
+              <option>진호(한국인,남성)</option>
             </select>
             <button>Reset</button>
           </div>
           <div class="col-3">
-            <span class="h6">Service</span>
+            <span class="h6">서비스</span>
             <select class="container custom-select select-filter">
-              <option>none</option>
-              <option>20</option>
-              <option>50</option>
-              <option>100</option>
+              <option selected>없음</option>
+              <option>Amica</option>
+              <option>Whale</option>
+              <option>Papago</option>
+              <option>Papago Dev</option>
+              <option>Labspace</option>
+              <option>Worksmobile</option>
+              <option>Naver</option>
+              <option>k-board</option>
+              <option>Local & Product</option>
+              <option>Clova JP</option>
+              <option>SNOW</option>
+              <option>Maps mobils</option>
+              <option>AI Production</option>
+              <option>Gatebox</option>
+              <option>Dialog</option>
+              <option>Clova Device</option>
+              <option>Plug</option>
             </select>
             <button>Reset</button>
           </div>
@@ -434,16 +467,16 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">No</th>
-              <th scope="col">Engine</th>
-              <th scope="col">Source</th>
-              <th scope="col">Target</th>
-              <th scope="col">Target Speaker</th>
-              <th scope="col">Target Service</th>
-              <th scope="col">Common</th>
-              <th scope="col">Created At</th>
-              <th scope="col">Edit</th>
-              <th scope="col">Delet</th>
+              <th scope="col">번호</th>
+              <th scope="col">엔진</th>
+              <th scope="col">소스</th>
+              <th scope="col">타겟</th>
+              <th scope="col">적용 화자</th>
+              <th scope="col">적용 서비스</th>
+              <th scope="col">공통</th>
+              <th scope="col">생성일</th>
+              <th scope="col">수정</th>
+              <th scope="col">삭제</th>
             </tr>
           </thead>
           <tbody>
@@ -616,6 +649,8 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
