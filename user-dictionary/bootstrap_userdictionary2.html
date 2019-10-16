@@ -138,7 +138,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      /* display: none; */
+      display: none;
     }
     .add-modal {
       width: 1200px; 
@@ -152,6 +152,10 @@
       text-align: left;
       z-index: 1;
     }  
+    .modal-content {
+      border-radius: 0;
+      height: 640px;
+    }
     .modal-tab-bg {
       width: 200px;
       height: 100%;
@@ -288,6 +292,9 @@
     .tab-content.current {
       display: block;
     }
+    .modal-container {
+      float: left;
+    }
   </style>
   <script>
     //추가 모달창
@@ -346,7 +353,8 @@
       <div class="filter"><!---filter-1-->
         <div class="row filter-1">
           <div class="col-1">
-            <button type="button" class="btn btn-success btn-add" onclick="addBtnClick();">
+            <button type="button" class="btn btn-success btn-add" data-toggle="modal" data-target="#exampleModalCenter"
+            onclick="addBtnClick();">
               <i class="fas fa-plus" style="color: #fff; margin-right: 10px;"></i>
               추가
             </button>
@@ -651,7 +659,54 @@
       <div class="add-modal-background"></div>
     </div>
     <!--//추가버튼 모달-->
-
+    <!-- Modal -->
+<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+          <div class="modal-tab-bg">
+              <div class="tabmenu-add">
+                <div class="h4 tab-add">추가</div>
+              </div>
+              <div class="tab-link current" data-tab="tab-1">
+                <span class="menu-line"></span>
+                <p class="h5 menu-title">화자</p>
+              </div>
+              <div class="tab-link" data-tab="tab-2">
+                <p class="h5 menu-title">공통</p>
+              </div>
+              <div class="tab-link" data-tab="tab-3">
+                <p class="h5 menu-title">서비스</p>
+              </div>
+            </div>
+                <div class="container-fluid modal-container">
+                  <div class="row">
+                    <div class="col-md-4">.col-md-4</div>
+                    <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
+                    <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-9">
+                      Level 1: .col-sm-9
+                      <div class="row">
+                        <div class="col-8 col-sm-6">
+                          Level 2: .col-8 .col-sm-6
+                        </div>
+                        <div class="col-4 col-sm-6">
+                          Level 2: .col-4 .col-sm-6
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      </div>
+    </div>
+  </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
