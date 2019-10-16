@@ -150,6 +150,10 @@
       background: #2ead1e;
       color: #fff
     }
+    .page-link-active {
+      background: #2ead1e;
+      color: #fff
+    }
     .page-next, .page-pre {
       color: #2ead1e;
     }
@@ -163,6 +167,7 @@
       top: 0;
       left: 0;
       display: none;
+      z-index: 10;
     }
     .add-modal,.upload-modal,.detail-modal {
       width: 1000px; 
@@ -320,18 +325,7 @@
       border: solid 1px #04c73b;
     }
     .file-input-hidden {
-      width: 130px;
-      height: 45px; 
-      font-size: 45px; 
-      position: absolute; 
-      right: 0px; 
-      top: 0px; 
-      opacity: 0; 
-      filter: alpha(opacity=0); 
-      -ms-filter: "alpha(opacity=0)"; 
-      -khtml-opacity: 0; 
-      -moz-opacity: 0;
-      cursor: pointer;
+      display: none;
     }
     .upload-btn2 {
       border-color: #525252;
@@ -417,6 +411,10 @@
     }
     function uploadCancelClick() {
       document.getElementById("upload-container").style.display="none";
+    }
+    //업로드 파일불러오기 버튼
+    function inputFile() {
+      document.getElementById("inputFile").click();
     }
     //상세정보 모달창   
     function detailBtnClick() {
@@ -670,7 +668,7 @@
                       <span class="sr-only">Previous</span>
                     </a>
                   </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link page-link-active" href="#" >1</a></li>
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item"><a class="page-link" href="#">4</a></li>
@@ -869,8 +867,8 @@
                 <td>
                   <input type="text" id="fileName" class="file-input-textbox" readonly="readonly">
                   <div class="file-input-div">
-                    <input type="button" value="불러오기" class="btn btn-outline-success file-input-button" />
-                    <input type="file" class="file-input-hidden" onchange="javascript: document.getElementById('fileName').value = this.value"/>
+                    <input type="button" value="불러오기" class="btn btn-outline-success file-input-button" onclick="inputFile();" />
+                    <input type="file" class="file-input-hidden" id="inputFile" onchange="javascript: document.getElementById('fileName').value = this.value"/>
                   </div>
                 </td>
               </tr>
