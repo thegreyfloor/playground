@@ -296,6 +296,27 @@
     }
   </style>
   <script>
+     //추가 모달창
+     function addBtnClick() {
+      document.getElementById("add-container").style.display="block";
+    }
+    function addCancelClick() {
+      document.getElementById("add-container").style.display="none";
+    }
+    //선택 초기화
+    const checkboxControl = function(className) {
+      const target = document.querySelectorAll(`.${className}`);
+      const lable = document.querySelectorAll(`.btn-${className}`)
+      for(let i = 0; i < target.length; i++) {
+        target[i].checked = false;
+        lable[i].classList.remove('active');
+      }
+    }
+
+    function resetClick(className) {
+      checkboxControl(className);
+    }
+
 //     function moreBtnClick() {
 //       var slidedownmenu = $("#slidedownmenu");
  
@@ -322,18 +343,6 @@
 //   })
 
 // })
-
-
-
-    //추가 모달창
-     function addBtnClick() {
-      document.getElementById("add-container").style.display="block";
-    }
-    function addCancelClick() {
-      document.getElementById("add-container").style.display="none";
-    }
-
-    
   </script>
   </head>
   <body>
@@ -363,29 +372,29 @@
           <div class="col-3">
             <span class="h6">엔진</span>
               <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked>HDTS
+                <label class="btn btn-outline-secondary btn-checkbox1">
+                    <input type="radio"  class="checkbox1" name="options" id="option1" autocomplete="off" checked>HDTS
                 </label>
-                <label class="btn btn-outline-secondary">
-                    <input type="radio" name="options" id="option2" autocomplete="off">NES
+                <label class="btn btn-outline-secondary btn-checkbox1">
+                    <input type="radio" class="checkbox1" name="options" id="option2" autocomplete="off">NES
                 </label>
               </div>
-              <button>초기화</button>
+              <button onClick="resetClick('checkbox1');">초기화</button>
           </div>
           <div class="col-4">
             <span class="h6">사전 종류</span>
             <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
-              <label class="btn btn-outline-secondary">
-                <input type="radio" name="options" id="option1" autocomplete="off" checked>화자
+              <label class="btn btn-outline-secondary btn-checkbox2">
+                <input type="radio" class="checkbox2" name="options" id="option1" autocomplete="off" checked>화자
               </label>
-              <label class="btn btn-outline-secondary">
-                <input type="radio" name="options" id="option2" autocomplete="off"> 공통
+              <label class="btn btn-outline-secondary btn-checkbox2">
+                <input type="radio" class="checkbox2" name="options" id="option2" autocomplete="off"> 공통
               </label>
-              <label class="btn btn-outline-secondary">
-                <input type="radio" name="options" id="option3" autocomplete="off"> 서비스
+              <label class="btn btn-outline-secondary btn-checkbox2">
+                <input type="radio" class="checkbox2" name="options" id="option3" autocomplete="off"> 서비스
               </label>
             </div>
-            <button>초기화</button>
+            <button onClick="resetClick('checkbox2');">초기화</button>
           </div>
           <div class="col-1">
             <div class="btn-group">
