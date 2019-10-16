@@ -40,7 +40,6 @@
     }
     .btn {
       border-radius: 0;
-      font-weight: 100;
     }
     .btn-add {
       width: 85%;
@@ -54,7 +53,6 @@
     }
     .btn-outline-success {
       width: 45%;
-      color: #000;
     }
     .selectbox-search {
       width: 35%;
@@ -104,9 +102,6 @@
       margin-bottom: 0!important;
     }
     /*table*/
-    .table {
-      padding: 0 15px 0 15px;
-    }
     .table td, .table th {
       border: 1px solid #dee2e6;
       vertical-align: middle !important;
@@ -143,14 +138,13 @@
       position: fixed;
       top: 0;
       left: 0;
-      display: none;
+      /* display: none; */
     }
     .add-modal {
       width: 1200px; 
       height: 640px;
       background: #fff;
       box-sizing: border-box;
-      /* display: block; */
       position: relative;
       top: 50%;
       left: 50%;
@@ -296,7 +290,7 @@
     }
   </style>
   <script>
-     //추가 모달창
+    //추가 모달창
      function addBtnClick() {
       document.getElementById("add-container").style.display="block";
     }
@@ -316,18 +310,19 @@
     function resetClick(className) {
       checkboxControl(className);
     }
-
-//     function moreBtnClick() {
-//       var slidedownmenu = $("#slidedownmenu");
+    //  더보기 slidedownmenu
+    function moreBtnClick() {
+      alert();
+      // var slidedownmenu = $(".filter-2");
  
-//  // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-//  if( slidedownmenu.is(":visible") ){
-//   slidedownmenu.slideUp();
-//  }else{
-//   slidedownmenu.slideDown();
-//  }
+      // // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
+      // if( slidedownmenu.is(":visible") ){
+      // slidedownmenu.slideUp();
+      // }else{
+      // slidedownmenu.slideDown();
+      // }
 
-//     }
+    }
     //탭메뉴
 //     $(document).ready(function(){
 	
