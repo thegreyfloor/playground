@@ -184,13 +184,13 @@
       left: 0;
       cursor: pointer;
     }
-    .tab-link.current {
+    /* .tab-link{
       width: 100%;
       height: 28%;
       background: #fff;
       color: #04c73b;
       cursor: pointer;
-    }
+    } */
     .menu-line {
       width: 10px;
       height: 100%;
@@ -289,9 +289,6 @@
       right: 55px;
       display: none;
     }
-    .tab-content.current {
-      display: block;
-    }
     .modal-container {
       float: left;
     }
@@ -355,25 +352,39 @@
 //   })
 
 // })
-    function tabMenuClick(type) {
-      if(type === 's') {
-        //화자 display:block, 공통, 서비스 display:none; 
-        document.getElementById('tab1').style.display = "block";
-        document.getElementById('tab2').style.display = "none";
-        document.getElementById('tab3').style.display = "none";
-      } else if(type === 'c') {
-        //공통
-        document.getElementById('tab1').style.display = "none";
-        document.getElementById('tab2').style.display = "block";
-        document.getElementById('tab3').style.display = "none";
 
-      } else {
-        //서비스
-        document.getElementById('tab1').style.display = "none";
-        document.getElementById('tab2').style.display = "none";
-        document.getElementById('tab3').style.display = "block";
-      }
+//
+  function tabMenuClick(type) {
+    if(type === 's') {
+      //화자 display:block, 공통, 서비스 display:none; 
+      element.style.backgroud= "#fff";
+      document.getElementById('tabMenu1').style.display = "block";
+      document.getElementById('tabMenu2').style.display = "none";
+      document.getElementById('tabMenu3').style.display = "none";
+      document.getElementById('tabSpeaker').style.display = "block";
+      document.getElementById('tabLanguage').style.display = "none";
+      document.getElementById('tabService').style.display = "none";
+    } else if(type === 'c') {
+      //공통
+      var element.style.backgroud= "#fff";
+      document.getElementById('tabMenu1').style.display = "none";
+      document.getElementById('tabMenu2').style.display = "block";
+      document.getElementById('tabMenu3').style.display = "none";
+      document.getElementById('tabSpeaker').style.display = "none";
+      document.getElementById('tabLanguage').style.display = "block";
+      document.getElementById('tabService').style.display = "none";
+
+    } else {
+      //서비스
+      element.style.backgroud= "#fff";
+      document.getElementById('tabMenu1').style.display = "none";
+      document.getElementById('tabMenu2').style.display = "none";
+      document.getElementById('tabMenu3').style.display = "block";
+      document.getElementById('tabSpeaker').style.display = "none";
+      document.getElementById('tabLanguage').style.display = "none";
+      document.getElementById('tabService').style.display = "block";
     }
+  }
 
 
   </script>
@@ -615,13 +626,15 @@
             <div class="h4 tab-add">추가</div>
           </div>
           <div class="tab-link current" data-tab="tab-1" onclick="tabMenuClick('s');">
-            <span class="menu-line"></span>
+            <span id="tabMenu1" class="menu-line"></span>
             <p class="h5 menu-title">화자</p>
           </div>
           <div class="tab-link" data-tab="tab-2" onclick="tabMenuClick('c');">
+            <span id="tabMenu2" class="menu-line"></span>
             <p class="h5 menu-title">공통</p>
           </div>
           <div class="tab-link" data-tab="tab-3" onclick="tabMenuClick('sv');">
+            <span id="tabMenu3" class="menu-line"></span>
             <p class="h5 menu-title">서비스</p>
           </div>
         </div>
@@ -654,7 +667,7 @@
               </div>  
           </div>
         </div>
-        <div id="tab1" class="tab-content current">
+        <div id="tabSpeaker" class="tab-content current">
           <p class="h5" style="text-align: left;">적용할 화자</p>
           <select class="add-select-speaker">
             <option selected>화자를 선택하세요.</option>
@@ -666,14 +679,14 @@
             <option>1</option>
           </select>
         </div>
-        <div id="tab2" class="tab-content">
+        <div id="tabLanguage" class="tab-content">
           <p class="h5" style="text-align: left;">언어</p>
           <select class="add-select-speaker">
             <option selected>KR</option>
             <option>EN</option>
           </select>
         </div>
-        <div id="tab3" class="tab-content">
+        <div id="tabService" class="tab-content">
           <p class="h5" style="text-align: left;">적용할 서비스</p>
           <select class="add-select-speaker">
             <option selected>서비스를 선택하세요.</option>
