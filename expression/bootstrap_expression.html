@@ -90,20 +90,27 @@
       float: left;
     }
     .selectbox-3 {
-      width: 35%;
+      width: 23%;
       float: left;
     }
     .calender {
-      width: 55%;
+      max-width: 77%;
     }
     .mb-3, .my-3 {
       margin-bottom: 0!important;
     }
     .btn-link {
       color: #2ead1e;
+      padding: 6px 4px;
     } 
+    .btn-link span {
+      color: #505050;
+      margin-left: 5px;
+      font-size: 0.875em;
+    }
     .btn-link:hover {
       color: #2ead1e;
+      text-decoration: none;
     }
     /*table*/
     .expression-table {
@@ -517,7 +524,7 @@
             </div>
           </div>
           <div class="col-2">
-            <span class="filter-title">화자&nbsp;&nbsp;</span>
+            <span class="filter-title h6">화자&nbsp;&nbsp;</span>
             <select class="custom-select selectbox-2">
               <option>전체</option>
               <option>테스트 문장</option>
@@ -527,7 +534,7 @@
               <option>BTS ID</option>
             </select>
           </div>
-          <div class="col-4">
+          <div class="container col-4">
             <select class="custom-select selectbox-3">
               <option>전체</option>
               <option>테스트 문장</option>
@@ -537,21 +544,21 @@
               <option>BTS ID</option>
             </select>
             <!--calender-->
-            <div class="input-group mb-3 col-sm-6">
+            <div class="input-group mb-3 col-sm-7 calender">
               <div class="input-group-prepend">
                   <button class="input-group-text border-right-0 rounded-left bg-white" id="basic-addon1"><i class="far fa-calendar-alt" style="color: #0a746f;"></i></button>
               </div>
-              <input type="text" class="form-control border-left-0" placeholder="calender" aria-label="Username" aria-describedby="basic-addon1">
+              <input type="text" class="form-control border-left-0 calender" placeholder="calender" aria-label="Username" aria-describedby="basic-addon1">
             </div>
             <!--calender-->
           </div>
-          <div class="col-2">
+          <div class="col-2 filter2-link">
             <button type="button" class="btn btn-link" onclick="uploadBtnClick();">
-              <i class="fas fa-upload"></i>&nbsp;업로드</button>
+              <i class="fas fa-upload"></i><span>업로드</span></button>
             <button type="button" class="btn btn-link">
-              <i class="fas fa-download"></i>&nbsp;다운로드</button>
+              <i class="fas fa-download"></i><span>다운로드</span></button>
             <button type="button" class="btn btn-link" id="add-modal-btn" onclick="addBtnClick();">
-              <i class="fas fa-plus"></i>&nbsp;추가</button>
+              <i class="fas fa-plus"></i><span>추가</span></button>
           </div>
         </div>
       </div>
