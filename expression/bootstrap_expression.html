@@ -406,30 +406,38 @@
     }
 
     //추가 모달창
-    function addBtnClick() {
-      document.getElementById("add-container").style.display="block";
+
+    function displayModal(id, isOpen) {
+      if(isOpen) {
+        document.getElementById(id).style.display="block";
+      } else {
+        document.getElementById(id).style.display="none";
+      }
     }
-    function addCancelClick() {
-          document.getElementById("add-container").style.display="none";
-      }   
+    // function addBtnClick() {
+    //   document.getElementById("add-container").style.display="block";
+    // }
+    // function addCancelClick() {
+    //       document.getElementById("add-container").style.display="none";
+    //   }   
     //업로드 모달창
-    function uploadBtnClick() {
-      document.getElementById("upload-container").style.display="block";
-    }
-    function uploadCancelClick() {
-      document.getElementById("upload-container").style.display="none";
-    }
+    // function uploadBtnClick() {
+    //   document.getElementById("upload-container").style.display="block";
+    // }
+    // function uploadCancelClick() {
+    //   document.getElementById("upload-container").style.display="none";
+    // }
     //업로드 파일불러오기 버튼
     function inputFile() {
       document.getElementById("inputFile").click();
     }
     //상세정보 모달창   
-    function detailBtnClick() {
-      document.getElementById("detail-container").style.display="block";
-    }
-    function detailCancelClick() {
-      document.getElementById("detail-container").style.display="none";
-    }
+    // function detailBtnClick() {
+    //   document.getElementById("detail-container").style.display="block";
+    // }
+    // function detailCancelClick() {
+    //   document.getElementById("detail-container").style.display="none";
+    // }
   </script>
   </head>
   <body>
@@ -553,11 +561,11 @@
             <!--calender-->
           </div>
           <div class="col-2 filter2-link">
-            <button type="button" class="btn btn-link" onclick="uploadBtnClick();">
+            <button type="button" class="btn btn-link" onclick="displayModal('upload-container', true);">
               <i class="fas fa-upload"></i><span>업로드</span></button>
             <button type="button" class="btn btn-link">
               <i class="fas fa-download"></i><span>다운로드</span></button>
-            <button type="button" class="btn btn-link" id="add-modal-btn" onclick="addBtnClick();">
+            <button type="button" class="btn btn-link" id="add-modal-btn" onclick="displayModal('add-container', true);">
               <i class="fas fa-plus"></i><span>추가</span></button>
           </div>
         </div>
@@ -619,7 +627,7 @@
               </td>
               <td>관리자1</td>
               <td>2019-09-11</td>
-              <td><button onclick="detailBtnClick();"><i class="fas fa-info-circle"></i></button></td>
+              <td><button onclick="displayModal('detail-container', true);"><i class="fas fa-info-circle"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
@@ -636,7 +644,7 @@
               <td></td>
               <td>관리자1</td>
               <td>2019-09-11</td>
-              <td><button onclick="detailBtnClick();"><i class="fas fa-info-circle"></i></button></td>
+              <td><button onclick="displayModal('detail-container', true);"><i class="fas fa-info-circle"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
             <tr>
@@ -653,7 +661,7 @@
               <td></td>
               <td>관리자1</td>
               <td>2019-09-11</td>
-              <td><button onclick="detailBtnClick();"><i class="fas fa-info-circle"></i></button></td>
+              <td><button onclick="displayModal('detail-container', true);"><i class="fas fa-info-circle"></i></button></td>
               <td><button><i class="far fa-trash-alt"></i></button></td>
             </tr>
           </tbody>
@@ -785,7 +793,7 @@
             </tbody>
           </table>
           <div class="add-modal-btn-container">
-            <button type="button" class="btn btn-outline-success add-btn2" onclick="addCancelClick();">취소</button>
+            <button type="button" class="btn btn-outline-success add-btn2" onclick="displayModal('add-container', false);">취소</button>
             <button type="button" class="btn btn-outline-success add-btn2">추가</button>
           </div>
         </div>
@@ -882,7 +890,7 @@
             </tbody>
           </table>
           <div class="add-modal-btn-container">
-            <button type="button" class="btn btn-outline-success upload-btn2" onclick="uploadCancelClick();">취소</button>
+            <button type="button" class="btn btn-outline-success upload-btn2" onclick="displayModal('upload-container', false);">취소</button>
             <button type="button" class="btn btn-outline-success upload-btn2">추가</button>
           </div>
         </div>
@@ -995,7 +1003,7 @@
             </table>
           </div>
           <div class="add-modal-btn-container">
-            <button type="button" class="btn btn-outline-success detail-btn" onclick="detailCancelClick();">닫기</button>
+            <button type="button" class="btn btn-outline-success detail-btn" onclick="displayModal('detail-container', false);">닫기</button>
           </div>
         </div>
       <div class="upload-modal-background"></div>
