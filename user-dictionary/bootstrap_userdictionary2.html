@@ -211,7 +211,7 @@
       width: 200px;
       height: 33.33%;
       text-align: center;
-      padding: 73.5px 70px;
+      padding: 73.5px 60px;
       list-style: none;
       cursor: pointer;
       background: #ededed;
@@ -319,11 +319,18 @@
     .modal-container {
       float: left;
     }
+
+    .tab-li-active {
+      background-color: white !important;
+      border-left: 10px solid #04c73b;
+      color: #04c73b;
+    }
   </style>
   <script>
     //추가 모달창
-     function addBtnClick() {
+    function addBtnClick() {
       document.getElementById("add-container").style.display="block";
+      document.getElementById('liSpeaker').click();
     }
     function addCancelClick() {
       document.getElementById("add-container").style.display="none";
@@ -342,126 +349,33 @@
       checkboxControl(className);
     }
 
+    function tabMenuControl(type) {
+      const elTabSpeaker = document.getElementById('tabSpeaker');
+      const elTabLanguage = document.getElementById('tabLanguage');
+      const elTabService = document.getElementById('tabService');
+
+      document.getElementById('tabSpeaker').style.display = 'none';
+      document.getElementById('liSpeaker').classList.remove('tab-li-active');
+      document.getElementById('tabLanguage').style.display = 'none';
+      document.getElementById('liLanguage').classList.remove('tab-li-active');
+      document.getElementById('tabService').style.display = 'none';
+      document.getElementById('liService').classList.remove('tab-li-active');
+
+      document.getElementById(`tab${type}`).style.display = 'block';
+      document.getElementById(`li${type}`).classList.add('tab-li-active');
+    }
+
     let moreBtnFlag = false;
+    
      //더보기 slidedownmenu
     function moreBtnClick() {
-      // console.log(document.getElementById("slidedownmenu").style.display)
       if(moreBtnFlag) {
         document.getElementById("slidedownmenu").style.display = "none"
       } else {
-        // document.getElementById("slidedownmenu").classList.remove("display")
         document.getElementById("slidedownmenu").style.display = "flex"
       }
       moreBtnFlag = !moreBtnFlag
-      // $(".filter-2").slideDown();
-       // var slidedownmenu = $(".filter-2");
- 
-      // // submenu 가 화면상에 보일때는 위로 보드랍게 접고 아니면 아래로 보드랍게 펼치기
-      // if( slidedownmenu.is(":visible") ){
-      // slidedownmenu.slideUp();
-      // }else{
-      // slidedownmenu.slideDown();
-      // }
     }
-
-
-
-//add 모달창
-    $(document).ready(function() {
-  
-      var $wrapper = $('.add-modal'),
-          $allTabs = $wrapper.find('.tab-content'),
-          $tabMenu = $wrapper.find('.tab-menu li'),
-          $line = $('<div class="line"></div>').appendTo($tabMenu);
-      
-      $allTabs.not(':first-of-type').hide();  
-      $tabMenu.filter(':first-of-type').find(':first').width('100%')
-      
-      $tabMenu.each(function(i) {
-        $(this).attr('data-tab', 'tab'+i);
-      });
-      
-      $allTabs.each(function(i) {
-        $(this).attr('data-tab', 'tab'+i);
-      });
-      
-      $tabMenu.on('click', function() {
-        
-        var dataTab = $(this).data('tab'),
-            $getWrapper = $(this).closest($wrapper);
-        
-        $getWrapper.find($tabMenu).removeClass('active');
-        $(this).addClass('active');
-        
-        $getWrapper.find('.line').width(0);
-        $(this).find($line).animate({'width':'100%'}, 'fast');
-        $getWrapper.find($allTabs).hide();
-        $getWrapper.find($allTabs).filter('[data-tab='+dataTab+']').show();
-      });
-
-    });//end ready
-
-//     //탭메뉴
-//     $(document).ready(function(){
-	
-//   $('.tab-link').click(function(){
-//     alert();
-//     // var tab_id = $(this).attr('data-tab');
-
-//     // $('.tab-link').removeClass('current');
-//     // $('.tab-content').removeClass('current');
-
-//     // $(this).addClass('current');
-//     // $("#"+tab_id).addClass('current');
-//   })
-
-// })
-
-//
-  // function tabMenuClick(type) {
-  //   if(type === 's') {
-  //     //화자 display:block, 공통, 서비스 display:none; 
-  //     element.style.backgroud= "#fff";
-  //     document.getElementById('tabMenu1').style.display = "block";
-  //     document.getElementById('tabMenu2').style.display = "none";
-  //     document.getElementById('tabMenu3').style.display = "none";
-  //     document.getElementById('tabSpeaker').style.display = "block";
-  //     document.getElementById('tabLanguage').style.display = "none";
-  //     document.getElementById('tabService').style.display = "none";
-  //   } else if(type === 'c') {
-  //     //공통
-  //     element.style.backgroud= "#fff";
-  //     document.getElementById('tabMenu1').style.display = "none";
-  //     document.getElementById('tabMenu2').style.display = "block";
-  //     document.getElementById('tabMenu3').style.display = "none";
-  //     document.getElementById('tabSpeaker').style.display = "none";
-  //     document.getElementById('tabLanguage').style.display = "block";
-  //     document.getElementById('tabService').style.display = "none";
-
-  //   } else {
-  //     //서비스
-  //     element.style.backgroud= "#fff";
-  //     document.getElementById('tabMenu1').style.display = "none";
-  //     document.getElementById('tabMenu2').style.display = "none";
-  //     document.getElementById('tabMenu3').style.display = "block";
-  //     document.getElementById('tabSpeaker').style.display = "none";
-  //     document.getElementById('tabLanguage').style.display = "none";
-  //     document.getElementById('tabService').style.display = "block";
-  //   }
-  // }
-  $(function() {
-			$('.tab-menu li').click(function() {
-        alert();
-				// var activeTab = $(this).attr('data-tab');
-				// $('ul.tab li').removeClass('current');
-				// $('.tabcontent').removeClass('current');
-				// $(this).addClass('current');
-				// $('#' + activeTab).addClass('current');
-			})
-		});
-
-
-
   </script>
   </head>
   <body>
@@ -700,16 +614,13 @@
           <div class="h4 tab-add">추가</div>
         </div>
         <ul class="tab-menu" id="tabMenu">
-          <li class="active">
-            <!-- <span id="tabMenu1" class="tab-line"></span> -->
+          <li id="liSpeaker" onclick="tabMenuControl('Speaker')">
             <p class="h5">화자</p>
           </li>
-          <li>
-            <!-- <span id="tabMenu2" class="tab-line"></span> -->
+          <li id="liLanguage" onclick="tabMenuControl('Language')">
             <p class="h5">공통</p>
           </li>
-          <li>
-            <!-- <span id="tabMenu3" class="tab-line"></span> -->
+          <li id="liService" onclick="tabMenuControl('Service')">
             <p class="h5">서비스</p>
           </li>
         </ul>
