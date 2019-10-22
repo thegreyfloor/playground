@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e99a066e01.js" crossorigin="anonymous"></script>
+    <title>Nvoice Data 관리 시스템 - User dictionary(EN)</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-size: 0.875em;
+      min-height: 1500px;
+    }
+    button, input, optgroup, select, textarea {
+      border: none;
+      background: none;
+    }
+    .container-fluid {
+      overflow: hidden;
+      padding: 15px 15px 0 15px;
+      box-sizing: border-box;
+    }
+    .h6 {
+      margin-right: 10px;
+    }
+    /*filter-1*/
+    .row {
+      margin: 0;
+      background: #ededed;
+      padding: 25px 0;
+    }
+    .filter-1 {
+      height: 85px;
+      padding-right: 15px;
+    }
+    .btn {
+      border-radius: 0;
+    }
+    .btn-add {
+      width: 85%;
+      font-weight: 100;
+      background: #04c73b;
+      border: none;
+    }
+    .btn-add:hover {
+      background: #04c73b;
+      border: none;
+    }
+    .btn-outline-success {
+      width: 45%;
+    }
+    .selectbox-search {
+      width: 35%;
+      float: left;
+      margin: 0;
+      margin-right: 5px;
+    }
+    .input-search {
+      border-radius: 0;
+      width: 50%;
+      float: left;
+    }
+    .btn-light {
+      background: none;
+    }
+    .input-group-append {
+      width: 44px;
+      height: 38px;
+      margin-left: 1px;
+      border: 1px solid #495057;
+      box-sizing: border-box;
+    }
+    .btn-outline-secondary {
+      color: #000;
+    }
+    .btn-outline-secondary:hover {
+      background: #04c73b;
+      border-color: #04c73b;
+    }
+    .btn-outline-secondary:not(:disabled):not(.disabled).active, .btn-outline-secondary:not(:disabled):not(.disabled):active, .show>.btn-outline-secondary.dropdown-toggle {
+      background: #04c73b;
+      border-color: #04c73b;
+    }
+    .btn-dictionary {
+      width: 65%;
+    }
+    /*filter-2*/
+    .filter-2 {
+      height: 100px;
+      display: none;
+    }
+    .btn-up,.btn-down {
+      border-color: #04c73b;
+      color: #495057;
+    }
+    .btn-up:hover,.btn-down:hover {
+      background: #04c73b;
+      border-color: #04c73b;
+    }
+    .btn-up {
+      width: 53%;
+    }
+    .btn-down {
+      width: 45%;
+    }
+    .select-filter {
+      width: 70%;
+    }
+    .calender {
+      width: 95%;
+    }
+    .btn-calender {
+      width: 15px;
+      border: none;
+      padding: 7px;
+    }
+    .title-calender {
+      width: 90%;
+    }
+    .select-pagesize {
+      width: 40%;
+      margin-left: 10px;
+    }
+    .mb-3, .my-3 {
+      margin-bottom: 0!important;
+    }
+    /*table*/
+    .table td, .table th {
+      border: 1px solid #dee2e6;
+      vertical-align: middle !important;
+    }
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: #f7fbf7;
+    }
+    .fa-edit, .fa-trash-alt {
+      width: 24px;
+      height: 24px;
+      padding: 4px;
+      border:solid 1px#00af8c;
+    }
+    /*pagination*/
+    .footer-pagination {
+      background: #fff;
+    }
+    .page-link {
+      color: #000;
+      border: none;
+      border-radius: 0;
+    }
+    .page-link:hover {
+      background: #2ead1e;
+      color: #fff
+    }
+    .page-next, .page-pre {
+      color: #2ead1e;
+    }
+    .page-link-active {
+      background: #2ead1e;
+      color: #fff
+    }
+    .current-page {
+      width: 200px;
+      height: 10px;
+      color: grey;
+      display: block;
+      margin: 0 auto;
+      font-size: 0.75em;
+    }
+    /* 추가버튼 모달창*/ 
+    .container-modal {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      z-index: 10;
+    }
+    .add-modal {
+      width: 1200px; 
+      height: 640px;
+      background: #fff;
+      box-sizing: border-box;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: left;
+      z-index: 1;
+    }  
+    .modal-content {
+      border-radius: 0;
+      height: 640px;
+    }
+    .modal-title{
+      width: 200px;
+      height: 16%;
+      background: #ededed;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .tab-add {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .tab-menu li {
+      position: relative;
+      top: 0;
+      left: -40px;
+      width: 200px;
+      height: 33.33%;
+      text-align: center;
+      padding: 73.5px 60px;
+      list-style: none;
+      cursor: pointer;
+      background: #ededed;
+      color: #555;
+    }
+    .tab-menu li:hover {
+      color: #04c73b;
+    }
+    .tab-menu li:active {
+      color: #04c73b;
+    }
+    .line {
+      width: 10px;
+      height: 100%;
+      background: #04c73b;
+      position: absolute;
+      left: 0;
+      display: none;
+    }
+    /*화자*/
+    .add-contents {
+      width: 1000px;
+      height: 100%;
+      position: absolute;
+      top:0; 
+      left: 200px;
+      padding: 40px 40px;
+    }
+    .speaker-contents {
+      width: 270px;
+      text-align: center;
+      float: left;
+    }
+    .input-souce {
+      width: 100%;
+      height: 170px;
+      margin-top: 15px;
+      border: solid 1px #ced4da;
+      vertical-align: text-top;
+      resize: none;
+    }
+    .input-ex {
+      width: 100%;
+      height: 230px;
+      margin-top: 15px;
+      border: solid 1px #ced4da;
+      resize: none;
+    }
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+    .add-select-speaker {
+      width: 100%;
+      height: 40px;
+      border: solid 1px #ced4da;
+      margin-top: 15px;
+    }
+    .arrow-right {
+      width: 50px;
+      height: 100%;
+      float: left;
+    }
+    .add-btn {
+      width: 270px;
+      position: absolute;
+      bottom: 70px;
+    }
+    .add-btn1 {
+      width: 40%;
+      height: 40px;
+      float:left;
+      margin-right: 7%;
+      background: #b2b2b2;
+      color: #fff;
+      border: none;
+    }
+    .add-btn2{
+      width: 53%;
+      height: 40px;
+      background: #04c73b;
+      color: #fff;
+      border: none;
+    }
+    .add-btn1:hover,.add-btn2:hover {
+      background: #04c73b;
+      border: none;
+    }
+    .add-modal-background{
+      width: 100%;
+      height: 100%;
+      background: black;
+      opacity: 0.3;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+    .tab-con {
+      width: 270px;
+      position: absolute;
+      top: 40px;
+      right: 55px;
+      /* display: none; */
+    }
+    .modal-container {
+      float: left;
+    }
+
+    .tab-li-active {
+      background-color: white !important;
+      border-left: 10px solid #04c73b;
+      color: #04c73b !important;
+    }
+  </style>
+  <script>
+    //추가 모달창
+    function addBtnClick() {
+      document.getElementById("add-container").style.display="block";
+      document.getElementById('liSpeaker').click();
+    }
+    function addCancelClick() {
+      document.getElementById("add-container").style.display="none";
+    }
+    //선택 초기화
+    const checkboxControl = function(className) {
+      const target = document.querySelectorAll(`.${className}`);
+      const lable = document.querySelectorAll(`.btn-${className}`)
+      for(let i = 0; i < target.length; i++) {
+        target[i].checked = false;
+        lable[i].classList.remove('active');
+      }
+    }
+
+    function resetClick(className) {
+      checkboxControl(className);
+    }
+    //추가 모달창 탭메뉴
+    function tabMenuControl(type) {
+      const elTabSpeaker = document.getElementById('tabSpeaker');
+      const elTabLanguage = document.getElementById('tabLanguage');
+      const elTabService = document.getElementById('tabService');
+
+      document.getElementById('tabSpeaker').style.display = 'none';
+      document.getElementById('liSpeaker').classList.remove('tab-li-active');
+      document.getElementById('tabLanguage').style.display = 'none';
+      document.getElementById('liLanguage').classList.remove('tab-li-active');
+      document.getElementById('tabService').style.display = 'none';
+      document.getElementById('liService').classList.remove('tab-li-active');
+
+      document.getElementById(`tab${type}`).style.display = 'block';
+      document.getElementById(`li${type}`).classList.add('tab-li-active');
+    }
+
+    let moreBtnFlag = false;
+    
+     //더보기 slidedownmenu
+    function moreBtnClick() {
+      if(moreBtnFlag) {
+        document.getElementById("slidedownmenu").style.display = "none"
+      } else {
+        document.getElementById("slidedownmenu").style.display = "flex"
+      }
+      moreBtnFlag = !moreBtnFlag
+    }
+  </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="filter"><!---filter-1-->
+        <div class="row filter-1">
+          <div class="col-1">
+            <button type="button" class="btn btn-success btn-add" data-toggle="modal" data-target="#exampleModalCenter"
+            onclick="addBtnClick();">
+              <i class="fas fa-plus" style="color: #fff; margin-right: 10px;"></i>
+              Add
+            </button>
+          </div>
+          <div class="col-3">
+            <select class="custom-select selectbox-search">
+              <option>Number</option>
+              <option selected>Source</option>
+              <option>Target</option>
+              <option></option>
+            </select>     
+            <input type="text" class="form-control input-search" placeholder="input word." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-light" type="button" id="button-addon2">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+        </div>
+          <div class="col-3">
+            <span class="h6">Engine</span>
+              <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
+                <label class="btn btn-outline-secondary btn-checkbox1">
+                    <input type="radio"  class="checkbox1" name="options" id="option1" autocomplete="off" checked>HDTS
+                </label>
+                <label class="btn btn-outline-secondary btn-checkbox1">
+                    <input type="radio" class="checkbox1" name="options" id="option2" autocomplete="off">NES
+                </label>
+              </div>
+              <button onClick="resetClick('checkbox1');">Reset</button>
+          </div>
+          <div class="col-4">
+            <span class="h6">Dictionary</span>
+            <div class="btn-group btn-group-toggle btn-dictionary" data-toggle="buttons">
+              <label class="btn btn-outline-secondary btn-checkbox2">
+                <input type="radio" class="checkbox2" name="options" id="option1" autocomplete="off" checked> Speaker
+              </label>
+              <label class="btn btn-outline-secondary btn-checkbox2">
+                <input type="radio" class="checkbox2" name="options" id="option2" autocomplete="off"> Common
+              </label>
+              <label class="btn btn-outline-secondary btn-checkbox2">
+                <input type="radio" class="checkbox2" name="options" id="option3" autocomplete="off"> Service
+              </label>
+            </div>
+            <button onClick="resetClick('checkbox2');">Reset</button>
+          </div>
+          <div class="col-1">
+            <div class="btn-group">
+              <button type="button" class="btn dropdown-toggle" onclick="moreBtnClick()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More&nbsp;
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row filter-2" id="slidedownmenu"><!--filter-2-->
+          <div class="col-2">
+            <button type="button" class="btn btn-outline-success btn-up">
+              <i class="fas fa-upload"></i>
+              &nbsp;Upload file
+            </button> 
+            <button type="button" class="btn btn-outline-success btn-down">
+              <i class="fas fa-download"></i>
+              &nbsp;Download file
+            </button> 
+          </div>
+          <div class="col-3">
+            <span class="h6">Speaker</span>
+            <select class="container custom-select select-filter">
+              <option selected>None</option>
+              <option>Hana(Korean,Female)</option>
+              <option>Kyuri(Korean,Female)</option>
+              <option>Mijin(Korean,Female)</option>
+              <option>Dinna(Korean,Female)</option>
+              <option>Jinho(Korean,Male)</option>
+            </select>
+            <button>Reset</button>
+          </div>
+          <div class="col-3">
+            <span class="h6">Service</span>
+            <select class="container custom-select select-filter">
+              <option selected>None</option>
+              <option>Amica</option>
+              <option>Whale</option>
+              <option>Papago</option>
+              <option>Papago Dev</option>
+              <option>Labspace</option>
+              <option>Worksmobile</option>
+              <option>Naver</option>
+              <option>k-board</option>
+              <option>Local & Product</option>
+              <option>Clova JP</option>
+              <option>SNOW</option>
+              <option>Maps mobils</option>
+              <option>AI Production</option>
+              <option>Gatebox</option>
+              <option>Dialog</option>
+              <option>Clova Device</option>
+              <option>Plug</option>
+            </select>
+            <button>Reset</button>
+          </div>
+          <div class="col-2">
+            <!--calender-->
+            <div class="input-group mb-3 calender">
+              <input type="text" class="form-control" placeholder="Calender" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <button class="input-group-append">
+                  <span class="input-group-text btn-calender" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+              </button>
+            </div>
+            <!--calender-->
+          </div>
+          <div class="col-2">
+            <span class=>Page size</span>
+            <select class="container custom-select select-pagesize">
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+              <option>100</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="table"><!--table-->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">No.</th>
+              <th scope="col">Engine</th>
+              <th scope="col">Source</th>
+              <th scope="col">Target</th>
+              <th scope="col">Target Speaker</th>
+              <th scope="col">Target Service</th>
+              <th scope="col">Common</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">29089</th>
+              <td>HDTS</td>
+              <td>1998</td>
+              <td>Nineteen ninety eight</td>
+              <td>clara</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2019-09-17 11:27</td>
+              <td><button><i class="far fa-edit"></i></button></td>
+              <td><button><i class="far fa-trash-alt"></i></button></td>
+            </tr>
+            <tr>
+              <th scope="row">29088</th>
+                <td>NES</td>
+                <td>mummy</td>
+                <td>muommy</td>
+                <td>matt</td>
+                <td>-</td>
+                <td>-</td>
+                <td>2019-09-16 18:56</td>
+                <td><button><i class="far fa-edit"></i></button></td>
+              <td><button><i class="far fa-trash-alt"></i></button></td>
+            </tr>
+            <tr>
+              <th scope="row">29087</th>
+              <td>NES</td>
+              <td>they got married and lived happily ever after</td>
+              <td>they got marreed and leaved happil-ly ever efter</td>
+              <td>-</td>
+              <td>Mobile Main_nVoice</td>
+              <td>-</td>
+              <td>2019-09-16 09:13</td>
+              <td><button><i class="far fa-edit"></i></button></td>
+              <td><button><i class="far fa-trash-alt"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row footer-pagination"><!--pagination-->
+          <div class="col">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                    <a class="page-link page-pre" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  &nbsp;&nbsp;
+                  <li class="page-item">
+                    <a class="page-link page-pre" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&lsaquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link page-link-active" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                  <li class="page-item"><a class="page-link" href="#">6</a></li>
+                  <li class="page-item"><a class="page-link" href="#">7</a></li>
+                  <li class="page-item"><a class="page-link" href="#">8</a></li>
+                  <li class="page-item"><a class="page-link" href="#">9</a></li>
+                  <li class="page-item"><a class="page-link" href="#">10</a></li>
+                  <li class="page-item">
+                    <a class="page-link page-next" href="#" aria-label="Next">
+                      <span aria-hidden="true">&rsaquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                  &nbsp;&nbsp;
+                  <li class="page-item">
+                    <a class="page-link page-next" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+                <span class="current-page">1/1455 pages | total 29089</span>
+              </nav>
+          </div>
+        </div> 
+      </div>
+    </div>
+     <!--추가버튼 모달-->
+    <div class="container-fluid container-modal" id="add-container">
+      <div class="add-modal">
+        <div class="modal-title">
+          <div class="h4 tab-add">Add</div>
+        </div>
+        <ul class="tab-menu" id="tabMenu">
+          <li id="liSpeaker" onclick="tabMenuControl('Speaker')">
+            <p class="h5">Speaker</p>
+          </li>
+          <li id="liLanguage" onclick="tabMenuControl('Language')">
+            <p class="h5">Common</p>
+          </li>
+          <li id="liService" onclick="tabMenuControl('Service')">
+            <p class="h5">Service</p>
+          </li>
+        </ul>
+        <div class="add-contents">
+          <div class="speaker-contents">
+            <p class="h5">Before</p>
+            <textarea type="textarea" class="input-souce" placeholder="input source." ></textarea>
+            <textarea type="textarea" class="input-ex" placeholder="input Example sentence with source in it." ></textarea>
+            <audio autoplay controls>
+                <source src="audio/The_Weeknd-I_Feel_It_Coming(cover_byJ.Fla).mp3" type="audio/mp3">
+            </audio>
+          </div>
+          <div class="arrow-right">
+            <i class="fas fa-caret-right"></i>
+            <i class="fas fa-caret-right"></i>
+          </div>
+          <div class="speaker-contents">
+              <p class="h5">After</p>
+              <textarea type="textarea" class="input-souce" placeholder="input target." ></textarea>
+              <textarea type="textarea" class="input-ex" style="background: #ededed; "></textarea>
+              <audio autoplay controls>
+                  <source src="audio/The_Weeknd-I_Feel_It_Coming(cover_byJ.Fla).mp3" type="audio/mp3">
+              </audio>
+          </div>
+          <div class="speaker-contents" style="margin-left: 50px;">
+              <div class="add-btn">
+                <button type="button" class="btn btn-outline-success add-btn1" onclick="addCancelClick();">Cancel</button>
+                <button type="button" class="btn btn-outline-success add-btn2">Done
+                </button>
+              </div>  
+          </div>
+        </div>
+        <div class="tab-con" id="tab-con">
+        <div id="tabSpeaker" class="tab-content">
+          <p class="h5" style="text-align: left;">Target Speaker</p>
+          <select class="add-select-speaker">
+            <option selected>Select target speaker.</option>
+            <option>Hana(Korean,Female)</option>
+            <option>Kyuri(Korean,Female)</option>
+            <option>Mijin(Korean,Female)</option>
+            <option>Dinna(Korean,Female)</option>
+            <option>Jinho(Korean,Male)</option>
+          </select>
+        </div>
+        <div id="tabLanguage" class="tab-content">
+          <p class="h5" style="text-align: left;">Language</p>
+          <select class="add-select-speaker">
+            <option selected>KR</option>
+            <option>EN</option>
+          </select>
+        </div>
+        <div id="tabService" class="tab-content">
+          <p class="h5" style="text-align: left;">Service</p>
+          <select class="add-select-speaker">
+            <option selected>Select service</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+            <option>1</option>
+          </select>
+        </div>
+      </div>
+      </div>
+      <div class="add-modal-background"></div>
+    </div>
+    <!--//추가버튼 모달-->
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

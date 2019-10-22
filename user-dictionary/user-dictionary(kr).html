@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/e99a066e01.js" crossorigin="anonymous"></script>
-    <title>Nvoice Data 관리 시스템 - Expression</title>
+    <title>Nvoice Data 관리 시스템 - User dictionary(KR)</title>
   <style>
     body{
       margin: 0;
@@ -163,6 +163,14 @@
     .page-link-active {
       background: #2ead1e;
       color: #fff
+    }
+    .current-page {
+      width: 200px;
+      height: 10px;
+      color: grey;
+      display: block;
+      margin: 0 auto;
+      font-size: 0.75em;
     }
     /* 추가버튼 모달창*/ 
     .container-modal {
@@ -323,7 +331,7 @@
     .tab-li-active {
       background-color: white !important;
       border-left: 10px solid #04c73b;
-      color: #04c73b;
+      color: #04c73b !important;
     }
   </style>
   <script>
@@ -335,7 +343,7 @@
     function addCancelClick() {
       document.getElementById("add-container").style.display="none";
     }
-    //선택 초기화
+    //filter-1 선택 초기화
     const checkboxControl = function(className) {
       const target = document.querySelectorAll(`.${className}`);
       const lable = document.querySelectorAll(`.btn-${className}`)
@@ -349,6 +357,7 @@
       checkboxControl(className);
     }
 
+    //추가 모달창 탭메뉴
     function tabMenuControl(type) {
       const elTabSpeaker = document.getElementById('tabSpeaker');
       const elTabLanguage = document.getElementById('tabLanguage');
@@ -452,14 +461,14 @@
           <div class="col-3">
             <span class="h6">화자</span>
             <select class="container custom-select select-filter">
-              <option selected>없음</option>
-              <option>하나(한국인,여성)</option>
-              <option>규리(한국인,여성)</option>
-              <option>미진(한국인,여성)</option>
-              <option>딘나(한국인,여성)</option>
-              <option>진호(한국인,남성)</option>
+              <option class="selectbox1" selected>없음</option>
+              <option class="selectbox1">하나(한국인,여성)</option>
+              <option class="selectbox1">규리(한국인,여성)</option>
+              <option class="selectbox1">미진(한국인,여성)</option>
+              <option class="selectbox1">딘나(한국인,여성)</option>
+              <option class="selectbox1">진호(한국인,남성)</option>
             </select>
-            <button>초기화</button>
+            <button onClick="resetClick('selectbox1');">초기화</button>
           </div>
           <div class="col-3">
             <span class="h6">서비스</span>
@@ -483,7 +492,7 @@
               <option>Clova Device</option>
               <option>Plug</option>
             </select>
-            <button>초기화</button>
+            <button onClick="resetClick('selectbox2');">초기화</button>
           </div>
           <div class="col-2">
             <!--calender-->
@@ -602,6 +611,7 @@
                     </a>
                   </li>
                 </ul>
+                <span class="current-page">1/1455 페이지 | 총 29089건</span>
               </nav>
           </div>
         </div> 
@@ -658,19 +668,18 @@
           <p class="h5" style="text-align: left;">적용할 화자</p>
           <select class="add-select-speaker">
             <option selected>화자를 선택하세요.</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
-            <option>1</option>
+            <option>하나(한국인,여성)</option>
+            <option>규리(한국인,여성)</option>
+            <option>미진(한국인,여성)</option>
+            <option>딘나(한국인,여성)</option>
+            <option>진호(한국인,남성)</option>
           </select>
         </div>
         <div id="tabLanguage" class="tab-content">
           <p class="h5" style="text-align: left;">언어</p>
           <select class="add-select-speaker">
-            <option selected>KR</option>
-            <option>EN</option>
+            <option selected>한국어</option>
+            <option>영어</option>
           </select>
         </div>
         <div id="tabService" class="tab-content">
