@@ -385,6 +385,11 @@
       }
       moreBtnFlag = !moreBtnFlag
     }
+    //filter-2 초기화버튼
+    function selectBoxControl() {
+      document.getElementById("selectSpeaker").value = "";
+      document.getElementById("selectService").value = "";
+    } 
   </script>
   </head>
   <body>
@@ -460,39 +465,39 @@
           </div>
           <div class="col-3">
             <span class="h6">화자</span>
-            <select class="container custom-select select-filter">
-              <option class="selectbox1" selected>없음</option>
-              <option class="selectbox1">하나(한국인,여성)</option>
-              <option class="selectbox1">규리(한국인,여성)</option>
-              <option class="selectbox1">미진(한국인,여성)</option>
-              <option class="selectbox1">딘나(한국인,여성)</option>
-              <option class="selectbox1">진호(한국인,남성)</option>
+            <select class="container custom-select select-filter" id="selectSpeaker">
+              <option class="selectbox1" value="" selected>없음</option>
+              <option class="selectbox1" value="hana">하나(한국인,여성)</option>
+              <option class="selectbox1" value="kyuri">규리(한국인,여성)</option>
+              <option class="selectbox1" value="mijin">미진(한국인,여성)</option>
+              <option class="selectbox1" value="dinna">딘나(한국인,여성)</option>
+              <option class="selectbox1" value="jinho">진호(한국인,남성)</option>
             </select>
-            <button onClick="resetClick('selectbox1');">초기화</button>
+            <button onClick="selectBoxControl('selectbox1');">초기화</button>
           </div>
           <div class="col-3">
             <span class="h6">서비스</span>
-            <select class="container custom-select select-filter">
-              <option selected>없음</option>
-              <option>Amica</option>
-              <option>Whale</option>
-              <option>Papago</option>
-              <option>Papago Dev</option>
-              <option>Labspace</option>
-              <option>Worksmobile</option>
-              <option>Naver</option>
-              <option>k-board</option>
-              <option>Local & Product</option>
-              <option>Clova JP</option>
-              <option>SNOW</option>
-              <option>Maps mobils</option>
-              <option>AI Production</option>
-              <option>Gatebox</option>
-              <option>Dialog</option>
-              <option>Clova Device</option>
-              <option>Plug</option>
+            <select class="container custom-select select-filter" id="selectService">
+              <option class="selectbox2" value="" selected>없음</option>
+              <option class="selectbox2" value="amica">Amica</option>
+              <option class="selectbox2" value="whale">Whale</option>
+              <option class="selectbox2" value="papago">Papago</option>
+              <option class="selectbox2" value="papagodev">Papago Dev</option>
+              <option class="selectbox2" value="labspace">Labspace</option>
+              <option class="selectbox2" value="worksmobile">Worksmobile</option>
+              <option class="selectbox2" value="naver">Naver</option>
+              <option class="selectbox2" value="kboard">k-board</option>
+              <option class="selectbox2" value="local&product">Local & Product</option>
+              <option class="selectbox2" value="clovajp">Clova JP</option>
+              <option class="selectbox2" value="snow">SNOW</option>
+              <option class="selectbox2" value="mapsmobile">Maps mobils</option>
+              <option class="selectbox2" value="aiproduction">AI Production</option>
+              <option class="selectbox2" value="gatebox">Gatebox</option>
+              <option class="selectbox2" value="dialog">Dialog</option>
+              <option class="selectbox2" value="clovadevice">Clova Device</option>
+              <option class="selectbox2" value="plug">Plug</option>
             </select>
-            <button onClick="resetClick('selectbox2');">초기화</button>
+            <button onClick="selectBoxControl('selectbox2');">초기화</button>
           </div>
           <div class="col-2">
             <!--calender-->
@@ -505,7 +510,7 @@
             <!--calender-->
           </div>
           <div class="col-2">
-            <span class=>페이지 사이즈</span>
+            <span>페이지 사이즈</span>
             <select class="container custom-select select-pagesize">
               <option>10</option>
               <option>20</option>

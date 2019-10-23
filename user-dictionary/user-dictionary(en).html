@@ -98,19 +98,20 @@
     .btn-up,.btn-down {
       border-color: #04c73b;
       color: #495057;
+      font-size: 1em;
     }
     .btn-up:hover,.btn-down:hover {
       background: #04c73b;
       border-color: #04c73b;
     }
     .btn-up {
-      width: 53%;
+      width: 52%;
     }
     .btn-down {
-      width: 45%;
+      width: 46%;
     }
     .select-filter {
-      width: 70%;
+      width: 60%;
     }
     .calender {
       width: 95%;
@@ -384,6 +385,11 @@
       }
       moreBtnFlag = !moreBtnFlag
     }
+    //filter-2 초기화버튼
+    function selectBoxControl() {
+      document.getElementById("selectSpeaker").value = "";
+      document.getElementById("selectService").value = "";
+    } 
   </script>
   </head>
   <body>
@@ -454,44 +460,44 @@
             </button> 
             <button type="button" class="btn btn-outline-success btn-down">
               <i class="fas fa-download"></i>
-              &nbsp;Download file
+              &nbsp;Download
             </button> 
           </div>
           <div class="col-3">
             <span class="h6">Speaker</span>
-            <select class="container custom-select select-filter">
-              <option selected>None</option>
-              <option>Hana(Korean,Female)</option>
-              <option>Kyuri(Korean,Female)</option>
-              <option>Mijin(Korean,Female)</option>
-              <option>Dinna(Korean,Female)</option>
-              <option>Jinho(Korean,Male)</option>
+            <select class="container custom-select select-filter" id="selectSpeaker">
+              <option class="selectbox1" value="" selected>None</option>
+              <option class="selectbox1" value="hana">Hana(Korean,Female)</option>
+              <option class="selectbox1" value="kyuri">Kyuri(Korean,Female)</option>
+              <option class="selectbox1" value="mijin">Mijin(Korean,Female)</option>
+              <option class="selectbox1" value="dinna">Dinna(Korean,Female)</option>
+              <option class="selectbox1" value="jinho">Jinho(Korean,Male)</option>
             </select>
-            <button>Reset</button>
+            <button onClick="selectBoxControl('selectbox1');">Reset</button>
           </div>
           <div class="col-3">
             <span class="h6">Service</span>
-            <select class="container custom-select select-filter">
-              <option selected>None</option>
-              <option>Amica</option>
-              <option>Whale</option>
-              <option>Papago</option>
-              <option>Papago Dev</option>
-              <option>Labspace</option>
-              <option>Worksmobile</option>
-              <option>Naver</option>
-              <option>k-board</option>
-              <option>Local & Product</option>
-              <option>Clova JP</option>
-              <option>SNOW</option>
-              <option>Maps mobils</option>
-              <option>AI Production</option>
-              <option>Gatebox</option>
-              <option>Dialog</option>
-              <option>Clova Device</option>
-              <option>Plug</option>
+            <select class="container custom-select select-filter" id="selectService">
+              <option class="selectbox2" value="" selected>None</option>
+              <option class="selectbox2" value="amica">Amica</option>
+              <option class="selectbox2" value="whale">Whale</option>
+              <option class="selectbox2" value="papago">Papago</option>
+              <option class="selectbox2" value="papagodev">Papago Dev</option>
+              <option class="selectbox2" value="labspace">Labspace</option>
+              <option class="selectbox2" value="worksmobile">Worksmobile</option>
+              <option class="selectbox2" value="naver">Naver</option>
+              <option class="selectbox2" value="kboard">k-board</option>
+              <option class="selectbox2" value="local&product">Local & Product</option>
+              <option class="selectbox2" value="clovajp">Clova JP</option>
+              <option class="selectbox2" value="snow">SNOW</option>
+              <option class="selectbox2" value="mapsmobile">Maps mobils</option>
+              <option class="selectbox2" value="aiproduction">AI Production</option>
+              <option class="selectbox2" value="gatebox">Gatebox</option>
+              <option class="selectbox2" value="dialog">Dialog</option>
+              <option class="selectbox2" value="clovadevice">Clova Device</option>
+              <option class="selectbox2" value="plug">Plug</option>
             </select>
-            <button>Reset</button>
+            <button onClick="selectBoxControl('selectbox2');">Reset</button>
           </div>
           <div class="col-2">
             <!--calender-->
