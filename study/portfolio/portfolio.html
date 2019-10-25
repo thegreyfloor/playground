@@ -56,14 +56,14 @@
         border-spacing: 0;
       }
       /*reset css*/
-      .portfolio_wrap {
+      .portfolio__wrap {
         width: 100% ;
         height: 100vh;
         background-image: url('images/background_02.jpg');
         background-size: cover;
         padding-top: 80px;
       }
-      .portfolio_inner{
+      .portfolio__inner{
         width: 1200px; 
         height: 650px; 
         background: #fff;
@@ -81,26 +81,33 @@
         color: #6B97A2;
         text-align: right;
       }
-      .portfolio_info {
-        width: 20px;
-        height: 100px;
-
+      .portfolio__info {
+        width: 38%;
+        height: 20px;
+        position: absolute;
+        bottom: 190px;
+        right: -190px;
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg); 
+        transform: rotate(90deg);
+        color: #fff;
+        text-decoration: none;
       }
     </style>
   </head>
   <body>
-    <div class="portfolio_wrap">
-      <div class="portfolio_inner">
+    <div class="portfolio__wrap">
+      <div class="portfolio__inner">
         <div class="language">
           <a href="#">KR</a>
           <span> | </span>
           <a href="#">EN</a>
         </div>
-        <div class="portfolio_info">
-        <p class="photoby">BG Photo by -
+        <div class="portfolio__info">
+        <span class="photoby">BG Photo by -
           <a href="#">https://unsplash.com</a>
-        </p>
-        <p class="buildby">Page Built by - Hannah Lee</p>
+        </span>
+        <span class="buildby">Page Built by - Hannah Lee</span>
         </div>
       </div>
     </div>
