@@ -65,9 +65,8 @@
       }
       .portfolio__inner{
         width: 1200px; 
-        height: 650px; 
-        background: #fff;
-        opacity: 0.5;
+        height: 750px; 
+        border: solid 1px #fff;
         margin: 0 auto;
         position: relative;
         top: 0;
@@ -81,18 +80,83 @@
         color: #6B97A2;
         text-align: right;
       }
+      .language a {
+        color: #6B97A2;
+      }
       .portfolio__info {
         width: 38%;
         height: 20px;
         position: absolute;
-        bottom: 190px;
-        right: -190px;
+        bottom: 220px;
+        right: -200px;
         -ms-transform: rotate(90deg);
         -webkit-transform: rotate(90deg); 
         transform: rotate(90deg);
         color: #fff;
         text-decoration: none;
       }
+      .portfolio__info a {
+        text-decoration: none;
+        color: #fff;
+        margin-right: 25px;
+      }
+      .menu__wrap {
+        width: 50px;
+        height: 200px;
+        float: right;
+        margin-top: 30px;
+      }
+      .menu {
+        width: 50px;
+        height: 50px; 
+        border-radius: 50px;
+        background: #99B9C1;
+        opacity: 0.5;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+      /*모달 프로필*/
+      .profile {
+        width: 750px;
+        height: 510px;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .modal__close {
+        width: 15px;
+        height: 15px;
+        background-image: url('images/icon/close.png');
+      }
+      .profile__contents {
+        width: 570px;
+        height: 450px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow-x: hidden;
+        color: #fff;
+      }
+      .profile__background{
+        width: 100%;
+        height: 100%;
+        background: #99B9C1;
+        opacity: 0.5;
+        border: solid 1px #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .modal-title {
+        font-weight: 900;
+        font-size: 2em;
+      }
+      
+      /*모달 포트폴리오*/
+      
+      /*모달 이력서*/
     </style>
   </head>
   <body>
@@ -103,11 +167,92 @@
           <span> | </span>
           <a href="#">EN</a>
         </div>
+        <div class="menu__wrap">
+          <button class="menu">
+          </button>
+          <button class="menu">
+          </button>
+          <button class="menu">
+          </button>
+        </div>
         <div class="portfolio__info">
         <span class="photoby">BG Photo by -
           <a href="#">https://unsplash.com</a>
         </span>
         <span class="buildby">Page Built by - Hannah Lee</span>
+        </div>
+        <!--모달-->
+        <div class="profile">
+          <div class="modal__close"></div>
+          <div class="profile__background"></div>
+          <div class="profile__contents">
+            <p class="modal-title">Profile<p>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+            안녕</br>
+          
+          </div>
+        <div class="modal__portfolio">
+          
+        </div>
+        <div class="modal__resume">
+          
         </div>
       </div>
     </div>
