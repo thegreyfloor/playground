@@ -66,7 +66,6 @@
       .portfolio__inner{
         width: 1200px; 
         height: 750px; 
-        border: solid 1px #fff;
         margin: 0 auto;
         position: relative;
         top: 0;
@@ -126,9 +125,10 @@
         display: none;
       }
       .modal__close {
-        width: 18px;
-        height: 18px;
-        background-image: url('portfolio/images/close.png');
+        width: 20px;
+        height: 20px;
+        background: url('images/close.png');
+        background-size: 100%;
         float: right;
         margin: 12px 12px 
       }
@@ -186,6 +186,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -1;
       }
       .modal-portfolio__contents {
         width: 400px;
@@ -204,6 +205,16 @@
       .projectname {
         font-weight: 800;
         font-size: 1.5em;
+      }
+      /*포트폴리오 디테일*/
+      .modal-portfolio__detail {
+        width: 500px;
+        height: 750px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(0, -50%);
+        border-right: none;
       }
       /*모달 이력서*/
     </style>
@@ -314,6 +325,15 @@
             Java Script</br>
             
           </div>
+        </div>
+        <div class="modal-portfolio__detail">
+          <div class="modal__close"></div>
+          <p class="modal-title">Detail</p>
+          <div class="modal-portfolio__contents">
+            <img src="images/clova/1.main.png" alt="클로바1">
+            </br></br></br>
+          </div>
+          <div class="modal-portfolio__background"></div>
         </div>
         <div class="modal__resume">
           
