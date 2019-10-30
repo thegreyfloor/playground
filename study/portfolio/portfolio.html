@@ -139,11 +139,11 @@
       }
       .profile__contents {
         width: 570px;
-        height: 450px;
+        height: 365px;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -45%);
         overflow-x: hidden;
         color: #fff;
       }
@@ -156,22 +156,17 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -1;
       }
       .modal-title {
         font-weight: 900;
         font-size: 2em;
         color: #fff;
-        margin: 40px 0 0 50px;
+        margin: 35px 0 0 90px;
       }
-      .profile__background{
+      .profile__icon {
         width: 100%;
-        height: 100%;
-        background: #99B9C1;
-        opacity: 0.5;
-        border: solid 1px #fff;
-        position: absolute;
-        top: 0;
-        left: 0;
+        float: left;
       }
       
       /*모달 포트폴리오*/
@@ -193,6 +188,9 @@
         top: 0;
         left: 0;
         z-index: -1;
+      }
+      .portfolio__title {
+        margin: 40px 0 0 50px;
       }
       .modal-portfolio__contents {
         width: 400px;
@@ -228,6 +226,32 @@
         margin-bottom: 20px;
       }
       /*모달 이력서*/
+      .resume {
+        width: 500px;
+        height: 150px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+      }
+      .resume__title {
+        margin: 25px 0 0 50px;
+      }
+      .modal-resume__contents {
+        width: 300px;
+        height: 50px;
+        position: absolute;
+        top: 55%;
+        left: 10%;
+        overflow-x: hidden;
+        color: #fff;
+      }
+      .modal-resume__contents a {
+        font-weight: 600;
+        color: #fff;
+        font-size: 1.125em;
+      }
     </style>
     <script>
       //물결
@@ -306,11 +330,10 @@
           <div class="profile__background"></div>
           <p class="modal-title">Profile<p>
           <div class="profile__contents">
-            안녕</br>
-            안녕</br>
-            안녕</br>
-            안녕</br>
-            안녕</br>
+            <p class="h5">Personal Info<p>
+            <p class="profile__icon"><i class="far fa-smile"></i> Hannah Lee</p>
+            <p class="profile__icon"><i class="fas fa-birthday-cake"></i> 16.03.1990</p>
+            <p class="profile__icon"><i class="far fa-smile"></i> the3rdfloor@naver.com</p>
             안녕</br>
             안녕</br>
             안녕</br>
@@ -356,7 +379,7 @@
         <div class="modal-portfolio" id="modalPortfolio">
           <div class="modal__close" onclick="ModalCloseClick(portfolio)"></div>
           <div class="modal-portfolio__background"></div>
-          <p class="modal-title">Portfolio</p>
+          <p class="modal-title portfolio__title">Portfolio</p>
           <div class="modal-portfolio__contents">
             <img class="portfolio__img" src="images/clova/clova.png" alt="네이버클로바"></br>
             <p class="projectname">NAVER CLOVA</p>
@@ -371,7 +394,7 @@
         </div>
         <div class="modal-portfolio__detail">
           <div class="modal__close" onclick="ModalCloseClick(portfolioDetail)"></div>
-          <p class="modal-title">Detail</p>
+          <p class="modal-title portfolio__title">Detail</p>
           <div class="modal-portfolio__contents">
             <p class="h5">1. Main </p>
             <img class="detail__img" src="images/clova/1.main.png" alt="mainpage">
@@ -392,8 +415,14 @@
           </div>
           <div class="modal-portfolio__background"></div>
         </div>
-        <div class="modal__resume" id="modalResume">
-          
+        <div class="resume" id="modalResume">
+          <div class="modal__close" onclick="ModalCloseClick(profile)"></div>
+          <div class="profile__background"></div>
+          <p class="modal-title resume__title">Resume<p>
+          <div class="modal-resume__contents">
+            <span>Download via Google drive</span> 
+            <a href="#">Click</a>
+          </div>
         </div>
       </div>
     </div>
