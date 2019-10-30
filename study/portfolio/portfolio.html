@@ -7,6 +7,8 @@
     <meta name="description" content="Portfolio">
     <meta name="author" content="leehanna">
     <meta name="viewport" content="width=device-width; initial-scale=1.0"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e99a066e01.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css"> 
     <style>
       /*reset css*/
@@ -216,6 +218,10 @@
         transform: translate(0, -50%);
         border-right: none;
       }
+      .detail__img {
+        width: 100%;
+        margin-bottom: 20px;
+      }
       /*모달 이력서*/
     </style>
   </head>
@@ -314,7 +320,7 @@
           <div class="modal-portfolio__background"></div>
           <p class="modal-title">Portfolio</p>
           <div class="modal-portfolio__contents">
-            <img class="portfolio__img" src="images/clova.png" alt="네이버클로바"></br>
+            <img class="portfolio__img" src="images/clova/clova.png" alt="네이버클로바"></br>
             <p class="projectname">NAVER CLOVA</p>
             2019.08 - 2019.11(Seoul, Korea)</br>
             </br></br></br>
@@ -330,8 +336,23 @@
           <div class="modal__close"></div>
           <p class="modal-title">Detail</p>
           <div class="modal-portfolio__contents">
-            <img src="images/clova/1.main.png" alt="클로바1">
-            </br></br></br>
+            <p class="h5">1. Main </p>
+            <img class="detail__img" src="images/clova/1.main.png" alt="mainpage">
+            <p class="h5">2. Side Menu </p>
+            <img class="detail__img" class="detail__img" src="images/clova/2.sidemenu2.png" alt="sidemenu">
+            <p class="h5">3. Editor Page1 </p>
+            <img class="detail__img" src="images/clova/3.editorpage2.png" alt="editorpage1">
+            <p class="h5">4. Editor Page2 </p>
+            <img class="detail__img" src="images/clova/3.editorpage3.png" alt="editorpage2">
+            <p class="h5">5. Editor Page3 </p>
+            <img class="detail__img" src="images/clova/3.editorpage4.png" alt="editorpage3">
+            <p class="h5">6. Text Editor1 </p>
+            <img class="detail__img" src="images/clova/4.texteditor1.png" alt="texteditor1">
+            <p class="h5">7. Text Editor3 </p>
+            <img class="detail__img" src="images/clova/4.texteditor3.png" alt="texteditor2">
+            <p class="h5">8. Speaker List </p>
+            <img class="detail__img" src="images/clova/5.speakerlist.png" alt="speakerlist">
+
           </div>
           <div class="modal-portfolio__background"></div>
         </div>
