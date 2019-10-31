@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width; initial-scale=1.0"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/e99a066e01.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css"> 
+    <!-- <link rel="stylesheet" href="style.css">  -->
     <style>
       /*reset css*/
       html, body, div, span, applet, object, iframe,
@@ -255,10 +255,10 @@
     </style>
     <script>
       //물결
-      $('.portfolio__wrap').ripples({
-            resolution: 256,
-            perturbance: 0.04
-        });
+      // $('.portfolio__wrap').ripples({
+      //       resolution: 256,
+      //       perturbance: 0.04
+      //   });
 
       // $(".wave span").on('mousedown',function(e){
       //   e.offsetX=400;
@@ -272,17 +272,13 @@
 
 
 
-      function modalMenuControl(type) {
-      const elModalProfile = document.getElementById('modalProfile');
-      const elModalPortfolio = document.getElementById('modalportfolio');
-      const elModalResume = document.getElementById('modalResume');
-
-      document.getElementById('btnProfile').style.border = 'none';
+    function modalMenuControl(type) {
       document.getElementById('modalProfile').style.display = 'none';
-      document.getElementById('btnPortfolio').style.border = 'none';
-      document.getElementById('modalportfolio').style.display = 'none';
-      document.getElementById('btnResume').style.border = 'none';
+      document.getElementById('modalPortfolio').style.display = 'none';
       document.getElementById('modalResume').style.display = 'none';
+      document.getElementById('btnProfile').style.border = 'none';
+      document.getElementById('btnPortfolio').style.border = 'none';
+      document.getElementById('btnResume').style.border = 'none';
 
       document.getElementById(`modal${type}`).style.display = 'block';
       document.getElementById(`btn${type}`).style.border = 'solid 2px #fff;';
@@ -308,13 +304,13 @@
           <a href="#">EN</a>
         </div>
         <div class="menu__wrap">
-          <button class="menu" id="btnProfile" onclick="modalMenuControl('profile')">
+          <button class="menu" id="btnProfile" onclick="modalMenuControl('Profile')">
             <i class="fas fa-user"></i>
           </button>
-          <button class="menu" id="btnPortfolio" onclick="modalMenuControl('portfolio')">
+          <button class="menu" id="btnPortfolio" onclick="modalMenuControl('Portfolio')">
             <i class="fas fa-code-branch"></i>
           </button>
-          <button class="menu" id="btnResume" onclick="modalMenuControl('resume')">
+          <button class="menu" id="btnResume" onclick="modalMenuControl('Resume')">
             <i class="far fa-file"></i>
           </button>
         </div>
