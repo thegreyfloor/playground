@@ -148,10 +148,7 @@
         /* display: none; */
       }
       .modal__close {
-        width: 20px;
-        height: 20px;
-        background: url('images/close.png');
-        background-size: 100%;
+        color: #fff;
         float: right;
         margin: 12px 12px 
       }
@@ -213,7 +210,7 @@
         width: 40%;
       }
       .slide__btn {
-        width: 80px;
+        width: 100px;
         cursor: pointer;
         float: right;
       }
@@ -232,7 +229,7 @@
       .portfolio__slide,.detail__slide {
         width: 100%;
         height: 610px;
-        /* display: none; */
+        display: none;
       }
       .fade {
         -webkit-animation-name: fade;
@@ -328,43 +325,37 @@
           </div>
           <!--Profile modal-->
           <div class="profile" id="modalProfile">
-            <div class="modal__close" onclick="ModalCloseClick(Profile)"></div>
+            <div class="modal__close" onclick="ModalCloseClick(Profile)">✕</div>
             <div class="profile__background"></div>
             <p class="modal-title">Profile<p>
             <div class="profile__contents">
-              <p class="h5">Personal Info<p>
+              <p class="h5">⁃ Personal Info</p>
               <p class="profile__icon"><i class="far fa-smile"></i> Hannah Lee</p>
               <p class="profile__icon"><i class="fas fa-birthday-cake"></i> 16.03.1990</p>
-              <p class="profile__icon"><i class="far fa-smile"></i> the3rdfloor@naver.com</p>
+              <p class="profile__icon"><i class="far fa-envelope"></i> the3rdfloor@naver.com</p>
+              <p class="h5">⁃ Skills</p>
+              Html5</br>
+              Css6</br>
+              Java Script</br>
+              <p class="h5">⁃ Education</p>
+              Esmod Seoul Fasion Design School</br>
               안녕</br>
               안녕</br>
               안녕</br>
               안녕</br>
               안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
-              안녕</br>
+             
             </div>
           </div>
           <!--portfolio modal-->
           <div class="modal-portfolio" id="modalPortfolio">
-            <div class="modal__close" onclick="ModalCloseClick(Portfolio)"></div>
+            <div class="modal__close" onclick="ModalCloseClick(Portfolio)">✕</div>
             <div class="modal-portfolio__background"></div>
             <div class="modal-title portfolio__title">
               Portfolio
               <div class="slide__btn">
-              <a  onclick="plusSlides(-1)">&#10094;</a>
-              <a onclick="plusSlides(1)">&#10095;</a>
+                <a  onclick="plusSlides(-1)">◀︎</a>
+                <a onclick="plusSlides(1)">▶︎</a>
               </div>  
             </div>
             <p class="modal-title portfolio__title title_detail">Detail</p>
@@ -434,7 +425,7 @@
             </div>
           </div>
           <div class="resume" id="modalResume">
-            <div class="modal__close" onclick="ModalCloseClick(Resume)"></div>
+            <div class="modal__close" onclick="ModalCloseClick(Resume)">✕</div>
             <div class="profile__background"></div>
             <p class="modal-title resume__title">Resume<p>
             <div class="modal-resume__contents">
@@ -503,7 +494,6 @@
         function showSlides(n) {
           var i;
           var slides = document.getElementsByClassName("portfolio__slide");
-          var detailSlides = document.getElementsByClassName("detail__slide")
           // var dots = document.getElementsByClassName("dot");
           if (n > slides.length) {slideIndex = 1}    
           if (n < 1) {slideIndex = slides.length}
