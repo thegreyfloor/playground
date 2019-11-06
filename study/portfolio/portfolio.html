@@ -83,7 +83,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: grey;
+        /* background: grey; */
       }
       .inner__con_right {
         width: 100px;
@@ -211,27 +211,44 @@
       }
       .portfolio__title {
         width: 40%;
-        justify-content: space-between;
       }
-      .portfolio__title i {
-        color: #fff;
-        background: none;
-        border: none;
+      .slide__btn {
+        width: 80px;
+        cursor: pointer;
+        float: right;
       }
-      
-      .modal-portfolio__contents {
+      .slide__btn a {
+        margin-left: 15px;
+      }
+      .modal-portfolio__con {
         width: 40%;
         height: 610px;
-        position: absolute;
+        position: relative;
         top: 50%;
         left: 10%;
         transform: translate(0, -45%);
-        overflow-x: hidden;
         color: #fff;
       }
-      .portfolio__con {
+      .portfolio__slide,.detail__slide {
         width: 100%;
         height: 610px;
+        /* display: none; */
+      }
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
       }
       .portfolio__img {
         width: 100%;
@@ -243,7 +260,10 @@
       }
       /*Portfolio detail*/
       .con_detail {
+        top: 0;
         left: 55%;
+        transform: translate(0, -85%);
+        overflow-x: hidden;
       }
       .title_detail {
         left: 55%;
@@ -342,13 +362,14 @@
             <div class="modal-portfolio__background"></div>
             <div class="modal-title portfolio__title">
               Portfolio
-              <button class="detail__btn"><i class="fas fa-angle-left"></i></button>
-              <button class="detail__btn"><i class="fas fa-angle-right"></i></button>
-
+              <div class="slide__btn">
+              <a  onclick="plusSlides(-1)">&#10094;</a>
+              <a onclick="plusSlides(1)">&#10095;</a>
+              </div>  
             </div>
             <p class="modal-title portfolio__title title_detail">Detail</p>
-            <div class="modal-portfolio__contents">
-              <div class="portfolio__con">
+            <div class="modal-portfolio__con">
+              <div class="portfolio__slide fade">
                 <img class="portfolio__img" src="images/clova/clova.png" alt="네이버클로바"></br>
                 <p class="projectname">NAVER CLOVA</p>
                 2019.08 - 2019.11(Seoul, Korea)</br>
@@ -358,8 +379,9 @@
                 Html</br>
                 Css</br>
                 Java Script</br>
+                1
               </div>
-              <div class="portfolio__con">
+              <div class="portfolio__slide fade">
                 <img class="portfolio__img" src="images/clova/clova.png" alt="네이버클로바"></br>
                 <p class="projectname">NAVER CLOVA</p>
                 2019.08 - 2019.11(Seoul, Korea)</br>
@@ -369,8 +391,9 @@
                 Html</br>
                 Css</br>
                 Java Script</br>
+                2
               </div>
-              <div class="portfolio__con">
+              <div class="portfolio__slide fade">
                 <img class="portfolio__img" src="images/clova/clova.png" alt="네이버클로바"></br>
                 <p class="projectname">NAVER CLOVA</p>
                 2019.08 - 2019.11(Seoul, Korea)</br>
@@ -380,10 +403,11 @@
                 Html</br>
                 Css</br>
                 Java Script</br>
+                3
               </div>
             </div>
-            <div class="modal-portfolio__contents con_detail">
-              <div class="con_detail1">
+            <div class="modal-portfolio__con con_detail">
+              <div class="detail__slide fade">
                 <p class="h5">1. Main </p>
                 <img class="detail__img" src="images/clova/1.main.png" alt="mainpage">
                 <p class="h5">2. Side Menu </p>
@@ -401,8 +425,11 @@
                 <p class="h5">8. Speaker List </p>
                 <img class="detail__img" src="images/clova/5.speakerlist.png" alt="speakerlist">
               </div>
-              <div class="con_detail2">
+              <div class="detail__slide fade">
                 <img class="detail__img" src="images/hanna_portfolio2.png" alt="mainpage">
+              </div>
+              <div class="detail__slide fade">
+                  <img class="detail__img" src="images/hanna_portfolio1.png" alt="mainpage">
               </div>
             </div>
           </div>
@@ -412,7 +439,7 @@
             <p class="modal-title resume__title">Resume<p>
             <div class="modal-resume__contents">
               <span>Download via Google drive</span> 
-              <a href="#">Click</a>
+              <a href="https://docs.google.com/document/d/1Et4-cgOtBfX4QTM11rRP7qrRuXOBZhGiD6P7KJKhfSw/edit?usp=sharing">Click</a>
             </div>
           </div>
         </div>
@@ -458,6 +485,36 @@
         }
         function portfolioCloseClick() {
           document.getElementById("portfolioModal").style.display="none";
+        }
+
+
+        //portfolio slide
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("portfolio__slide");
+          var detailSlides = document.getElementsByClassName("detail__slide")
+          // var dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          // for (i = 0; i < dots.length; i++) {
+          //     dots[i].className = dots[i].className.replace(" active", "");
+          // }
+          slides[slideIndex-1].style.display = "block";  
+          // dots[slideIndex-1].className += " active";
         }
       </script>
   </body>
